@@ -68,5 +68,19 @@ func BenchmarkFibonacci(b *testing.B) {
 
 Por convención, Golang ignora cualquier directorio que empiece con
 `.`, `_` o se llame `testdata`. Dado que las pruebas siempre se
-ejecutan en el directorio donde se encuentra el archivo de pruebas
-utilizar *fixtures*
+ejecutan en el directorio donde se encuentra el archivo `_test`
+podemos usar la función `Join` del paquete `path/filepath` para
+acceder a los datos de prueba.
+
+```
+func TestBytesInFile(t *testing.T) {
+	l, err := BytesInFile(filepath.Join("testdata", "hello_world"))
+	if err != nil {
+		t.Errorf("Error %s", err)
+		t.FailNow()
+	}
+	if l != 12 { // New line at end of file
+		t.Errorf("Got wrong number of bytes %d", l)
+	}
+}
+```

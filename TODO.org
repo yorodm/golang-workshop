@@ -14,23 +14,23 @@
   - [X] 09-maps
   - [ ] 10-packages
   - [X] 11-cmdline
-- [ ] Dia 2. [0/5]
+- [-] Dia 2. [1/5]
   - [ ] 12-errors-defer-panic-recover
-  - [ ] 13-testing
+  - [X] 13-testing
   - [ ] 14-structs-pointers
   - [ ] 15-interfaces
   - [ ] 17-concurrency
 - [ ] Dia 3. [0/3]
-  - [ ] 18-rest-api
-  - [ ] 19-dbaccess
+  - [ ] 18-json-xml
+  - [ ] 19-rest-api
   - [ ] 20-http-client
 
 
 ** Semana 2 [0/3]
 
 - [ ] Dia 6.
-  - [ ]   21-json-xml
-  - [ ]   22-echo
+  - [ ] 21-dbaccess
+  - [ ] 22-echo
 - [ ] Dia 7
 - [ ] Dia 8
 
