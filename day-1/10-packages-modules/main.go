@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"geometry"
+	"sample10/geometry"
 )
 
 func main() {

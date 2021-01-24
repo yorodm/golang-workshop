@@ -1,7 +1,7 @@
 # Structs y punteros
 
-Un struct es un tipo de dato definido por el usuario que representa
-una coleccion de campos (es similar al concepto al struct en C). Se
+Un `struct` es un tipo de dato definido por el usuario que representa
+una coleccion de campos (es similar al concepto al `struct` en C). Se
 usa en lugares donde tiene sentido agrupar diferentes tipos de datos.
 
 ```go
@@ -45,13 +45,20 @@ type Employee struct {
 }
 ```
 
+Para inicializar un campo `struct` simplemente nos referimos al mismo en
+el bloque de inicialización
+
 ```go
 var emp Employee
 
-emp.firstName = "Peter"
-emp.address = Address {
-    city  : "New York",
-    state : "New York",
+emp := Employee{
+	firstName: "Peter",
+	lastName:  "Parker",
+	age:       22,
+	address: Address{
+		city:  "New York",
+		state: "New York",
+	},
 }
 
 fmt.Println(emp)
@@ -92,13 +99,15 @@ Al crear una estructura compuesta tenemos que especificar todos los
 campos
 
 ```go
- emp := Employee{
+emp := Employee{
 	firstName: "Peter",
-	lastName: "Parker"
-	age: 22,
-	city: "New York",
-	state: "New York",
- }
+	lastName:  "Parker",
+	age:       22,
+	Address: Address{
+		city:  "New York",
+		state: "New York",
+	},
+}
 ```
 
 Para acceder a los campos de la estructura compuesta utilizamos la
@@ -113,24 +122,24 @@ fmt.Println(emp.city)
 
 ## Visibilidad
 
-Un struct y sus campos son visibles por fuera del paquete que los
-contiene dependiendo de la primera letra de su nombre. Si el struct
+Un `struct` y sus campos son visibles por fuera del paquete que los
+contiene dependiendo de la primera letra de su nombre. Si el `struct`
 employee es llamado `employee` en vez de `Employee`, no sera visible
 por fuera del paquete donde se declaro. Eso se llama un tipo
 **exportable** . La misma condicion se aplica a los campos de un
-struct.
+`struct`.
 
 ## Igualdad
 
-Un struct es un tipo por valor. Dos variables struct se consideran
+Un `struct` es un tipo por valor. Dos variables `struct` se consideran
 iguales si todos los valores de sus campos son iguales. Esto quiere
-decir que si un struct tiene campos que no se pueden comparar, como un
-`map`, la operacion de comparacion (`==`) va a fallar.
+decir que si un `struct` tiene campos que no se pueden comparar, como un
+`map`, la operación (`==`) va a fallar.
 
 ## Methods/Receivers
 
-Los metodos son funciones asociadas a un tipo especifico. Son
-similares al concepto de metodos de clase en el mundo OOP. La sintaxis
+Los métodos son funciones asociadas a un tipo especifico. Son
+similares al concepto de métodos de clase en el mundo OOP. La sintaxis
 es la siguiente:
 
 ```go
@@ -139,10 +148,10 @@ func (t Type) MethodName(parameter list) {
 }
 ```
 
-Usualmente se define el codigo del metodo en el mismo archivo que el
-tipo que lo contiene a fin de tener todo el codigo relacionado junto.
+Usualmente se define el código del método en el mismo archivo que el
+tipo que lo contiene.
 
-En el siguiente ejemplo se agrega el metodo `print` al tipo
+En el siguiente ejemplo se agrega el método `Print` al tipo
 `Employee`, definido en los ejemplo anteriores, para imprimir el
 contenido del registro mas claramente:
 
@@ -161,8 +170,6 @@ emp.Print()
   Name: Allen Varghese
   Address: {AA CO}
 ```
-
-
 
 ## Punteros
 

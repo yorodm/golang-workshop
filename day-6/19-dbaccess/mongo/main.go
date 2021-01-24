@@ -1,24 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
-	item := Item{1,"Test_1", false }
-
-	result := CreateItem(item)
+	item := Item{1, "Test_1", false}
+	m, err := NewMongoDB()
+	if err != nil {
+		log.Fatalf("Got error from MongoDB %s", err)
+	}
+	defer m.Disconnect()
+	result := CreateItem(m, item)
 	fmt.Println(result)
 
-	items := GetItems()
+	items := GetItems(m)
 	fmt.Println(items)
 
-	fmt.Println(GetItem(1))
+	fmt.Println(GetItem(m, 1))
 
 	item.Title = "Test_1U"
-	item.IsDone = true;
-	
-	UpdateItem(item)
-	fmt.Println(GetItem(1))
+	item.IsDone = true
 
-	DeleteItem(1)
-	fmt.Println(GetItem(1))
+	UpdateItem(m, item)
+	fmt.Println(GetItem(m, 1))
+
+	DeleteItem(m, 1)
+	fmt.Println(GetItem(m, 1))
 }

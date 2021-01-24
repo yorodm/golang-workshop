@@ -61,3 +61,14 @@ independientemente del tipo subyacente. Esto es posible por que el
 tipo del arreglo es la interfaz `SalaryCalculator` que tambien define
 un metodo `calculateSalary`. Notar que no es necesario explicitar que
 los tipos `Permanent` y `Contract` implementan `SalaryCalculator`.
+
+## La interfaz vacía
+
+El tipo `interface{}` representa valore de cualquier tipo en Golang
+(tecnicamente todos los tipos implementan una interfaz sin métodos)
+
+```go
+func describe(i interface{}) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+```

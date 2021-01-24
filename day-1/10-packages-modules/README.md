@@ -1,4 +1,4 @@
-# Packages
+# Paquetes y módulos
 
 La buena organizacion del codigo es fundamental en cualquier
 proyecto. Organizar codigo en multiples directorios y multiples

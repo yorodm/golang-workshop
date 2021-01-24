@@ -12,7 +12,7 @@
   - [ ] 07-control-statments
   - [X] 08-arrays
   - [X] 09-maps
-  - [ ] 10-packages
+  - [ ] 10-packages-modules
   - [X] 11-cmdline
 - [-] Dia 2. [1/5]
   - [ ] 12-errors-defer-panic-recover

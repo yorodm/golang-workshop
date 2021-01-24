@@ -19,7 +19,7 @@
 
 		$ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
 
-4.  Para chequear que todas las variables de entorno estan correctas
+5.  Para chequear que todas las variables de entorno estan correctas
     tipear en la consola
 
         $ go env
@@ -27,6 +27,10 @@
         GOROOT = [Directorio de instalacion]
 		GOPROXY=https://goproxy.io,direct
 		GO111MODULE=on
+
+6. Instalar la herramienta `gopls`.
+
+		$ go get golang.org/x/tools/gopls@latest
 
 ## Otras Herramientas
 

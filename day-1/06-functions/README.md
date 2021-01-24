@@ -70,3 +70,5 @@ En el ejemplo anterior se asigna el nombre `prod` al valor de retorno
 de la funcion. Luego `prod` se usa como una variable y se le asigna un
 valor. Como `prod` ya tiene un valor asignado no hace falta indicar un
 valor en la instruccion `return`.
+
+## Funciones anónimas y clausuras
