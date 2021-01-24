@@ -92,9 +92,9 @@ clave y el valor.
 El iterador =for= itera a traves del map hasta que todos los pares
 (clave, valor) se terminan.
 
-#+begin_src go
+#+begin_quote
   El orden en que se recorre el map no esta garantizado, y cada ejecucion puede tener un order diferente.
-#+end_src
+#+end_quote
 
 ** Eliminacion
    :PROPERTIES:

@@ -15,31 +15,32 @@ Los siguientes tipos de datos estan disponibles en Golang:
   - rune
 
 - string
+- error
+
 
 =bool= representa valores boleanos =true= o =false=.
 
-Para tipos numericos, el numero que sigue al tipo indica el numero de
-bits que se usa para representar el valor en memoria. El numero de bits
-determina que tan grande el numero puede ser.
+Para tipos numéricos, el número que sigue al tipo indica el número de
+bits que se usa para representar el valor en memoria. El número de bits
+determina que tan grande el número puede ser.
 
---- =int8=: 8 bit signed integers
+=int8=: 8 bit signed integers
 
-=int16=: 16 bit signed integers
+=int16=: 16 bit entero con signo
 
-=int32=: 32 bit signed integers
+=int32=: 32 bit entero con signo
 
-=int=: 32 or 64 bit integers depending on the underlying platform.
+=int=: 32 or 64 bit entero con signo (dependiende de la plataforma).
 
-=uint= : 32 or 64 bit unsigned integersdepending on the underlying
-platform.
+=uint= : 32 or 64 bit entero sin signo (dependiende de la plataforma).
 
-=float32=: 32 bit floating point numbers
+=float32=: 32 bit número flotante.
 
-=float64=: 64 bit floating point numbers
+=float64=: 64 bit número flotante.
 
-=byte= is an alias of =uint8=
+=byte=  alias de =uint8=
 
-=rune= is an alias of =int32=
+=rune= alias de  =int32=
 
 --------------
 
@@ -47,7 +48,7 @@ platform.
 
 =complex128=: complex numbers with float64 real and imaginary parts
 
-La funcion =complex= se utiliza para construir un numero complejo con
+La funcion =complex= se utiliza para construir un número complejo con
 partes reales e imaginarias:
 
 #+begin_src go
@@ -56,7 +57,7 @@ partes reales e imaginarias:
 
 --------------
 
-=string= es una coleccion de caracteres encerrados entre comillas.
+=string= es una colección de caracteres encerrados entre comillas.
 
 #+begin_src go
   first := "Allen"
@@ -65,23 +66,14 @@ partes reales e imaginarias:
   fmt.Println("My name is",name)
 #+end_src
 
---------------
 
-El tipo de una variable se puede imprimir usando el especificador de
-formato =%T= disponible en el metodo =Printf=.
-
-#+begin_src go
-  var a = 10
-  fmt.Printf("a is of type %T, value is ", a, a)
-#+end_src
-
---------------
+=error= es un tipo especial para indicar condiciones de error.
 
 ** Conversion de tipos
    :PROPERTIES:
    :CUSTOM_ID: conversion-de-tipos
    :END:
-No hay conversion automatica de tipos en Golang. Se utilizan funciones
+No hay conversión automatica de tipos en Golang. Se utilizan funciones
 de tipo para hacer una conversion.
 
 #+begin_src go
@@ -93,9 +85,8 @@ de tipo para hacer una conversion.
    :PROPERTIES:
    :CUSTOM_ID: constantes
    :END:
-Las constantes son valores que no cambian una vez que se asignan a una
-variable. Se usa el keyword =const= en vez de =var= para declarar un
-constante.
+Las constantes no cambian su valor una vez asignado. Se usa el keyword
+=const= en vez de =var= para declarar una constante.
 
 #+begin_src go
   const a bool = true

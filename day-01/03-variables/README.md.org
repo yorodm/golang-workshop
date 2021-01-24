@@ -26,6 +26,3 @@ dependiento del tipo de dato de la variable.
 Para imprimir el valor de una variable se puede usar =Println=.
 
 =fmt.Println("a = ", a)=
-
-En el archivo =main.go= incluido en este ejercicio hay mas ejemplos de
-uso.
