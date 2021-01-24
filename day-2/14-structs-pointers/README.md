@@ -1,4 +1,4 @@
-# Structs
+# Structs y punteros
 
 Un struct es un tipo de dato definido por el usuario que representa
 una coleccion de campos (es similar al concepto al struct en C). Se
@@ -128,6 +128,10 @@ sola vez.
 Golang soporta punteros para actualizar valores pero no admite
 aritmetica de punteros como en C. `*` se usa como prefijo para definir
 un puntero para de un tipo dado.
+
+El valor por defecto de los punteros en Golang es `nil`, este valor
+también se utiliza para indicar que un puntero es nulo.
+
 
 ```go
 func (t *Type) MethodName(parameter list) {
