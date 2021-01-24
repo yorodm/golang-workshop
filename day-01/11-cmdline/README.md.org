@@ -14,12 +14,12 @@ de Golang.
 Los argumentos de la linea de comandos estan disponibles en el arreglo
 =os.Args=:
 
-#+begin_example
+#+begin_src go
   import "os"
 
   os.Args // Lista completa incluyendo el nombre del programa
   os.Args[1:] // Solo los argumentos
-#+end_example
+#+end_src
 
 ** Flags
    :PROPERTIES:
@@ -31,11 +31,11 @@ mas flexibilidad en como los argumentos se especifican, sobre todo los
 opcionales. Golang cuenta con un paquete llamado =flag= para
 soportarlos.
 
-#+begin_example
+#+begin_src go
   import "flag"
 
   flag.<type>(nombre del flag, valor default, descripcion)
-#+end_example
+#+end_src
 
 Un flag se define con la sintaxis anterior. El =<type>= puede ser
 =string=, =int= o =bool=.
@@ -60,7 +60,7 @@ El paquete =os= proporciona dos funciones, =Setenv= y =Getenv=, para
 escribir y leer variables de entorno. Un string vacio se retorna si la
 clave no existe.
 
-#+begin_example
+#+begin_src go
   import "os"
 
   os.Setenv("FOO", "1")
@@ -69,7 +69,7 @@ clave no existe.
 
   > FOO: 1
     BAR:
-#+end_example
+#+end_src
 
 En el ejemplo anterior se le da a la variable de entorno =FOO= el valor
 =1= al comienzo del programa, y se lee el valor de la variable =BAR=
@@ -78,14 +78,14 @@ desde la lista de variables de entorno existentes.
 La funcion =Environ= retorna la lista completa de todas las variables de
 entorno existentes.
 
-#+begin_example
+#+begin_src go
   import "strings"
 
   for _, e := range os.Environ() {
       pair := strings.Split(e, "=")
       fmt.Println(pair[0])
   }
-#+end_example
+#+end_src
 
 La lista se retorna en el formato =KEY=VALUE=. Por la tanto el string se
 puede dividir en === para tener acceso a la clave y al valor. Esto se

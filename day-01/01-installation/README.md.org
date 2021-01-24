@@ -10,40 +10,40 @@
 
    Go quedara instalado por default en:
 
-   #+begin_example
+   #+begin_src go
       Unix: /usr/local/go
       Windows: C:\Go
-   #+end_example
+   #+end_src
 
 3. Para chequear que la instalacion esta correctar escribir en la
    consola
 
-   #+begin_example
+   #+begin_src go
       $ go version
-   #+end_example
+   #+end_src
 
 4. Activar variables de entorno para el trabajo con módulos
 
-   #+begin_example
+   #+begin_src go
       $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
-   #+end_example
+   #+end_src
 
 5. Para chequear que todas las variables de entorno estan correctas
    tipear en la consola
 
-   #+begin_example
+   #+begin_src go
      $ go env
 
      GOROOT = [Directorio de instalacion]
      GOPROXY=https://goproxy.io,direct
      GO111MODULE=on
-   #+end_example
+   #+end_src
 
 6. Instalar la herramienta =gopls=.
 
-   #+begin_example
+   #+begin_src go
       $ go get golang.org/x/tools/gopls@latest
-   #+end_example
+   #+end_src
 
 ** Otras Herramientas
    :PROPERTIES:

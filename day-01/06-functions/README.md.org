@@ -9,40 +9,40 @@ retornar valores.
 En Golang una funcion se define con el keyword =func= con el siguiente
 formato:
 
-#+begin_example
+#+begin_src go
   func <name>(<arg1> <type of arg1>, ...) <return type> {
       // cuerpo de la funcion (una o mas instrucciones)
   }
-#+end_example
+#+end_src
 
 El siguiente es un ejemplo de una funcion que suma dos enteros:
 
-#+begin_example
+#+begin_src go
   func AddIntegers(a int, b int) int {
       return a + b
   }
-#+end_example
+#+end_src
 
 El keyword =return= es usado para indicar que valor va a retornar la
 funcion.
 
 Para llamar una funcion:
 
-#+begin_example
+#+begin_src go
   AddIntegers(10, 20) => 30
-#+end_example
+#+end_src
 
 Golang soporta que una funcion devuelva multiples valores:
 
-#+begin_example
+#+begin_src go
   return a, b
-#+end_example
+#+end_src
 
-#+begin_example
+#+begin_src go
   func SumDifference(a int, b int) (int, int) {
       return a + b, a - b
   }
-#+end_example
+#+end_src
 
 En el ejemplo anterior se calcula los valores en la misma linea junto
 con la instruccion =return=.
@@ -54,11 +54,11 @@ con la instruccion =return=.
 Se utiliza el *blank identifier* en el lugar de un valor que se quiere
 descartar al llamar a una funcion:
 
-#+begin_example
+#+begin_src go
   var _, diff = SumDifference(10, 20)
 
   fmt.Println("Difference is ", diff)
-#+end_example
+#+end_src
 
 ** Named Return Values
    :PROPERTIES:
@@ -67,12 +67,12 @@ descartar al llamar a una funcion:
 Cuando se define una funcion se le puede asignar un nombre al tipo de
 dato de retorno para luego referenciarlo en el codigo de la funcion.
 
-#+begin_example
+#+begin_src go
   func Product(a int, b int) (prod int) {
       prod = a * b
       return
   }
-#+end_example
+#+end_src
 
 En el ejemplo anterior se asigna el nombre =prod= al valor de retorno de
 la funcion. Luego =prod= se usa como una variable y se le asigna un

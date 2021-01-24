@@ -6,13 +6,13 @@ Un =struct= es un tipo de dato definido por el usuario que representa
 una coleccion de campos (es similar al concepto al =struct= en C). Se
 usa en lugares donde tiene sentido agrupar diferentes tipos de datos.
 
-#+begin_example
+#+begin_src go
   type Employee struct {
       firstName string
       lastName string
       age int
   }
-#+end_example
+#+end_src
 
 En el ejemplo anterior se define un =struct= con el nombre =Employee=
 que contiene atributos de un empleado como =first name=, =last name= y
@@ -20,7 +20,7 @@ que contiene atributos de un empleado como =first name=, =last name= y
 
 Los campos individuales de un =struct= se acceden con =.=.
 
-#+begin_example
+#+begin_src go
   var emp := Employee {
       firstName: "Something"
   }
@@ -28,7 +28,7 @@ Los campos individuales de un =struct= se acceden con =.=.
   fmt.Println(emp.firstName)
 
   > Something
-#+end_example
+#+end_src
 
 ** Campos struct
    :PROPERTIES:
@@ -36,7 +36,7 @@ Los campos individuales de un =struct= se acceden con =.=.
    :END:
 Golang permite que los campos de un =struct= puedan ser de tipo=struct=.
 
-#+begin_example
+#+begin_src go
   type Address struct {
       city, state string
   }
@@ -46,12 +46,12 @@ Golang permite que los campos de un =struct= puedan ser de tipo=struct=.
       age int
       address Address
   }
-#+end_example
+#+end_src
 
 Para inicializar un campo =struct= simplemente nos referimos al mismo en
 el bloque de inicialización
 
-#+begin_example
+#+begin_src go
   var emp Employee
 
   emp := Employee{
@@ -67,16 +67,16 @@ el bloque de inicialización
   fmt.Println(emp)
 
   > {Peter  {New York New York}}
-#+end_example
+#+end_src
 
 Los campos anidados se acceden con multiples niveles de notacion de
 punto.
 
-#+begin_example
+#+begin_src go
   fmt.Println(emp.address.city)
 
   > AA
-#+end_example
+#+end_src
 
 ** Composición
    :PROPERTIES:
@@ -85,7 +85,7 @@ punto.
 Un =struct= puede tambien "heredar" todos los campos de otro usando
 composición. Para esto existe una notación especial
 
-#+begin_example
+#+begin_src go
   type Address struct {
       city, state string
   }
@@ -95,7 +95,7 @@ composición. Para esto existe una notación especial
       age int
       Address
   }
-#+end_example
+#+end_src
 
 Nótese que aquí no se incluye un campo para =Address=, con lo que
 indicamos que nuestro tipo =Employee= está compuesto por =Address=
@@ -103,7 +103,7 @@ indicamos que nuestro tipo =Employee= está compuesto por =Address=
 Al crear una estructura compuesta tenemos que especificar todos los
 campos
 
-#+begin_example
+#+begin_src go
   emp := Employee{
       firstName: "Peter",
       lastName:  "Parker",
@@ -113,17 +113,17 @@ campos
           state: "New York",
       },
   }
-#+end_example
+#+end_src
 
 Para acceder a los campos de la estructura compuesta utilizamos la
 notación usual
 
-#+begin_example
+#+begin_src go
   ```go
   fmt.Println(emp.city)
 
   > New York
-#+end_example
+#+end_src
 
 ** Visibilidad
    :PROPERTIES:
@@ -152,11 +152,11 @@ Los métodos son funciones asociadas a un tipo especifico. Son similares
 al concepto de métodos de clase en el mundo OOP. La sintaxis es la
 siguiente:
 
-#+begin_example
+#+begin_src go
   func (t Type) MethodName(parameter list) {
       // codigo del metodo
   }
-#+end_example
+#+end_src
 
 Usualmente se define el código del método en el mismo archivo que el
 tipo que lo contiene.
@@ -165,7 +165,7 @@ En el siguiente ejemplo se agrega el método =Print= al tipo =Employee=,
 definido en los ejemplo anteriores, para imprimir el contenido del
 registro mas claramente:
 
-#+begin_example
+#+begin_src go
   func (e Employee) Print() {
       fmt.Println("Employee Record:")
       fmt.Println("Name:", e.firstName, e.lastName)
@@ -179,7 +179,7 @@ registro mas claramente:
   > Employee Record:
     Name: Allen Varghese
     Address: {AA CO}
-#+end_example
+#+end_src
 
 ** Punteros
    :PROPERTIES:
@@ -192,11 +192,11 @@ un puntero para de un tipo dado.
 El valor por defecto de los punteros en Golang es =nil=, este valor
 también se utiliza para indicar que un puntero es nulo.
 
-#+begin_example
+#+begin_src go
   func (t *Type) MethodName(parameter list) {
       // body
   }
-#+end_example
+#+end_src
 
 Tener en cuenta que un puntero solo permite recibir punteros de su tipo
 y no otros. Los punteros se usan normalmente cuando es muy costoso
@@ -204,7 +204,7 @@ copiar datos, y es mas facil modificar los valores de las variables y
 estructuras originales. Esta mecanica deja bien explicito cuando se usa
 una referencia, o un valor.
 
-#+begin_example
+#+begin_src go
   func (e *Employee) updateAge(newAge int) {
       e.age = newAge
   }
@@ -218,7 +218,7 @@ una referencia, o un valor.
 
   > Before: 33
     After: 34
-#+end_example
+#+end_src
 
 En le ejemplo anterior el campo =age= se modifica en la variable
 original. Para indicar este comportamiento notar el =*= antes del tipo

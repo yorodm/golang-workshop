@@ -10,16 +10,16 @@ Golang soporta multiples instrucciones de control e iteradores.
    :END:
 La siguiente es una instrucction de control condicional:
 
-#+begin_example
+#+begin_src go
   if condition {
       // codigo a ejecutar
   }
-#+end_example
+#+end_src
 
 Se pueden tener muchas instrucciones =else if=. El bloque =else= es
 opcional:
 
-#+begin_example
+#+begin_src go
   if condition {
       // codigo a ejecutar
   } else if condition {
@@ -27,7 +27,7 @@ opcional:
   } else {
       // codigo a ejecutar
   }
-#+end_example
+#+end_src
 
 *Nota:* El bloque =else= debe estar en la misma linea que la llave de
 cierre (=}=) por que de esta manera Golang automaticamente inserta el
@@ -36,11 +36,11 @@ cierre (=}=) por que de esta manera Golang automaticamente inserta el
 La instruccion =if= soporta indicar una instruccion opcional que se
 ejecuta antes de la condicion:
 
-#+begin_example
+#+begin_src go
   if statement; condition {
       // codigo a ejecutar
   }
-#+end_example
+#+end_src
 
 Esto es util, por ejemplo. cuando se requiere una inicializacion. El =;=
 se usa para separar la instruccion de la condicion.
@@ -55,11 +55,11 @@ otros lenguajes.
 
 La sintaxis es:
 
-#+begin_example
+#+begin_src go
   for initialization; condition; post {
       // codigo a ejecutar
   }
-#+end_example
+#+end_src
 
 La inicializacion se ejecuta solo una vez. Luego de que el iterador es
 inicializado, se chequea la condicion. Si la condicion se evalua
@@ -75,11 +75,11 @@ opcionales en Golang.
 El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
 =for=:
 
-#+begin_example
+#+begin_src go
   for i := 1; i <= 10; i = i + 1 {
       fmt.Println(i)
   }
-#+end_example
+#+end_src
 
 ** switch
    :PROPERTIES:
@@ -89,7 +89,7 @@ La instruccion de control =switch= evalua una expresion y la compara
 contra una lista de posibles valores o expresiones que puedan coincidir.
 Es una forma abreviada de escribir muchas clausulas =if else=.
 
-#+begin_example
+#+begin_src go
   switch expression {
       case expression or value:
           // codigo a ejecutar
@@ -98,7 +98,7 @@ Es una forma abreviada de escribir muchas clausulas =if else=.
       default:
           // codigo a ejecutar
   }
-#+end_example
+#+end_src
 
 En el codigo anterior la expresion es evaluada y el valor resultante es
 comparado contra el valor de cada instruccion =case=. La comparacion

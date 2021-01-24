@@ -10,14 +10,14 @@ El paquete =net/http= contiene implementaciones de servidor y cliente
 para este protocolo. Crear un programa que responda a peticiones HTTP es
 una tarea sencilla.
 
-#+begin_example
+#+begin_src go
   func main() {
       http.HandleFunc("/hello", func(w http.ResponseWWriter, r *http.Request) {
           fmt.Fprintf(w, "Hello world")
       })
       log.Fatal(http.ListenAndServe(":8080", nil))
   }
-#+end_example
+#+end_src
 
 Las estructuras =Server= y =ServeMux= son las encargadas de operar el
 servidor y el ciclo de petición y respuesta. La variable
@@ -30,13 +30,13 @@ servidor y el ciclo de petición y respuesta. La variable
 Usar =DefaultServeMux= tiene sentido para proyectos pequeños, pero lo
 usual es que utilicemos nuestra propia instancia de =ServeMux=
 
-#+begin_example
+#+begin_src go
   mux := http.NewServeMux()
   mux.HandleFunc("/hello", func(w http.ResponseWriter, req *http.Request) {
       fmt.Fprintf(w, "Hello world")
   })
   log.Fatal(http.ListenAndServe(":8080", mux))
-#+end_example
+#+end_src
 
 ** APIS REST con ServeMux.
    :PROPERTIES:

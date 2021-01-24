@@ -10,7 +10,7 @@ El keyword =var= se usa para declarar variables. La sintaxis es
 
 Ejemplos:
 
-#+begin_example
+#+begin_src go
   var a int // Inicializado por defecto
 
   var b = 10 // Se infiere el tipo
@@ -18,7 +18,7 @@ Ejemplos:
   var c, d = 20, 30 // Asignando valores múltiples
 
   e, f := 40, 50 // Crear y asignar
-#+end_example
+#+end_src
 
 Si no se especifica un valor inicial Golang asigna uno por defecto
 dependiento del tipo de dato de la variable.

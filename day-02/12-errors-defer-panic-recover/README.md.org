@@ -10,7 +10,7 @@ En lugar de excepciones como Python, Java o C#, Golang sigue un enfoque
 más cercano a los lenguajes funcionales donde el estado de error es
 representado por un tipo de datos,
 
-#+begin_example
+#+begin_src go
   var DivisionByZero = errors.New("Division por cero")
 
   func safedivide(a int, b int) (int, error) {
@@ -19,19 +19,19 @@ representado por un tipo de datos,
       }
       return a / b, nil
   }
-#+end_example
+#+end_src
 
 El tipo =error= es una interfaz /built-in/ del lenguaje
 
-#+begin_example
+#+begin_src go
   type error interface {
       Error() string
   }
-#+end_example
+#+end_src
 
 Esto nos permite crear nuestros propios tipos de error
 
-#+begin_example
+#+begin_src go
   type MyError struct {
       message: string
       status: int
@@ -47,13 +47,13 @@ Esto nos permite crear nuestros propios tipos de error
        status : -1,
       }
   }
-#+end_example
+#+end_src
 
 El paquete =errors= contiene funciones dedicadas a manejar tipos de
 error. Podemos usar la función =errors.Is= para verificar si un error es
 de un tipo específico.
 
-#+begin_example
+#+begin_src go
   if _, err := os.Open("non-existing"); err != nil {
       if errors.Is(err, os.ErrNotExist) {
           fmt.Println("file does not exist")
@@ -61,7 +61,7 @@ de un tipo específico.
           fmt.Println(err)
       }
   }
-#+end_example
+#+end_src
 
 ** Defer
    :PROPERTIES:
@@ -73,14 +73,14 @@ continuación se debe ejecutar a la salida de la función actual
 Es muy usual en Golang usar =defer= para destruir o liberar cualquier
 tipo de recursos temporal que se obtenga en la función.
 
-#+begin_example
+#+begin_src go
 
   func doSomething() {
    a := getExternalResource();
    defer a.Release()
    /// Resto de la función
   }
-#+end_example
+#+end_src
 
 =defer= se ejecuta sin importar las causas por las que la función actual
 haya terminado, lo que garantiza en el ejemplo anterior que
@@ -101,7 +101,7 @@ termina y el contexto pasa al invocador. Esto continúa hasta que se
 encuentre un recover o se llegue a la función =main= en cuyo caso el
 programa se detendrá con un mensaje de error.
 
-#+begin_example
+#+begin_src go
   func f() {
       defer func() {
           if r := recover(); r != nil {
@@ -122,7 +122,7 @@ programa se detendrá con un mensaje de error.
       fmt.Println("Printing in g", i)
       g(i + 1)
   }
-#+end_example
+#+end_src
 
 La función =f= usa =defer= y =recover= para garantizar que la llamada a
 =panic= en =g= no interrumpa al programa.

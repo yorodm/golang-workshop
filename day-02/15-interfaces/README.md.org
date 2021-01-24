@@ -15,7 +15,7 @@ Es convención en Golang hacer interfaces que contengan pocos métodos.
 
 Un tipo puede implementar mas de una interfaz.
 
-#+begin_example
+#+begin_src go
   type Permanent struct {
       empID int
       basicPay int
@@ -46,7 +46,7 @@ Un tipo puede implementar mas de una interfaz.
       totalPayout += v.calculateSalary()
   }
   fmt.Println(totalPayout)
-#+end_example
+#+end_src
 
 En el ejemplo anterior se definen dos tipos para cada categoria de
 empleado, =Permanent= y =Contract=. El metodo =calculateSalary= se
@@ -63,7 +63,7 @@ subyacente.
    :END:
 Las interfaces al igual que las estructuras pueden anidarse.
 
-#+begin_example
+#+begin_src go
   type Reader interface {
       Read(p []byte) (n int, err error)
   }
@@ -76,7 +76,7 @@ Las interfaces al igual que las estructuras pueden anidarse.
       Reader
       Seeker
   }
-#+end_example
+#+end_src
 
 Cualquier tipo que implemente la interfaz =ReadSeeker= tiene que
 implementar =Read= y =Seeker= a la vez.
@@ -89,7 +89,7 @@ De la misma forma que una estructura "hereda" los métodos de otra en la
 composición, una estructura implementa las interfaces de aquellas que la
 componen
 
-#+begin_example
+#+begin_src go
 
   type Animal interface {
       Name() string
@@ -108,7 +108,7 @@ componen
   type GuideDog struct {
       *Dog
   }
-#+end_example
+#+end_src
 
 En el ejemplo anterior el tipo =GuidedDog= implementa la interfaz
 =Animal=
@@ -120,11 +120,11 @@ En el ejemplo anterior el tipo =GuidedDog= implementa la interfaz
 El tipo =interface{}= representa valore de cualquier tipo en Golang
 (tecnicamente todos los tipos implementan una interfaz sin métodos)
 
-#+begin_example
+#+begin_src go
   func describe(i interface{}) {
       fmt.Printf("(%v, %T)\n", i, i)
   }
-#+end_example
+#+end_src
 
 ** Type assertions
    :PROPERTIES:

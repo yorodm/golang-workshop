@@ -8,7 +8,7 @@
 - Crear dos /benchmarks/ para comparar la velocidad de ejecucion entre
   las versiones con y sin uso de /gorutines/.
 
-#+begin_example
+#+begin_src go
   func Squares(number int) (sum int) {
       sum = 0
       for number != 0 {
@@ -32,4 +32,4 @@
   func SquaresPlusCubes(number int) int {
       return Squares(number) + Cubes(number)
   }
-#+end_example
+#+end_src

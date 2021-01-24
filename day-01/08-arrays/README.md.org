@@ -8,12 +8,12 @@ diferentes tipos en un arreglo.
 
 Un arreglo se define como =[size]type=:
 
-#+begin_example
+#+begin_src go
   var a [3]int
   fmt.Println(a)
 
   > [0 0 0]
-#+end_example
+#+end_src
 
 En el ejemplo anterior se define un arreglo de enteros de 3 elementos.
 La salida es ceros por que es el valor por defecto del tipo de datos
@@ -23,7 +23,7 @@ El primer indice de un arreglo es =0= en vez de =1=. Se accede a los
 valores de un arreglo usando el numero del indice, y se asignan valores
 con el operador ===.
 
-#+begin_example
+#+begin_src go
   var a [3]int
   a[0] = 1
   a[1] = 2
@@ -32,20 +32,20 @@ con el operador ===.
   fmt.Println(a)
 
   > [1 2 3]
-#+end_example
+#+end_src
 
 Un arreglo se puede inicializar en la declaracion:
 
-#+begin_example
+#+begin_src go
   a := [3]int{1, 2, 3}
-#+end_example
+#+end_src
 
 Se puede omitir el numero de elementos si se inicializa con valores en
 la declaracion:
 
-#+begin_example
+#+begin_src go
   a := [...]int{1, 2, 3}
-#+end_example
+#+end_src
 
 ** Value Type
    :PROPERTIES:
@@ -57,7 +57,7 @@ nueva variable, se hace una copia del arreglo original. Si se cambian
 valores en la nueva variable, esto no se ve reflejado en la variable
 original.
 
-#+begin_example
+#+begin_src go
   a := [...]string{"IRL", "IND", "US", "CAN"}
   b := a
 
@@ -65,7 +65,7 @@ original.
 
   fmt.Println("Original:", a)
   fmt.Println("Copy    :", b)
-#+end_example
+#+end_src
 
 Eso significa que cuando un arreglo se pasa como parametro de entrada a
 una funcion es pasado por valor. Por lo tanto cualquier cambio que se
@@ -73,12 +73,12 @@ haga dentro de la funcion no afectara al arreglo original.
 
 La funcion =len= se usa para conocer el tamaño de un arreglo:
 
-#+begin_example
+#+begin_src go
   a := [...]int{1, 2, 3}
   fmt.Println(len(a))
 
   > 3
-#+end_example
+#+end_src
 
 Una forma de interactuar con un arreglo es utilizar el keyword =range=.
 Este retorna el indice del arreglo y el valor.
@@ -86,7 +86,7 @@ Este retorna el indice del arreglo y el valor.
 El siguiente ejemplo imprimen el indice y el valor de cada elemento del
 arreglo, y suma todos los valores.
 
-#+begin_example
+#+begin_src go
   a := [...]int{1, 2, 3, 4, 5}
   sum := 0
   for i, v := range a {
@@ -96,14 +96,14 @@ arreglo, y suma todos los valores.
   fmt.Println("Sum:", sum)
 
   > 15
-#+end_example
+#+end_src
 
 Se puede usar el =blank identifier= (=_=) si no nos interesa alguno de
 los valores que retorna el keyword =range=.
 
-#+begin_example
+#+begin_src go
   _, v := range a
-#+end_example
+#+end_src
 
 ** Arreglos multidimensionales
    :PROPERTIES:
@@ -111,11 +111,11 @@ los valores que retorna el keyword =range=.
    :END:
 Se pueden crear arreglos de mas de una dimension de la siguiente manera:
 
-#+begin_example
+#+begin_src go
   a := [3][2]int
-#+end_example
+#+end_src
 
-#+begin_example
+#+begin_src go
   a := [3][2]string{
       {"lion", "tiger"},
       {"cat", "dog"},
@@ -125,12 +125,12 @@ Se pueden crear arreglos de mas de una dimension de la siguiente manera:
   fmt.Println(a)
 
   > [[lion tiger] [cat dog] [pigeon peacock]]
-#+end_example
+#+end_src
 
 Se puede imprimir el arreglo de diferente manera utilizando el iterador
 =for=:
 
-#+begin_example
+#+begin_src go
   func printArray(a) {
       for _, v1 := range a {
           for _, v2 := range v1 {
@@ -139,7 +139,7 @@ Se puede imprimir el arreglo de diferente manera utilizando el iterador
           fmt.Println("")
       }
   }
-#+end_example
+#+end_src
 
 En el ejemplo anterior el primer =range= itera por las filas, y el
 segundo =range= itera por las columnas. Cada valor en una columna se
@@ -156,22 +156,22 @@ tienen datos, solo apunta a un arreglo.
 
 Un slice vacio se crea asi:
 
-#+begin_example
+#+begin_src go
   var sa []int
-#+end_example
+#+end_src
 
 El valor de un slice vacio es =nil=
 
 Un slice tambien se puede crear apuntando a un subset de valores de un
 arreglo:
 
-#+begin_example
+#+begin_src go
   a := [...]int{1, 2, 3, 4, 5}
   sa := a[1: 4]
   fmt.Println(sa)
 
   > [2 3 4]
-#+end_example
+#+end_src
 
 En el ejemplo anterior, el slice =sa= apunta a los elementos del arreglo
 =a= desde los indices =1= a =3=. Cuando se especifica el rango de
@@ -180,7 +180,7 @@ indices de un arreglo, el ultimo indice no se considera.
 Como un slice es un reference type, modificar un valor en un elemento
 del slice modifica el arreglo original:
 
-#+begin_example
+#+begin_src go
   a := [...]int{1, 2, 3, 4, 5}
   sa := a[1: 4]
 
@@ -191,46 +191,46 @@ del slice modifica el arreglo original:
 
   > Before: [1 2 3 4 5]
   > After: [1 22 3 4 5]
-#+end_example
+#+end_src
 
 Un slice tambien se puede crear utilizando la funcion =make=,
 especificando el tipo, y el tamaño, y opcionalmente la capacidad (que
 indica el maximo tamaño que el slice puede crecer):
 
-#+begin_example
+#+begin_src go
   make([]type, length[, capacity])
-#+end_example
+#+end_src
 
 Crear un slice con =make= inicializa todos sus valores con los valores
 por defecto del tipo del slice.
 
-#+begin_example
+#+begin_src go
   i := make([]int, 5, 5)
   fmt.Println(i)
 
   > [0 0 0 0 0]
-#+end_example
+#+end_src
 
 El tamaño de un slice se puede incrementar utilizando la funcion
 =append=. Esto crea un nuevo arreglo subyacente con el nuevo tamaño, y
 copia de todos los valores existentes en el arreglo original, mas los
 nuevos valores al final:
 
-#+begin_example
+#+begin_src go
   append(destination, value1, value2, ...)
-#+end_example
+#+end_src
 
 En vez de valores se puede indicar otro slice. El operador =...= se usa
 para expandir el slice en sus valores.
 
-#+begin_example
+#+begin_src go
   sa := []int{1, 2, 3}
   newSa := append([]int{}, sa...)
 
   fmt.Println(newSa)
 
   > [1, 2, 3]
-#+end_example
+#+end_src
 
 En el ejemplo anterior la funcion =append= se usa para agregar 3 valores
 desde el slice =sa= a un slice vacio.

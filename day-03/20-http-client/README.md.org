@@ -15,26 +15,26 @@ uso local]]).
    :PROPERTIES:
    :CUSTOM_ID: ejecutando-un-get
    :END:
-#+begin_example
+#+begin_src go
   resp, _ := http.Get("https://httpbin.org/get")
   defer resp.Body.Close()
 
   data, _ := ioutil.ReadAll(resp.Body)
   fmt.Println(string(data))
-#+end_example
+#+end_src
 
 ** Ejecutando un POST
    :PROPERTIES:
    :CUSTOM_ID: ejecutando-un-post
    :END:
-#+begin_example
+#+begin_src go
   payload := "Hello world!"
   resp, _ := http.Post("https://httpbin.org/post", "text/plain", strings.NewReader(payload))
   defer resp.Body.Close()
 
   data, _ := ioutil.ReadAll(resp.Body)
   fmt.Println(string(data))
-#+end_example
+#+end_src
 
 Notar que si obtenemos un error de =http.Get= o =http.Post= debemos
 cerrar el body (utilizando =defer=).
@@ -45,7 +45,7 @@ cerrar el body (utilizando =defer=).
    :END:
 Dado este JSON:
 
-#+begin_example
+#+begin_src go
   {
     "headers": {
       "Accept-Encoding": "gzip",
@@ -53,12 +53,12 @@ Dado este JSON:
       "User-Agent": "Go-http-client/1.1"
     }
   }
-#+end_example
+#+end_src
 
 Podemos extraer informacion del campo =User-Agent= de la siguiente
 manera:
 
-#+begin_example
+#+begin_src go
   type response struct {
       Headers struct {
           UserAgent string `json:"User-Agent"`
@@ -69,7 +69,7 @@ manera:
   _ := json.Unmarshal([]byte(jsonData), &resp)
 
   fmt.Println(resp.Headers.UserAgent)
-#+end_example
+#+end_src
 
 ** HTTP request timeouts
    :PROPERTIES:
@@ -80,23 +80,23 @@ tarda mucho termine automaticamente.
 
 Crear un nuevo objeto request:
 
-#+begin_example
+#+begin_src go
   req, _ := http.NewRequest(http.MethodGet, url, nil)
-#+end_example
+#+end_src
 
 Crear un =context= con timeout:
 
-#+begin_example
+#+begin_src go
   ctx, cancel := context.WithTimeout(context.Background(), timeout)
   defer cancel()
-#+end_example
+#+end_src
 
 Ejecutar el request pasando por parametro el =context= con el timeout:
 
-#+begin_example
+#+begin_src go
   resp, _ := http.DefaultClient.Do(req.WithContext(ctx))
   defer resp.Body.Close()
-#+end_example
+#+end_src
 
 ** Que son los contextos
    :PROPERTIES:
@@ -109,8 +109,8 @@ objectos =context= para pasar informacion entre varias funciones:
 
 Los contextos se pueden encadenar:
 
-#+begin_example
+#+begin_src go
   ctx := context.Background()
   ctxT1, cancel := context.WithTimeout(ctx, 3*time.Second)
   ctxT2, cancelNew := context.WithTimeout(ctxT1, 2*time.Second)
-#+end_example
+#+end_src
