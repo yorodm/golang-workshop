@@ -65,3 +65,8 @@ func BenchmarkFibonacci(b *testing.B) {
 ```
 
 ## Datos de pruebas o fixtures
+
+Por convención, Golang ignora cualquier directorio que empiece con
+`.`, `_` o se llame `testdata`. Dado que las pruebas siempre se
+ejecutan en el directorio donde se encuentra el archivo de pruebas
+utilizar *fixtures*

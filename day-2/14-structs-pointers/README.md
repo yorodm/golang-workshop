@@ -28,11 +28,10 @@ fmt.Println(emp.firstName)
 > Something
 ```
 
-## Structs anidados
+## Campos struct
 
-Es posible anidar un struct dentro de otro struct, y usualmente se
-hace para reaprovechar codigo. Esto tambien es conocido como un patron
-de diseño llamado `composition`, y es muy utilizado en Golang.
+Golang permite que los campos de un `struct` puedan ser de
+tipo`struct`.
 
 ```go
 type Address struct {
@@ -44,18 +43,20 @@ type Employee struct {
     age int
     address Address
 }
+```
 
+```go
 var emp Employee
 
-emp.firstName = "SomeThing"
+emp.firstName = "Peter"
 emp.address = Address {
-    city  : "AA",
-    state : "CO",
+    city  : "New York",
+    state : "New York",
 }
 
 fmt.Println(emp)
 
-> {SomeThing  {AA CO}}
+> {Peter  {New York New York}}
 ```
 
 Los campos anidados se acceden con multiples niveles de notacion de
@@ -65,6 +66,49 @@ punto.
 fmt.Println(emp.address.city)
 
 > AA
+```
+
+## Composición
+
+Un `struct` puede tambien "heredar" todos los campos de otro usando
+composición. Para esto existe una notación especial
+
+```
+type Address struct {
+    city, state string
+}
+
+type Employee struct {
+    firstName, lastName string
+    age int
+    Address
+}
+```
+
+Nótese que aquí no se incluye un campo para `Address`, con lo que
+indicamos que nuestro tipo `Employee` está compuesto por `Address`
+
+Al crear una estructura compuesta tenemos que especificar todos los
+campos
+
+```go
+ emp := Employee{
+	firstName: "Peter",
+	lastName: "Parker"
+	age: 22,
+	city: "New York",
+	state: "New York",
+ }
+```
+
+Para acceder a los campos de la estructura compuesta utilizamos la
+notación usual
+
+```go
+```go
+fmt.Println(emp.city)
+
+> New York
 ```
 
 ## Visibilidad
@@ -118,10 +162,7 @@ emp.Print()
   Address: {AA CO}
 ```
 
-La principal ventaja de usar metodos sobre funciones sueltas es que se
-puede definir metodos con el mismo nombre para multiples tipos, pero
-en cambio una funcion solo se puede definir con un mismo nombre una
-sola vez.
+
 
 ## Punteros
 
