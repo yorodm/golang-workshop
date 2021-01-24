@@ -1,0 +1,116 @@
+* HTTP Client
+  :PROPERTIES:
+  :CUSTOM_ID: http-client
+  :END:
+El paquete [[https://golang.org/pkg/net/http/][http]] contiene una
+implementacion de un cliente http que permite emular las acciones que
+realiza un web browser.
+
+Para este ejercicio se utiliza el tester HTTP https://httpbin.org
+([[https://github.com/postmanlabs/httpbin][codigo fuente]],
+[[https://hub.docker.com/r/kennethreitz/httpbin/][imagen de Docker para
+uso local]]).
+
+** Ejecutando un GET
+   :PROPERTIES:
+   :CUSTOM_ID: ejecutando-un-get
+   :END:
+#+begin_example
+  resp, _ := http.Get("https://httpbin.org/get")
+  defer resp.Body.Close()
+
+  data, _ := ioutil.ReadAll(resp.Body)
+  fmt.Println(string(data))
+#+end_example
+
+** Ejecutando un POST
+   :PROPERTIES:
+   :CUSTOM_ID: ejecutando-un-post
+   :END:
+#+begin_example
+  payload := "Hello world!"
+  resp, _ := http.Post("https://httpbin.org/post", "text/plain", strings.NewReader(payload))
+  defer resp.Body.Close()
+
+  data, _ := ioutil.ReadAll(resp.Body)
+  fmt.Println(string(data))
+#+end_example
+
+Notar que si obtenemos un error de =http.Get= o =http.Post= debemos
+cerrar el body (utilizando =defer=).
+
+** Extrayendo informacion de una respuesta JSON
+   :PROPERTIES:
+   :CUSTOM_ID: extrayendo-informacion-de-una-respuesta-json
+   :END:
+Dado este JSON:
+
+#+begin_example
+  {
+    "headers": {
+      "Accept-Encoding": "gzip",
+      "Host": "httpbin.org",
+      "User-Agent": "Go-http-client/1.1"
+    }
+  }
+#+end_example
+
+Podemos extraer informacion del campo =User-Agent= de la siguiente
+manera:
+
+#+begin_example
+  type response struct {
+      Headers struct {
+          UserAgent string `json:"User-Agent"`
+      } `json:"headers"`
+  }
+
+  var resp response
+  _ := json.Unmarshal([]byte(jsonData), &resp)
+
+  fmt.Println(resp.Headers.UserAgent)
+#+end_example
+
+** HTTP request timeouts
+   :PROPERTIES:
+   :CUSTOM_ID: http-request-timeouts
+   :END:
+Podemos especificar un tiempo maximo de espera para que un request que
+tarda mucho termine automaticamente.
+
+Crear un nuevo objeto request:
+
+#+begin_example
+  req, _ := http.NewRequest(http.MethodGet, url, nil)
+#+end_example
+
+Crear un =context= con timeout:
+
+#+begin_example
+  ctx, cancel := context.WithTimeout(context.Background(), timeout)
+  defer cancel()
+#+end_example
+
+Ejecutar el request pasando por parametro el =context= con el timeout:
+
+#+begin_example
+  resp, _ := http.DefaultClient.Do(req.WithContext(ctx))
+  defer resp.Body.Close()
+#+end_example
+
+** Que son los contextos
+   :PROPERTIES:
+   :CUSTOM_ID: que-son-los-contextos
+   :END:
+El paquete [[https://golang.org/pkg/context/][context]] permite crear
+objectos =context= para pasar informacion entre varias funciones:
+
+=context.Background()= crear un contexto vacio.
+
+Los contextos se pueden encadenar:
+
+#+begin_example
+  ctx := context.Background()
+  ctxT1, cancel := context.WithTimeout(ctx, 3*time.Second)
+  ctxT2, cancelNew := context.WithTimeout(ctxT1, 2*time.Second)
+#+end_example

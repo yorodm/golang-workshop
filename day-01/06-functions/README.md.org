@@ -1,0 +1,85 @@
+* Funciones
+  :PROPERTIES:
+  :CUSTOM_ID: funciones
+  :END:
+Una funcion es un grupo de instrucciones que se ejecutan todas juntas
+como un bloque. Una funcion puede o no tener argumentos de entrada, y
+retornar valores.
+
+En Golang una funcion se define con el keyword =func= con el siguiente
+formato:
+
+#+begin_example
+  func <name>(<arg1> <type of arg1>, ...) <return type> {
+      // cuerpo de la funcion (una o mas instrucciones)
+  }
+#+end_example
+
+El siguiente es un ejemplo de una funcion que suma dos enteros:
+
+#+begin_example
+  func AddIntegers(a int, b int) int {
+      return a + b
+  }
+#+end_example
+
+El keyword =return= es usado para indicar que valor va a retornar la
+funcion.
+
+Para llamar una funcion:
+
+#+begin_example
+  AddIntegers(10, 20) => 30
+#+end_example
+
+Golang soporta que una funcion devuelva multiples valores:
+
+#+begin_example
+  return a, b
+#+end_example
+
+#+begin_example
+  func SumDifference(a int, b int) (int, int) {
+      return a + b, a - b
+  }
+#+end_example
+
+En el ejemplo anterior se calcula los valores en la misma linea junto
+con la instruccion =return=.
+
+** Blank Identifier
+   :PROPERTIES:
+   :CUSTOM_ID: blank-identifier
+   :END:
+Se utiliza el *blank identifier* en el lugar de un valor que se quiere
+descartar al llamar a una funcion:
+
+#+begin_example
+  var _, diff = SumDifference(10, 20)
+
+  fmt.Println("Difference is ", diff)
+#+end_example
+
+** Named Return Values
+   :PROPERTIES:
+   :CUSTOM_ID: named-return-values
+   :END:
+Cuando se define una funcion se le puede asignar un nombre al tipo de
+dato de retorno para luego referenciarlo en el codigo de la funcion.
+
+#+begin_example
+  func Product(a int, b int) (prod int) {
+      prod = a * b
+      return
+  }
+#+end_example
+
+En el ejemplo anterior se asigna el nombre =prod= al valor de retorno de
+la funcion. Luego =prod= se usa como una variable y se le asigna un
+valor. Como =prod= ya tiene un valor asignado no hace falta indicar un
+valor en la instruccion =return=.
+
+** Funciones anónimas y clausuras
+   :PROPERTIES:
+   :CUSTOM_ID: funciones-anónimas-y-clausuras
+   :END:

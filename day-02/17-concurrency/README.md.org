@@ -1,0 +1,16 @@
+* Concurrencia en Go.
+  :PROPERTIES:
+  :CUSTOM_ID: concurrencia-en-go.
+  :END:
+** Gorutinas
+   :PROPERTIES:
+   :CUSTOM_ID: gorutinas
+   :END:
+** Canales
+   :PROPERTIES:
+   :CUSTOM_ID: canales
+   :END:
+** Sincronización.
+   :PROPERTIES:
+   :CUSTOM_ID: sincronización.
+   :END:

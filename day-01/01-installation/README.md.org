@@ -1,0 +1,57 @@
+* Instalacion
+  :PROPERTIES:
+  :CUSTOM_ID: instalacion
+  :END:
+
+1. Descargar la version para tu OS desde [[https://golang.org/dl]].
+
+2. Abrir el instalador y seguir las
+   [[https://golang.org/doc/install][instrucciones]].
+
+   Go quedara instalado por default en:
+
+   #+begin_example
+      Unix: /usr/local/go
+      Windows: C:\Go
+   #+end_example
+
+3. Para chequear que la instalacion esta correctar escribir en la
+   consola
+
+   #+begin_example
+      $ go version
+   #+end_example
+
+4. Activar variables de entorno para el trabajo con módulos
+
+   #+begin_example
+      $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
+   #+end_example
+
+5. Para chequear que todas las variables de entorno estan correctas
+   tipear en la consola
+
+   #+begin_example
+     $ go env
+
+     GOROOT = [Directorio de instalacion]
+     GOPROXY=https://goproxy.io,direct
+     GO111MODULE=on
+   #+end_example
+
+6. Instalar la herramienta =gopls=.
+
+   #+begin_example
+      $ go get golang.org/x/tools/gopls@latest
+   #+end_example
+
+** Otras Herramientas
+   :PROPERTIES:
+   :CUSTOM_ID: otras-herramientas
+   :END:
+
+- [[https://code.visualstudio.com/download][Visual Studio Code]]
+- [[https://code.visualstudio.com/docs/languages/go][Visual Studio Code
+  official Go extension]]
+- [[https://www.getpostman.com][Postman]]
+- [[https://www.mongodb.com][MongoDB]]

@@ -1,0 +1,16 @@
+* Formatos de datos: JSON y XML
+  :PROPERTIES:
+  :CUSTOM_ID: formatos-de-datos-json-y-xml
+  :END:
+** Etiquetas de estructuras
+   :PROPERTIES:
+   :CUSTOM_ID: etiquetas-de-estructuras
+   :END:
+** Serialización
+   :PROPERTIES:
+   :CUSTOM_ID: serialización
+   :END:
+** Deserializacíon.
+   :PROPERTIES:
+   :CUSTOM_ID: deserializacíon.
+   :END:

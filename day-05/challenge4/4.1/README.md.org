@@ -1,0 +1,21 @@
+* Challenge 4.1
+  :PROPERTIES:
+  :CUSTOM_ID: challenge-4.1
+  :END:
+Crear una API REST para una aplicacion de recordatorios (ToDo) que
+contenga todas las funciones
+[[https://en.wikipedia.org/wiki/Create,_read,_update_and_delete][CRUD]]
+para la siguiente entidad:
+
+#+begin_example
+  ID     int
+  Title  string
+  IsDone bool
+#+end_example
+
+Hints:
+
+- Los datos se pueden almacenar en un arreglo.
+- La funcion /strconv.Atoi/ del paquete
+  /[[https://golang.org/pkg/strconv][strconv]]/ permite convertir un
+  string a un integer.

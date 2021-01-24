@@ -1,0 +1,6 @@
+* Challenge 1.5
+  :PROPERTIES:
+  :CUSTOM_ID: challenge-1.5
+  :END:
+Crear un /test/, un /benchmark/, y un /example/ para la funcion
+/Reverse/.

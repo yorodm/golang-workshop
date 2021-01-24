@@ -1,0 +1,129 @@
+* Maps
+  :PROPERTIES:
+  :CUSTOM_ID: maps
+  :END:
+Un map un tipo de dato incluido en Golang que asocia una clave con un
+valor. El valor puede ser recuperado a partir de la clave.
+
+Un map se crea con la funcion =make=:
+
+#+begin_example
+  make(map[type of key]type of value)
+
+  eg: make(map[string]int)
+#+end_example
+
+En el ejemplo anterior se crea un map con una clave de tipo =string= que
+puede almacenar y recuperar valores de tipo =integer=.
+
+** Agregando valores
+   :PROPERTIES:
+   :CUSTOM_ID: agregando-valores
+   :END:
+Los valores en un map se referencian igual que en un arreglo. Un valor
+se agrega a un map asignandole una clave, si la clave ya existe el valor
+para esa clave se sobreescribe.
+
+#+begin_example
+  m := make(map[string]int)
+  m["a"] = 1
+  m["b"] = 2
+
+  fmt.Println(m)
+
+  > map[a:1 b:2]
+#+end_example
+
+En el ejemplo anterior un nuevo map se crea utilizando la funcion
+=make=. Dos claves, =a= y =b= son asignadas con los valores =1= y =2=
+respectivamente. Notar que los tipos de datos de las claves y valores
+deben coincidir con los especificados en la declaracion del map.
+
+Un map se puede inicializar con valores en su declaracion igual que un
+arreglo:
+
+#+begin_example
+  m := map[string]int {
+      "a": 1,
+      "b": 2,
+  }
+#+end_example
+
+** Retrieving Values
+   :PROPERTIES:
+   :CUSTOM_ID: retrieving-values
+   :END:
+Los valores se recuperan de manera similar a como son asignados, pero al
+reves. Un error se produce si se intenta recuperar un valor de una clave
+inexistente.
+
+Una manera de chequear si una clave existe es la siguiente:
+
+#+begin_example
+  data, ok := m["some key"]
+#+end_example
+
+Si =ok= es =true=, la clave existe y la variable =data= contendra la
+informacion recuperada, si =ok= es =false= la clave no existe.
+
+** Iteraciones
+   :PROPERTIES:
+   :CUSTOM_ID: iteraciones
+   :END:
+El iterador =for= se puede usar para iterar a traves, de un map. En vez
+de de retornar el indice y el valor como en un arreglo, se retorna la
+clave y el valor.
+
+#+begin_example
+  m := map[string]int {
+      "a": 1,
+      "b": 2,
+      "c": 3,
+  }
+  for key, value := range m {
+      fmt.Println("Key:", key, " Value:", value)
+  }
+
+  > Key: a  Value 1
+    Key: b  Value 2
+    Key: c  Value 3
+#+end_example
+
+El iterador =for= itera a traves del map hasta que todos los pares
+(clave, valor) se terminan.
+
+#+begin_example
+  El orden en que se recorre el map no esta garantizado, y cada ejecucion puede tener un order diferente.
+#+end_example
+
+** Eliminacion
+   :PROPERTIES:
+   :CUSTOM_ID: eliminacion
+   :END:
+Los valores se eliminan de un map con la funcion =delete=. La funcion no
+retorna nada. La sintaxis es la siguiente:
+
+#+begin_example
+  delete(m, key)
+#+end_example
+
+** Tamaño
+   :PROPERTIES:
+   :CUSTOM_ID: tamaño
+   :END:
+El tamaño de un map es retornado por la funcion =len=. Esta funcion
+retorna la cantidad de claves que hay en un map. La sintaxis es la
+siguiente:
+
+#+begin_example
+  len(m)
+#+end_example
+
+** Tipo
+   :PROPERTIES:
+   :CUSTOM_ID: tipo
+   :END:
+Un map es un tipo de dato por referencia, igual que un slice. Por lo
+tanto si un map se asigna a una otra variable, ambas variable apuntan a
+los mismos pares (clave, valor). Lo mismo sucede si se pasa como
+argumento en una funcion.
