@@ -1,8 +1,8 @@
 * Cosas que quedan por terminar
 
-** Semana 1 [0/3]
+** Semana 1 [1/3]
 
-- [-] Dia 1. [9/10]
+- [X] Dia 1. [10/10]
   - [X] 01-installation
   - [X] 02-hello-world
   - [X] 03-variables
@@ -11,7 +11,7 @@
   - [X] 06-control-statments
   - [X] 07-arrays
   - [X] 08-maps
-  - [ ] 09-packages-modules
+  - [X] 09-packages-modules
   - [X] 10-cmdline
 - [-] Dia 2. [1/5]
   - [ ] 11-errors-defer-panic-recover

@@ -7,6 +7,7 @@ import (
 
 func main() {
 	var length, breadth = 10, 20
-	fmt.Println("Area is", geometry.Area(length, breadth))
-	fmt.Println("Perimeter is", geometry.Perimeter(length, breadth))
+	s := geometry.NewSquare(length, breadth)
+	fmt.Println("Area is", s.Area())
+	fmt.Println("Perimeter is", s.Perimeter())
 }
