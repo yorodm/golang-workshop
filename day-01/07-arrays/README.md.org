@@ -2,7 +2,8 @@
   :PROPERTIES:
   :CUSTOM_ID: arreglos
   :END:
-Una coleccion de elementos de un mismo tipo es un arreglo. Como Golang
+
+Una colección de elementos de un mismo tipo es un arreglo. Como Golang
 es un lenguaje fuertemente tipado no es posible mezclar valores de
 diferentes tipos en un arreglo.
 
@@ -34,28 +35,29 @@ con el operador ===.
   > [1 2 3]
 #+end_src
 
-Un arreglo se puede inicializar en la declaracion:
+Un arreglo se puede inicializar en la declaración:
 
 #+begin_src go
   a := [3]int{1, 2, 3}
 #+end_src
 
 Se puede omitir el numero de elementos si se inicializa con valores en
-la declaracion:
+la declaración:
 
 #+begin_src go
   a := [...]int{1, 2, 3}
 #+end_src
 
-** Value Type
+** Tipos valor
    :PROPERTIES:
    :CUSTOM_ID: value-type
    :END:
-Un detalle importante a tener en cuenta es que un arreglo es un value
-type, esto quiere decir que cada vez que un arreglo es asignado a una
-nueva variable, se hace una copia del arreglo original. Si se cambian
-valores en la nueva variable, esto no se ve reflejado en la variable
-original.
+
+Un detalle importante a tener en cuenta es que un arreglo es un /tipo
+valor/, esto quiere decir que cada vez que un arreglo es asignado a
+una nueva variable, se hace una copia del arreglo original. Si se
+cambian valores en la nueva variable, esto no se ve reflejado en la
+variable original.
 
 #+begin_src go
   a := [...]string{"IRL", "IND", "US", "CAN"}
@@ -67,9 +69,7 @@ original.
   fmt.Println("Copy    :", b)
 #+end_src
 
-Eso significa que cuando un arreglo se pasa como parametro de entrada a
-una funcion es pasado por valor. Por lo tanto cualquier cambio que se
-haga dentro de la funcion no afectara al arreglo original.
+Esto afecta el modo en que los arreglos son pasados por parámetros.
 
 La funcion =len= se usa para conocer el tamaño de un arreglo:
 
@@ -141,16 +141,12 @@ Se puede imprimir el arreglo de diferente manera utilizando el iterador
   }
 #+end_src
 
-En el ejemplo anterior el primer =range= itera por las filas, y el
-segundo =range= itera por las columnas. Cada valor en una columna se
-imprime seguido de un espacio. Al final de una fila se imprime una nueva
-linea.
-
 ** Slices
    :PROPERTIES:
    :CUSTOM_ID: slices
    :END:
-Los arreglos tienen tamaño fijo, pre-alocan memoria, y son value types.
+
+Los arreglos tienen tamaño fijo, reservan memoria, y son tipos valor.
 Un slice es una forma flexible de acceder a una arreglo. Un slice no
 tienen datos, solo apunta a un arreglo.
 
@@ -162,7 +158,7 @@ Un slice vacio se crea asi:
 
 El valor de un slice vacio es =nil=
 
-Un slice tambien se puede crear apuntando a un subset de valores de un
+Un slice también se puede crear apuntando a un subconjunto de valores de un
 arreglo:
 
 #+begin_src go
@@ -177,8 +173,8 @@ En el ejemplo anterior, el slice =sa= apunta a los elementos del arreglo
 =a= desde los indices =1= a =3=. Cuando se especifica el rango de
 indices de un arreglo, el ultimo indice no se considera.
 
-Como un slice es un reference type, modificar un valor en un elemento
-del slice modifica el arreglo original:
+Como un slice es un /tipo referencia/, modificar un valor en un
+elemento del slice modifica el arreglo original.
 
 #+begin_src go
   a := [...]int{1, 2, 3, 4, 5}
@@ -211,10 +207,8 @@ por defecto del tipo del slice.
   > [0 0 0 0 0]
 #+end_src
 
-El tamaño de un slice se puede incrementar utilizando la funcion
-=append=. Esto crea un nuevo arreglo subyacente con el nuevo tamaño, y
-copia de todos los valores existentes en el arreglo original, mas los
-nuevos valores al final:
+El tamaño de un slice se puede incrementar utilizando la función
+=append=.
 
 #+begin_src go
   append(destination, value1, value2, ...)
@@ -232,9 +226,5 @@ para expandir el slice en sus valores.
   > [1, 2, 3]
 #+end_src
 
-En el ejemplo anterior la funcion =append= se usa para agregar 3 valores
+En el ejemplo anterior la función =append= se usa para agregar 3 valores
 desde el slice =sa= a un slice vacio.
-
-Un slice se pasa a una funcion como un arreglo. Modificar los valores de
-un slice dentro de una funcion, tambien modifica los valores del slice
-en el codigo llamador de dicha funcion.

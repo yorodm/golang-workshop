@@ -47,12 +47,12 @@ Golang soporta que una funcion devuelva multiples valores:
 En el ejemplo anterior se calcula los valores en la misma linea junto
 con la instruccion =return=.
 
-** Blank Identifier
+** Identificador en blanco
    :PROPERTIES:
    :CUSTOM_ID: blank-identifier
    :END:
-Se utiliza el *blank identifier* en el lugar de un valor que se quiere
-descartar al llamar a una funcion:
+Se utiliza el *identificador en blanco* en el lugar de un valor que se
+quiere descartar al llamar a una funcion:
 
 #+begin_src go
   var _, diff = SumDifference(10, 20)
@@ -60,7 +60,7 @@ descartar al llamar a una funcion:
   fmt.Println("Difference is ", diff)
 #+end_src
 
-** Named Return Values
+** Valores de retorno con nombres
    :PROPERTIES:
    :CUSTOM_ID: named-return-values
    :END:
@@ -74,12 +74,49 @@ dato de retorno para luego referenciarlo en el codigo de la funcion.
   }
 #+end_src
 
-En el ejemplo anterior se asigna el nombre =prod= al valor de retorno de
-la funcion. Luego =prod= se usa como una variable y se le asigna un
-valor. Como =prod= ya tiene un valor asignado no hace falta indicar un
-valor en la instruccion =return=.
+Al asignar un valor de retorno con nombre no hace falta incluirlo en
+la sentencia =return=.
 
-** Funciones anónimas y clausuras
+** Literales función, funciones anónimas y clausuras
    :PROPERTIES:
    :CUSTOM_ID: funciones-anónimas-y-clausuras
    :END:
+
+Golang soporta funciones de segundo orden y literales función. Tomemos por
+ejemplo la función =sort.Slice=
+
+#+begin_src go
+func Slice(slice interface{}, less func(i, j int) bool)
+#+end_src
+
+El parámetro =less= describe una función que toma dos enteros y
+retorna un valor =bool=
+
+Podemos crear una variable que represente este tipo
+
+#+begin_src go
+c := []int{20, 11, 12, 1, 5}
+less := func(i int, j int) bool {
+	return c[i] < c[j]
+}
+sort.Slice(c, less)
+fmt.Println("Despues del sort", c)
+//Output: [1 5 11 12 20]
+#+end_src
+
+O utilizar una función anónima.
+
+#+begin_src go
+c := []int{20, 11, 12, 1, 5}
+sort.Slice(c, func(i int, j int) bool {
+	return c[i] < c[j]
+})
+fmt.Println("Despues del sort", c)
+//Output: [1 5 11 12 20]
+#+end_src
+
+En el ejemplo anterior, la función es definida en el momento en vez de
+utilizar una variable intermedia.
+
+Las funciones anónimas tienen acceso a las variables de entorno donde
+están definidas formando *clausuras*

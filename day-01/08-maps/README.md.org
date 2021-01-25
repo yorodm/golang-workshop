@@ -2,10 +2,11 @@
   :PROPERTIES:
   :CUSTOM_ID: maps
   :END:
-Un map un tipo de dato incluido en Golang que asocia una clave con un
+
+Un =map= un tipo de dato incluido en Golang que asocia una clave con un
 valor. El valor puede ser recuperado a partir de la clave.
 
-Un map se crea con la funcion =make=:
+Un =map= vacío se crea con la función =make=:
 
 #+begin_src go
   make(map[type of key]type of value)
@@ -13,16 +14,17 @@ Un map se crea con la funcion =make=:
   eg: make(map[string]int)
 #+end_src
 
-En el ejemplo anterior se crea un map con una clave de tipo =string= que
+En el ejemplo anterior se crea un =map= con una clave de tipo =string= que
 puede almacenar y recuperar valores de tipo =integer=.
 
 ** Agregando valores
    :PROPERTIES:
    :CUSTOM_ID: agregando-valores
    :END:
-Los valores en un map se referencian igual que en un arreglo. Un valor
-se agrega a un map asignandole una clave, si la clave ya existe el valor
-para esa clave se sobreescribe.
+
+Los valores en un =map= se referencian igual que en un arreglo. Un valor
+se agrega a un =map= asignándole una clave, si la clave ya existe el valor
+para esa clave se sobrescribe.
 
 #+begin_src go
   m := make(map[string]int)
@@ -34,12 +36,7 @@ para esa clave se sobreescribe.
   > map[a:1 b:2]
 #+end_src
 
-En el ejemplo anterior un nuevo map se crea utilizando la funcion
-=make=. Dos claves, =a= y =b= son asignadas con los valores =1= y =2=
-respectivamente. Notar que los tipos de datos de las claves y valores
-deben coincidir con los especificados en la declaracion del map.
-
-Un map se puede inicializar con valores en su declaracion igual que un
+Un =map= se puede inicializar con valores en su declaración igual que un
 arreglo:
 
 #+begin_src go
@@ -49,13 +46,10 @@ arreglo:
   }
 #+end_src
 
-** Retrieving Values
+** Obteniendo valores
    :PROPERTIES:
    :CUSTOM_ID: retrieving-values
    :END:
-Los valores se recuperan de manera similar a como son asignados, pero al
-reves. Un error se produce si se intenta recuperar un valor de una clave
-inexistente.
 
 Una manera de chequear si una clave existe es la siguiente:
 
@@ -66,13 +60,15 @@ Una manera de chequear si una clave existe es la siguiente:
 Si =ok= es =true=, la clave existe y la variable =data= contendra la
 informacion recuperada, si =ok= es =false= la clave no existe.
 
+Acceder a una clave inexistente en un =map= causa un =panic=.
+
 ** Iteraciones
    :PROPERTIES:
    :CUSTOM_ID: iteraciones
    :END:
-El iterador =for= se puede usar para iterar a traves, de un map. En vez
-de de retornar el indice y el valor como en un arreglo, se retorna la
-clave y el valor.
+
+El iterador =for= se utiliza para recorrer las claves y valores de un
+=map=
 
 #+begin_src go
   m := map[string]int {
@@ -89,18 +85,19 @@ clave y el valor.
     Key: c  Value 3
 #+end_src
 
-El iterador =for= itera a traves del map hasta que todos los pares
-(clave, valor) se terminan.
+Se puede utilizar el identificador en blanco (=_=) para descartar
+cualquiera de los elementos del par.
 
 #+begin_quote
-  El orden en que se recorre el map no esta garantizado, y cada ejecucion puede tener un order diferente.
+  El orden en que se recorre el =map= no esta garantizado, y cada ejecucion puede tener un order diferente.
 #+end_quote
 
 ** Eliminacion
    :PROPERTIES:
    :CUSTOM_ID: eliminacion
    :END:
-Los valores se eliminan de un map con la funcion =delete=. La funcion no
+
+Los valores se eliminan de un =map= con la funcion =delete=. La funcion no
 retorna nada. La sintaxis es la siguiente:
 
 #+begin_src go
@@ -111,7 +108,8 @@ retorna nada. La sintaxis es la siguiente:
    :PROPERTIES:
    :CUSTOM_ID: tamaño
    :END:
-El tamaño de un map es retornado por la funcion =len=. Esta funcion
+
+El tamaño de un =map= es retornado por la funcion =len=. Esta funcion
 retorna la cantidad de claves que hay en un map. La sintaxis es la
 siguiente:
 
@@ -123,7 +121,7 @@ siguiente:
    :PROPERTIES:
    :CUSTOM_ID: tipo
    :END:
-Un map es un tipo de dato por referencia, igual que un slice. Por lo
-tanto si un map se asigna a una otra variable, ambas variable apuntan a
-los mismos pares (clave, valor). Lo mismo sucede si se pasa como
-argumento en una funcion.
+
+Un =map= es un /tipo referencia/. Por lo tanto si un =map= se asigna a
+ otra variable, ambas variable apuntan a los mismos pares (clave,
+ valor). Lo mismo sucede si se pasa como argumento en una funcion.

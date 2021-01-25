@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	var sum = AddIntegers(10, 20)
@@ -11,6 +14,13 @@ func main() {
 
 	var _, diff1 = SumDifference(10, 20)
 	fmt.Println("Difference of 10 and 20 is", diff1)
+	c := []int{20, 11, 12, 1, 5}
+	fmt.Println("Antes del sort", c)
+	less := func(i int, j int) bool {
+		return c[i] < c[j]
+	}
+	sort.Slice(c, less)
+	fmt.Println("Despues del sort", c)
 }
 
 // AddIntegers adds two integers

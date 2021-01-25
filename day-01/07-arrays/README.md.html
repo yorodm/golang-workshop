@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-24 dom. 16:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#arreglos">1. Arreglos</a>
+<ul>
+<li><a href="#value-type">1.1. Value Type</a></li>
+<li><a href="#arreglos-multidimensionales">1.2. Arreglos multidimensionales</a></li>
+<li><a href="#slices">1.3. Slices</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-arreglos" class="outline-2">
+<h2 id="arreglos"><span class="section-number-2">1</span> Arreglos</h2>
+<div class="outline-text-2" id="text-arreglos">
+<p>
+Una colección de elementos de un mismo tipo es un arreglo. Como Golang
+es un lenguaje fuertemente tipado no es posible mezclar valores de
+diferentes tipos en un arreglo.
+</p>
+
+<p>
+Un arreglo se define como <code>[size]type</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> [3]<span style="color: #ce537a; font-weight: bold;">int</span>
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(a)
+
+  &gt; [0 <span style="color: #ce537a; font-weight: bold;">0</span> 0]
+</pre>
+</div>
+
+<p>
+En el ejemplo anterior se define un arreglo de enteros de 3 elementos.
+La salida es ceros por que es el valor por defecto del tipo de datos
+<code>int</code>.
+</p>
+
+<p>
+El primer indice de un arreglo es <code>0</code> en vez de <code>1</code>. Se accede a los
+valores de un arreglo usando el numero del indice, y se asignan valores
+con el operador <code>=</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> [3]<span style="color: #ce537a; font-weight: bold;">int</span>
+  a[0] = 1
+  a[1] = 2
+  a[2] = 3
+
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(a)
+
+  &gt; [1 <span style="color: #ce537a; font-weight: bold;">2</span> 3]
+</pre>
+</div>
+
+<p>
+Un arreglo se puede inicializar en la declaración:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [3]<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3}
+</pre>
+</div>
+
+<p>
+Se puede omitir el numero de elementos si se inicializa con valores en
+la declaración:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [...]<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-value-type" class="outline-3">
+<h3 id="value-type"><span class="section-number-3">1.1</span> Value Type</h3>
+<div class="outline-text-3" id="text-value-type">
+<p>
+Un detalle importante a tener en cuenta es que un arreglo es un <i>value
+type</i>, esto quiere decir que cada vez que un arreglo es asignado a una
+nueva variable, se hace una copia del arreglo original. Si se cambian
+valores en la nueva variable, esto no se ve reflejado en la variable
+original.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [...]<span style="color: #ce537a; font-weight: bold;">string</span>{<span style="color: #2d9574;">"IRL"</span>, <span style="color: #2d9574;">"IND"</span>, <span style="color: #2d9574;">"US"</span>, <span style="color: #2d9574;">"CAN"</span>}
+  <span style="color: #7590db;">b</span> := a
+
+  b[1] = <span style="color: #2d9574;">"CHN"</span>
+
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">"Original:"</span>, a)
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">"Copy    :"</span>, b)
+</pre>
+</div>
+
+<p>
+Eso significa que cuando un arreglo se pasa como parametro de entrada a
+una funcion es pasado por valor. Por lo tanto cualquier cambio que se
+haga dentro de la funcion no afectara al arreglo original.
+</p>
+
+<p>
+La funcion <code>len</code> se usa para conocer el tamaño de un arreglo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [...]<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3}
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #4f97d7;">len</span>(a))
+
+  &gt; 3
+</pre>
+</div>
+
+<p>
+Una forma de interactuar con un arreglo es utilizar el keyword <code>range</code>.
+Este retorna el indice del arreglo y el valor.
+</p>
+
+<p>
+El siguiente ejemplo imprimen el indice y el valor de cada elemento del
+arreglo, y suma todos los valores.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [...]<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
+  <span style="color: #7590db;">sum</span> := 0
+  <span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #7590db;">i</span>, <span style="color: #7590db;">v</span> := <span style="color: #4f97d7; font-weight: bold;">range</span> a {
+      fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">"Index:"</span>, i, <span style="color: #2d9574;">" Value is:"</span>, v)
+      sum += v
+  }
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">"Sum:"</span>, sum)
+
+  &gt; 15
+</pre>
+</div>
+
+<p>
+Se puede usar el <code>blank identifier</code> (<code>_</code>) si no nos interesa alguno de
+los valores que retorna el keyword <code>range</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">_</span>, <span style="color: #7590db;">v</span> := <span style="color: #4f97d7; font-weight: bold;">range</span> a
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-arreglos-multidimensionales" class="outline-3">
+<h3 id="arreglos-multidimensionales"><span class="section-number-3">1.2</span> Arreglos multidimensionales</h3>
+<div class="outline-text-3" id="text-arreglos-multidimensionales">
+<p>
+Se pueden crear arreglos de mas de una dimension de la siguiente manera:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [3][2]<span style="color: #ce537a; font-weight: bold;">int</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [3][2]<span style="color: #ce537a; font-weight: bold;">string</span>{
+      {<span style="color: #2d9574;">"lion"</span>, <span style="color: #2d9574;">"tiger"</span>},
+      {<span style="color: #2d9574;">"cat"</span>, <span style="color: #2d9574;">"dog"</span>},
+      {<span style="color: #2d9574;">"pigeon"</span>, <span style="color: #2d9574;">"peacock"</span>},
+  }
+
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(a)
+
+  &gt; [[lion <span style="color: #ce537a; font-weight: bold;">tiger</span>] [cat <span style="color: #ce537a; font-weight: bold;">dog</span>] [pigeon <span style="color: #ce537a; font-weight: bold;">peacock</span>]]
+</pre>
+</div>
+
+<p>
+Se puede imprimir el arreglo de diferente manera utilizando el iterador
+<code>for</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #4f97d7; font-weight: bold;">func</span> <span style="color: #bc6ec5; font-weight: bold;">printArray</span>(<span style="color: #ce537a; font-weight: bold;">a</span>) {
+      <span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #7590db;">_</span>, <span style="color: #7590db;">v1</span> := <span style="color: #4f97d7; font-weight: bold;">range</span> a {
+          <span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #7590db;">_</span>, <span style="color: #7590db;">v2</span> := <span style="color: #4f97d7; font-weight: bold;">range</span> v1 {
+              fmt.<span style="color: #bc6ec5; font-weight: bold;">Printf</span>(<span style="color: #2d9574;">"%s "</span>, v2)
+          }
+          fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">""</span>)
+      }
+  }
+</pre>
+</div>
+
+<p>
+En el ejemplo anterior el primer <code>range</code> itera por las filas, y el
+segundo <code>range</code> itera por las columnas. Cada valor en una columna se
+imprime seguido de un espacio. Al final de una fila se imprime una nueva
+linea.
+</p>
+</div>
+</div>
+
+<div id="outline-container-slices" class="outline-3">
+<h3 id="slices"><span class="section-number-3">1.3</span> Slices</h3>
+<div class="outline-text-3" id="text-slices">
+<p>
+Los arreglos tienen tamaño fijo, pre-alocan memoria, y son value types.
+Un slice es una forma flexible de acceder a una arreglo. Un slice no
+tienen datos, solo apunta a un arreglo.
+</p>
+
+<p>
+Un slice vacio se crea asi:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">sa</span> []<span style="color: #ce537a; font-weight: bold;">int</span>
+</pre>
+</div>
+
+<p>
+El valor de un slice vacio es <code>nil</code>
+</p>
+
+<p>
+Un slice tambien se puede crear apuntando a un subset de valores de un
+arreglo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [...]<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
+  <span style="color: #7590db;">sa</span> := a[1: 4]
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(sa)
+
+  &gt; [2 <span style="color: #ce537a; font-weight: bold;">3</span> 4]
+</pre>
+</div>
+
+<p>
+En el ejemplo anterior, el slice <code>sa</code> apunta a los elementos del arreglo
+<code>a</code> desde los indices <code>1</code> a <code>3</code>. Cuando se especifica el rango de
+indices de un arreglo, el ultimo indice no se considera.
+</p>
+
+<p>
+Como un slice es un reference type, modificar un valor en un elemento
+del slice modifica el arreglo original:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">a</span> := [...]<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
+  <span style="color: #7590db;">sa</span> := a[1: 4]
+
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">"Before:"</span>, a)
+  sa[0] = 22
+
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(<span style="color: #2d9574;">"After:"</span>, a)
+
+  &gt; Before: [1 <span style="color: #ce537a; font-weight: bold;">2</span> 3 <span style="color: #ce537a; font-weight: bold;">4</span> 5]
+  &gt; After: [1 <span style="color: #ce537a; font-weight: bold;">22</span> 3 <span style="color: #ce537a; font-weight: bold;">4</span> 5]
+</pre>
+</div>
+
+<p>
+Un slice tambien se puede crear utilizando la funcion <code>make</code>,
+especificando el tipo, y el tamaño, y opcionalmente la capacidad (que
+indica el maximo tamaño que el slice puede crecer):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #4f97d7;">make</span>([]<span style="color: #4f97d7; font-weight: bold;">type</span>, length[, capacity])
+</pre>
+</div>
+
+<p>
+Crear un slice con <code>make</code> inicializa todos sus valores con los valores
+por defecto del tipo del slice.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">i</span> := <span style="color: #4f97d7;">make</span>([]<span style="color: #ce537a; font-weight: bold;">int</span>, 5, 5)
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(i)
+
+  &gt; [0 <span style="color: #ce537a; font-weight: bold;">0</span> 0 <span style="color: #ce537a; font-weight: bold;">0</span> 0]
+</pre>
+</div>
+
+<p>
+El tamaño de un slice se puede incrementar utilizando la función
+<code>append</code>. Esto crea un nuevo arreglo subyacente con el nuevo tamaño, y
+copia de todos los valores existentes en el arreglo original, mas los
+nuevos valores al final:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #4f97d7;">append</span>(destination, value1, value2, ...)
+</pre>
+</div>
+
+<p>
+En vez de valores se puede indicar otro slice. El operador <code>...</code> se usa
+para expandir el slice en sus valores.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">  <span style="color: #7590db;">sa</span> := []<span style="color: #ce537a; font-weight: bold;">int</span>{1, 2, 3}
+  <span style="color: #7590db;">newSa</span> := <span style="color: #4f97d7;">append</span>([]<span style="color: #ce537a; font-weight: bold;">int</span>{}, sa...)
+
+  fmt.<span style="color: #bc6ec5; font-weight: bold;">Println</span>(newSa)
+
+  &gt; [1, 2, 3]
+</pre>
+</div>
+
+<p>
+En el ejemplo anterior la función <code>append</code> se usa para agregar 3 valores
+desde el slice <code>sa</code> a un slice vacio.
+</p>
+
+<p>
+Un slice se pasa a una función como un arreglo. Modificar los valores de
+un slice dentro de una función, también modifica los valores del slice
+en el codigo llamador de dicha función.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-01-24 dom. 16:49</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

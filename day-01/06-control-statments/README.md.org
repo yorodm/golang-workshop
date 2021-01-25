@@ -2,12 +2,14 @@
   :PROPERTIES:
   :CUSTOM_ID: instrucciones-de-control
   :END:
+
 Golang soporta multiples instrucciones de control e iteradores.
 
 ** If - else if - else
    :PROPERTIES:
    :CUSTOM_ID: if---else-if---else
    :END:
+
 La siguiente es una instrucction de control condicional:
 
 #+begin_src go
@@ -49,6 +51,7 @@ se usa para separar la instruccion de la condicion.
    :PROPERTIES:
    :CUSTOM_ID: for
    :END:
+
 Hay una sola instruccion de iteracion en Golang, el iterador =for=. No
 existen los iteradores =while= o =do .. while= que estan presentes en
 otros lenguajes.
@@ -85,23 +88,28 @@ El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
    :PROPERTIES:
    :CUSTOM_ID: switch
    :END:
+
 La instruccion de control =switch= evalua una expresion y la compara
 contra una lista de posibles valores o expresiones que puedan coincidir.
 Es una forma abreviada de escribir muchas clausulas =if else=.
 
 #+begin_src go
   switch expression {
-      case expression or value:
+      case expression or value | (, expression or value)*:
           // codigo a ejecutar
-      case expression or value:
+	      (break | fallthrough)
+      case expression or value | (, expression or value)*:
           // codigo a ejecutar
       default:
           // codigo a ejecutar
   }
 #+end_src
 
-En el codigo anterior la expresion es evaluada y el valor resultante es
-comparado contra el valor de cada instruccion =case=. La comparacion
-termina cuando se encuentra la primer coincidencia. Si no hay
-coincidencias, se ejecuta el codigo en el bloque =default=. Esto es
-opcional, pero es una buena forma de soportar casos de borde.
+En el codigo anterior la expresion es evaluada y el valor resultante
+es comparado contra el valor de cada instruccion =case=. La
+comparacion termina cuando se encuentra la primer coincidencia. Si no
+hay coincidencias, se ejecuta el codigo en el bloque =default=. Aunque
+los bloques =default= son opcionales es buena idea
+
+Las expresiones =break= y =fallthrough= se utilizan para detener o
+continuar el flujo entre sentencias =case=

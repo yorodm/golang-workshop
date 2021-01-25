@@ -2,35 +2,35 @@
 
 ** Semana 1 [0/3]
 
-- [-] Dia 1. [8/11]
+- [-] Dia 1. [9/10]
   - [X] 01-installation
   - [X] 02-hello-world
   - [X] 03-variables
   - [X] 04-types
-  - [X] 05-operators
-  - [ ] 06-functions
-  - [ ] 07-control-statments
-  - [X] 08-arrays
-  - [X] 09-maps
-  - [ ] 10-packages-modules
-  - [X] 11-cmdline
+  - [X] 05-functions
+  - [X] 06-control-statments
+  - [X] 07-arrays
+  - [X] 08-maps
+  - [ ] 09-packages-modules
+  - [X] 10-cmdline
 - [-] Dia 2. [1/5]
-  - [ ] 12-errors-defer-panic-recover
-  - [X] 13-testing
-  - [ ] 14-structs-pointers
-  - [ ] 15-interfaces
-  - [ ] 17-concurrency
+  - [ ] 11-errors-defer-panic-recover
+  - [X] 12-testing
+  - [ ] 13-structs-pointers
+  - [ ] 14-interfaces
+  - [ ] 15-concurrency
 - [ ] Dia 3. [0/3]
-  - [ ] 18-json-xml
-  - [ ] 19-rest-api
-  - [ ] 20-http-client
+  - [ ] 16-json-xml
+  - [ ] 17-rest-api
+  - [ ] 18-http-client
 
 
 ** Semana 2 [0/3]
 
 - [ ] Dia 6.
-  - [ ] 21-dbaccess
-  - [ ] 22-echo
+  - [ ] 19-dbaccess
+  - [ ] 20-echo
+  - [ ] 21-concurrency-patterns
 - [ ] Dia 7
 - [ ] Dia 8
 
