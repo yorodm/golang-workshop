@@ -13,8 +13,8 @@
   - [X] 08-maps
   - [X] 09-packages-modules
   - [X] 10-cmdline
-- [-] Dia 2. [1/5]
-  - [ ] 11-errors-defer-panic-recover
+- [-] Dia 2. [2/5]
+  - [X] 11-errors-defer-panic-recover
   - [X] 12-testing
   - [ ] 13-structs-pointers
   - [ ] 14-interfaces

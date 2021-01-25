@@ -7,7 +7,7 @@ type Address struct {
 	city, state string
 }
 
-func (a Address) Print() string {
+func (a *Address) Print() string {
 	return fmt.Sprintf("%s %s", a.city, a.state)
 }
 
@@ -20,7 +20,7 @@ type Employee struct {
 }
 
 // Print will display a formatted employee record
-func (e Employee) Print() {
+func (e *Employee) Print() {
 	fmt.Println("Employee Record:")
 	fmt.Println("Name:", e.firstName, e.lastName)
 	// Call "inherited" method with same name

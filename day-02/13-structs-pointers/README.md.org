@@ -2,9 +2,9 @@
   :PROPERTIES:
   :CUSTOM_ID: structs-y-punteros
   :END:
+
 Un =struct= es un tipo de dato definido por el usuario que representa
-una coleccion de campos (es similar al concepto al =struct= en C). Se
-usa en lugares donde tiene sentido agrupar diferentes tipos de datos.
+una colección de campos.
 
 #+begin_src go
   type Employee struct {
@@ -34,6 +34,7 @@ Los campos individuales de un =struct= se acceden con =.=.
    :PROPERTIES:
    :CUSTOM_ID: campos-struct
    :END:
+
 Golang permite que los campos de un =struct= puedan ser de tipo=struct=.
 
 #+begin_src go
@@ -82,6 +83,7 @@ punto.
    :PROPERTIES:
    :CUSTOM_ID: composición
    :END:
+
 Un =struct= puede tambien "heredar" todos los campos de otro usando
 composición. Para esto existe una notación especial
 
@@ -115,8 +117,7 @@ campos
   }
 #+end_src
 
-Para acceder a los campos de la estructura compuesta utilizamos la
-notación usual
+Los campos de la estructura interna son accesibles desde la externa.
 
 #+begin_src go
   ```go
@@ -124,16 +125,6 @@ notación usual
 
   > New York
 #+end_src
-
-** Visibilidad
-   :PROPERTIES:
-   :CUSTOM_ID: visibilidad
-   :END:
-Un =struct= y sus campos son visibles por fuera del paquete que los
-contiene dependiendo de la primera letra de su nombre. Si el =struct=
-employee es llamado =employee= en vez de =Employee=, no sera visible por
-fuera del paquete donde se declaro. Eso se llama un tipo *exportable* .
-La misma condicion se aplica a los campos de un =struct=.
 
 ** Igualdad
    :PROPERTIES:
@@ -144,13 +135,14 @@ iguales si todos los valores de sus campos son iguales. Esto quiere
 decir que si un =struct= tiene campos que no se pueden comparar, como un
 =map=, la operación (====) va a fallar.
 
-** Methods/Receivers
+** Métodos/Receptores
    :PROPERTIES:
    :CUSTOM_ID: methodsreceivers
    :END:
-Los métodos son funciones asociadas a un tipo especifico. Son similares
-al concepto de métodos de clase en el mundo OOP. La sintaxis es la
-siguiente:
+
+Los métodos (también llamados receptores) son funciones asociadas a un
+tipo especifico. Son similares al concepto de métodos de clase en el
+mundo OOP. La sintaxis es la siguiente:
 
 #+begin_src go
   func (t Type) MethodName(parameter list) {
@@ -166,6 +158,7 @@ definido en los ejemplo anteriores, para imprimir el contenido del
 registro mas claramente:
 
 #+begin_src go
+  // Receptor por valor
   func (e Employee) Print() {
       fmt.Println("Employee Record:")
       fmt.Println("Name:", e.firstName, e.lastName)
@@ -181,30 +174,38 @@ registro mas claramente:
     Address: {AA CO}
 #+end_src
 
+En el ejemplo anterior =e= es un parámetro implícto que se pasa al
+método =Print= (como el =this= en Java y C#). En este caso el
+parámetro se pasa /por valor/
+
 ** Punteros
    :PROPERTIES:
    :CUSTOM_ID: punteros
    :END:
+
 Golang soporta punteros para actualizar valores pero no admite
 aritmetica de punteros como en C. =*= se usa como prefijo para definir
-un puntero para de un tipo dado.
+un puntero para de un tipo dado. El operador =&= se usa para crear
+punteros a tipos.
 
 El valor por defecto de los punteros en Golang es =nil=, este valor
 también se utiliza para indicar que un puntero es nulo.
 
+Tener en cuenta que un puntero solo permite recibir punteros de su tipo
+y no otros.
+
 #+begin_src go
-  func (t *Type) MethodName(parameter list) {
-      // body
-  }
+var emp *Employee // puntero nil
+
+emp = &Employee{...} // puntero a Employee
 #+end_src
 
-Tener en cuenta que un puntero solo permite recibir punteros de su tipo
-y no otros. Los punteros se usan normalmente cuando es muy costoso
-copiar datos, y es mas facil modificar los valores de las variables y
-estructuras originales. Esta mecanica deja bien explicito cuando se usa
-una referencia, o un valor.
+Un puntero es una referencia a un tipo, por lo que podemos utilizarlo
+para modificar el valor original. Los *receptores por puntero o por
+referencia* son una aplicación directa de este concepto.
 
 #+begin_src go
+  // Receptor por puntero
   func (e *Employee) updateAge(newAge int) {
       e.age = newAge
   }
@@ -223,3 +224,21 @@ una referencia, o un valor.
 En le ejemplo anterior el campo =age= se modifica en la variable
 original. Para indicar este comportamiento notar el =*= antes del tipo
 =Employee= en la definicion del metodo =updateAge=.
+
+
+** Receptores: puntero o valor
+   :PROPERTIES:
+   :CUSTOM_ID: receptores-puntero-valor
+   :END:
+
+- Elección del tipo de receptor.
+  1. Usar solo una variante de receptor para un mismo tipo.
+  2. Ante la duda, usar receptores por puntero.
+- Usar receptores por puntero.
+  1. Cuando el método es inmutable.
+  2. Para estructuras que contienen campos que no se deben copiar (ej. =sync.Mutex=).
+  3. Para arreglos o estructuras de gran tamaño.
+- Usar receptores por valor.
+  1. Para tipos =map=, =func= o =chan=
+  2. Para tipos básicos como =int= o =string=
+  3. Cuando el tipo del receptor no contiene valores mutables

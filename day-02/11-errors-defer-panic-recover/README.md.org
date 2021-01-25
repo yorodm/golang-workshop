@@ -6,6 +6,7 @@
    :PROPERTIES:
    :CUSTOM_ID: manejo-de-errores-en-golang
    :END:
+
 En lugar de excepciones como Python, Java o C#, Golang sigue un enfoque
 más cercano a los lenguajes funcionales donde el estado de error es
 representado por un tipo de datos,
@@ -90,6 +91,7 @@ haya terminado, lo que garantiza en el ejemplo anterior que
    :PROPERTIES:
    :CUSTOM_ID: panic-y-recover
    :END:
+
 Golang incluye una función especial =panic= para indicar un error que no
 puede ser manejado de forma correcta.
 
@@ -131,6 +133,7 @@ La función =f= usa =defer= y =recover= para garantizar que la llamada a
    :PROPERTIES:
    :CUSTOM_ID: panic-y-recover-no-son-try-y-catch
    :END:
+
 Uno de los errores más comunes para los que se inician en Golang es
 pensar en =panic= y =recover= como una alternativa a los bloques
 =try-catch= que aparecen en otros lenguajes. Esto es considerado una
