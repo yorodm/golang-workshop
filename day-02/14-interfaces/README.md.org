@@ -2,12 +2,14 @@
   :PROPERTIES:
   :CUSTOM_ID: interfaces
   :END:
+
 ** Interfaces en Golang
    :PROPERTIES:
    :CUSTOM_ID: interfaces-en-golang
    :END:
-En Golang, una interfaz es un conjunto de firmas de metodos. Si un tipo
-tiene una definicion para esos metodos, se dice que implementa la
+
+En Golang, una interfaz es un conjunto de firmas de métodos. Si un tipo
+tiene una definición para esos metodos, se dice que implementa la
 interfaz. A diferencia de otros lenguajes, /la asociacion de un tipo con
 una interfaz es implicita/.
 
@@ -48,12 +50,12 @@ Un tipo puede implementar mas de una interfaz.
   fmt.Println(totalPayout)
 #+end_src
 
-En el ejemplo anterior se definen dos tipos para cada categoria de
-empleado, =Permanent= y =Contract=. El metodo =calculateSalary= se
-define para los dos tipos. El calculo es diferente para cada tipo.
+En el ejemplo anterior se definen dos tipos para cada categoría de
+empleado, =Permanent= y =Contract=. El método =calculateSalary= se
+define para los dos tipos. El cálculo es diferente para cada tipo.
 
 El uso de la interfaz =SalaryCalculator= permite guardar en el arreglo
-estructuras de tipo =Permanent= y =Contract= indistintamente. Cda
+estructuras de tipo =Permanent= y =Contract= indistintamente. Cada
 elemento del arreglo invocará al método =calculateSalary= del tipo
 subyacente.
 
@@ -61,6 +63,7 @@ subyacente.
    :PROPERTIES:
    :CUSTOM_ID: interfaces-anidadas.
    :END:
+
 Las interfaces al igual que las estructuras pueden anidarse.
 
 #+begin_src go
@@ -78,16 +81,16 @@ Las interfaces al igual que las estructuras pueden anidarse.
   }
 #+end_src
 
-Cualquier tipo que implemente la interfaz =ReadSeeker= tiene que
+Para que un tipo implemente la interfaz =ReadSeeker= tiene que
 implementar =Read= y =Seeker= a la vez.
 
 ** Interfaces y composición.
    :PROPERTIES:
    :CUSTOM_ID: interfaces-y-composición.
    :END:
-De la misma forma que una estructura "hereda" los métodos de otra en la
-composición, una estructura implementa las interfaces de aquellas que la
-componen
+
+De la misma forma que una estructura "hereda" los métodos de otra en
+la composición, implementa las interfaces de aquellas que la componen
 
 #+begin_src go
 
@@ -117,8 +120,10 @@ En el ejemplo anterior el tipo =GuidedDog= implementa la interfaz
    :PROPERTIES:
    :CUSTOM_ID: la-interfaz-vacía
    :END:
-El tipo =interface{}= representa valore de cualquier tipo en Golang
-(tecnicamente todos los tipos implementan una interfaz sin métodos)
+
+El tipo =interface{}= representa un valor comodín al estilo el tipo
+=object= de C# o =void *= en C (tecnicamente todos los tipos
+implementan una interfaz sin métodos)
 
 #+begin_src go
   func describe(i interface{}) {
@@ -126,13 +131,10 @@ El tipo =interface{}= representa valore de cualquier tipo en Golang
   }
 #+end_src
 
-** Type assertions
-   :PROPERTIES:
-   :CUSTOM_ID: type-assertions
-   :END:
-A veces es necesario saber el tipo concreto detrás de una interfaz.
 
 ** Punteros a interfaces
    :PROPERTIES:
    :CUSTOM_ID: punteros-a-interfaces
    :END:
+
+Golang representa las interfaces como

@@ -1,4 +1,4 @@
-* Cosas que quedan por terminar
+>* Cosas que quedan por terminar
 
 ** Semana 1 [1/3]
 
@@ -13,10 +13,10 @@
   - [X] 08-maps
   - [X] 09-packages-modules
   - [X] 10-cmdline
-- [-] Dia 2. [2/5]
+- [-] Dia 2. [3/5]
   - [X] 11-errors-defer-panic-recover
   - [X] 12-testing
-  - [ ] 13-structs-pointers
+  - [X] 13-structs-pointers
   - [ ] 14-interfaces
   - [ ] 15-concurrency
 - [ ] Dia 3. [0/3]
@@ -30,12 +30,8 @@
 - [ ] Dia 6.
   - [ ] 19-dbaccess
   - [ ] 20-echo
-  - [ ] 21-concurrency-patterns
 - [ ] Dia 7
+  - [ ] 21-concurrency-patterns
+  - [ ] 22-context
+  - [ ] 23 cancellation
 - [ ] Dia 8
-
-** Semana 3 [0/3]
-
-- [ ] Dia 11.
-- [ ] Dia 12.
-- [ ] Dia 13.

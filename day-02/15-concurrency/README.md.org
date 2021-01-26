@@ -2,15 +2,52 @@
   :PROPERTIES:
   :CUSTOM_ID: concurrencia-en-go.
   :END:
+
 ** Gorutinas
    :PROPERTIES:
    :CUSTOM_ID: gorutinas
    :END:
+
+Las gorutinas son funciones o métodos que se ejecutan de modo
+concurrente. Para los efectos se pueden considerar como hilos o
+threads ligeros.
+
+Las gorutinas se crean usando la palabre clave =go= antes de la
+llamada a una función.
+
+#+begin_src go
+func name(){
+// código
+}
+
+// llamar name como una gorutina
+go name()
+
+// llamar función anónima como
+// gorutina
+go func() {
+// código
+}()
+
+#+end_src
+
+Las gorutinas se ejecutan de modo concurrente. Notar que concurrencia
+no es lo mismo que paralelismo.
+
 ** Canales
    :PROPERTIES:
    :CUSTOM_ID: canales
    :END:
+
+Los canales
 ** Sincronización.
    :PROPERTIES:
    :CUSTOM_ID: sincronización.
    :END:
+
+** Referencias
+   :PROPERTIES:
+   :CUSTOM_ID: referencias
+   :END:
+
+1. [[https://blog.golang.org/waza-talk][Concurrency is Not Parallelism]]
