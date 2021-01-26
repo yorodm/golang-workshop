@@ -4,7 +4,9 @@
   :CUSTOM_ID: instalacion
   :END:
 
-1. Descargar la versión para tu OS desde [[https://golang.org/dl]].
+1. Descargar la versión para tu OS desde [[https://golang.org/dl]]
+   (algunas distribuciones de Linux incluyen el paquete en sus
+   repositorios).
 
 2. Abrir el instalador y seguir las
    [[https://golang.org/doc/install][instrucciones]].
@@ -12,7 +14,7 @@
    Golang quedará instalado por defecto en:
 
    #+begin_example
-      Unix: /usr/local/go
+      (Unix| Linux): /usr/local/go (la localización puede variar según la distribución de Linux)
       Windows: C:\Go
    #+end_example
 
