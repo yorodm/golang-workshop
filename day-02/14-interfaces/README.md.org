@@ -131,10 +131,69 @@ implementan una interfaz sin métodos)
   }
 #+end_src
 
-
-** Punteros a interfaces
+** Type Assertions.
    :PROPERTIES:
-   :CUSTOM_ID: punteros-a-interfaces
+   :CUSTOM_ID: type-assertions
    :END:
 
-Golang representa las interfaces como
+A veces nos es necesario saber de qué tipo es el valor guardado en la
+interfaz.
+
+#+begin_src go
+    var i interface{} = "hello"
+	s := i.(string)
+	fmt.Println(s)
+
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+
+	f = i.(float64) // panic
+	fmt.Println(f)
+
+#+end_src
+
+La sintaxis =variable.(Tipo)= es un *type assertion*, concepto muy
+parecido al *type casting* de otros lenguajes.
+
+Los type assertions se ejecutan con alguna de las siguientes variantes
+
+#+begin_src go
+// variante segura
+   v, ok := i.(Tipo)
+// variante insegura
+   v := i.(Tipo)
+#+end_src
+
+La variante segura retorna un par =(Tipo,bool)= donde si el segun
+valor representa el estado de la opeación. Un estado de =true=
+significa que se pudo efectuar la conversión, =false= que la
+conversión no es posible y el primer valor de la tupla estará con el
+valor nulo.
+
+En la variante insegura si no se puede efectuar la conversión el
+/runtime/ de Golang lanzará un =panic=.
+
+** Type switches
+   :PROPERTIES:
+   :CUSTOM_ID: type-switches
+   :END:
+
+Los *type switches* son una construcción especial que nos permite
+determinar el tipo de una variable y actuar en consecuencia
+
+#+begin_src go
+switch v := v.(type) {
+    case string:
+        fmt.Printf("%v is a string\n", v)
+    case int:
+        fmt.Printf("%v is an int\n", v)
+    default:
+        fmt.Printf("The type of v is unknown\n")
+}
+#+end_src
+
+En lugar de usar la sintaxis =v.(Tipo)= para la conversión se utiliza
+=v.(type)=.

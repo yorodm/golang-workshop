@@ -1,4 +1,4 @@
->* Cosas que quedan por terminar
+* Cosas que quedan por terminar
 
 ** Semana 1 [1/3]
 
@@ -13,11 +13,11 @@
   - [X] 08-maps
   - [X] 09-packages-modules
   - [X] 10-cmdline
-- [-] Dia 2. [3/5]
+- [-] Dia 2. [4/5]
   - [X] 11-errors-defer-panic-recover
   - [X] 12-testing
   - [X] 13-structs-pointers
-  - [ ] 14-interfaces
+  - [X] 14-interfaces
   - [ ] 15-concurrency
 - [ ] Dia 3. [0/3]
   - [ ] 16-json-xml
@@ -34,4 +34,3 @@
   - [ ] 21-concurrency-patterns
   - [ ] 22-context
   - [ ] 23 cancellation
-- [ ] Dia 8
