@@ -13,10 +13,10 @@ func (a *Address) Print() string {
 
 // Employee refers to an employee record
 type Employee struct {
-	firstName string
-	lastName  string
-	age       int
-	Address
+	firstName string "el nombre"
+	lastName  string "el apellido"
+	age       int    "la edad"
+	Address   "dirección embebida"
 }
 
 // Print will display a formatted employee record

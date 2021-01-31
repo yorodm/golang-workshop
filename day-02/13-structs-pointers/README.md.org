@@ -79,6 +79,36 @@ punto.
 //Output: New York
 #+end_src
 
+** Etiquetas
+   :PROPERTIES:
+   :CUSTOM_ID: tags
+   :END:
+
+Los campos en las estructuras pueden opcionalmente tener
+etiquetas. Las etiquetas funcionan como metadatos y no afectan la
+forma en que se representan los datos de la estructura.
+
+#+begin_src go
+type Employee struct {
+	firstName string "el nombre"
+	lastName  string "el apellido"
+	age       int    "la edad"
+}
+#+end_src
+
+Las etiquetas pueden opcionalmente ser pares =llave:"valor"=.
+
+#+begin_src go
+type Employee struct {
+	firstName string `json:"nombre"`
+	lastName  string `json:"apellido"`
+	age       int    `json:"edad"`
+}
+#+end_src
+
+Por convención la llave corresponde al nombre del paquete encargado de
+procesar la anotación.
+
 ** Composición
    :PROPERTIES:
    :CUSTOM_ID: composición
