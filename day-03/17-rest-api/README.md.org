@@ -31,7 +31,7 @@ servidor y el ciclo de petición y respuesta. La variable
    :END:
 
 Usar =DefaultServeMux= tiene sentido para proyectos pequeños, pero lo
-usual es que utilicemos nuestra propia instancia de =ServeMux=
+usual es que utilicemos nuestra propio =ServeMux=
 
 #+begin_src go
   mux := http.NewServeMux()
@@ -41,7 +41,7 @@ usual es que utilicemos nuestra propia instancia de =ServeMux=
   log.Fatal(http.ListenAndServe(":8080", mux))
 #+end_src
 
-Alternativamente podemos crear nuestra propia instancia de =Server=.
+Alternativamente podemos crear nuestro propio =Server=.
 
 #+begin_src go
 	// Create a server listening on port 8000
