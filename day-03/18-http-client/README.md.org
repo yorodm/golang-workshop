@@ -13,6 +13,7 @@ Para este ejercicio se utiliza el tester HTTP https://httpbin.org
    :PROPERTIES:
    :CUSTOM_ID: ejecutando-un-get
    :END:
+
 #+begin_src go
   resp, _ := http.Get("https://httpbin.org/get")
   defer resp.Body.Close()
@@ -38,42 +39,11 @@ Para este ejercicio se utiliza el tester HTTP https://httpbin.org
 Notar que si obtenemos un error de =http.Get= o =http.Post= debemos
 cerrar el body (utilizando =defer=).
 
-** Extrayendo informacion de una respuesta JSON
-   :PROPERTIES:
-   :CUSTOM_ID: extrayendo-informacion-de-una-respuesta-json
-   :END:
-Dado este JSON:
-
-#+begin_src go
-  {
-    "headers": {
-      "Accept-Encoding": "gzip",
-      "Host": "httpbin.org",
-      "User-Agent": "Go-http-client/1.1"
-    }
-  }
-#+end_src
-
-Podemos extraer informacion del campo =User-Agent= de la siguiente
-manera:
-
-#+begin_src go
-  type response struct {
-      Headers struct {
-          UserAgent string `json:"User-Agent"`
-      } `json:"headers"`
-  }
-
-  var resp response
-  _ := json.Unmarshal([]byte(jsonData), &resp)
-
-  fmt.Println(resp.Headers.UserAgent)
-#+end_src
-
 ** HTTP request timeouts
    :PROPERTIES:
    :CUSTOM_ID: http-request-timeouts
    :END:
+
 Podemos especificar un tiempo maximo de espera para que un request que
 tarda mucho termine automaticamente.
 

@@ -54,7 +54,6 @@ Alternativamente podemos crear nuestra propia instancia de =Server=.
 	log.Fatal(s.ListenAndServe())
 #+end_src
 
-
 ** APIS REST con ServeMux.
    :PROPERTIES:
    :CUSTOM_ID: apis-rest-con-servemux.
@@ -101,8 +100,6 @@ func main() {
 	// use mux
 }
 #+end_src
-
-Existen varias bibliotecas de terceros que proveen mejores alternativas.
 
 ** Referencias
    :PROPERTIES:

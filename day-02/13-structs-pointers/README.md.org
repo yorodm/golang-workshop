@@ -27,7 +27,7 @@ Los campos individuales de un =struct= se acceden con =.=.
 
   fmt.Println(emp.firstName)
 
-  > Something
+//Output: Something
 #+end_src
 
 ** Campos struct
@@ -35,7 +35,7 @@ Los campos individuales de un =struct= se acceden con =.=.
    :CUSTOM_ID: campos-struct
    :END:
 
-Golang permite que los campos de un =struct= puedan ser de tipo=struct=.
+Golang permite que los campos de un =struct= puedan ser de tipo =struct=.
 
 #+begin_src go
   type Address struct {
@@ -67,7 +67,7 @@ el bloque de inicialización
 
   fmt.Println(emp)
 
-  > {Peter  {New York New York}}
+//Output: {Peter  {New York New York}}
 #+end_src
 
 Los campos anidados se acceden con multiples niveles de notacion de
@@ -76,7 +76,7 @@ punto.
 #+begin_src go
   fmt.Println(emp.address.city)
 
-  > AA
+//Output: New York
 #+end_src
 
 ** Composición
@@ -120,16 +120,16 @@ campos
 Los campos de la estructura interna son accesibles desde la externa.
 
 #+begin_src go
-  ```go
   fmt.Println(emp.city)
 
-  > New York
+//Output: New York
 #+end_src
 
 ** Igualdad
    :PROPERTIES:
    :CUSTOM_ID: igualdad
    :END:
+
 Un =struct= es un tipo por valor. Dos variables =struct= se consideran
 iguales si todos los valores de sus campos son iguales. Esto quiere
 decir que si un =struct= tiene campos que no se pueden comparar, como un
@@ -169,9 +169,9 @@ registro mas claramente:
 
   emp.Print()
 
-  > Employee Record:
-    Name: Allen Varghese
-    Address: {AA CO}
+// Outpput  Employee Record:
+//          Name: Allen Varghese
+//          Address: {AA CO}
 #+end_src
 
 En el ejemplo anterior =e= es un parámetro implícto que se pasa al
@@ -217,14 +217,13 @@ referencia* son una aplicación directa de este concepto.
   emp.updateAge(34)
   fmt.Println("After:", emp.age)
 
-  > Before: 33
-    After: 34
+//Output: Before: 33
+//        After: 34
 #+end_src
 
 En le ejemplo anterior el campo =age= se modifica en la variable
 original. Para indicar este comportamiento notar el =*= antes del tipo
 =Employee= en la definicion del metodo =updateAge=.
-
 
 ** Receptores: puntero o valor
    :PROPERTIES:

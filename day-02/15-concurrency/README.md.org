@@ -31,19 +31,94 @@ go func() {
 
 #+end_src
 
-Las gorutinas se ejecutan de modo concurrente. Notar que concurrencia
-no es lo mismo que paralelismo.
+Las gorutinas se ejecutan de modo *concurrente*. Para sincronizar
+gorutinas es común utilizar elementos de sincronización como
+=sync.WaitGroup=.
+
+Un ejemplo recurrente es esperar que varias gorutinas terminen antes
+de salir de =main=. En otro caso el programa terminaría sin esperar
+por que las gorutinas completen su trabajo.
+
+#+begin_src go
+func main() {
+	wg := &sync.WaitGroup{}
+	wg.Add(4)
+	for i:=0; i < 4; i++ {
+		go worker(wg)
+	}
+	// Sin esto es posible que main termine
+	// antes de las gorutinas.
+	wg.Wait()
+}
+
+func worker(w *sync.WaitGroup) {
+	defer wg.Done()
+	DoWork()
+}
+#+end_src
 
 ** Canales
    :PROPERTIES:
    :CUSTOM_ID: canales
    :END:
 
-Los canales
-** Sincronización.
-   :PROPERTIES:
-   :CUSTOM_ID: sincronización.
-   :END:
+Los canales son un mecanismo para sincronización y comunicación entre
+gorutinas. Los usuarios de sistemas basados en Unix pueden pensar en
+canales como /pipes/.
+
+Para crear un canal usamos la función =make=.
+
+#+begin_src go
+c := make(chan string) // canal sin buffer
+cb := make(chan string, 200) // canal con buffer de 200
+#+end_src
+
+La comunicación vía canales en síncrona. Cuando se envían datos a un
+canal la gorutina se bloquea hasta que estos datos sean recibidos. Lo
+mismo ocurre si se intenta recibir sin haber datos disponibles.
+
+Los canales con buffer permiten acumular datos enviados y solo bloquean si
+
+1. Se han enviado =n= datos, donde =n= es el tamaño del buffer.
+2. Se intenta recibir desde el canal y el buffer no contiene datos.
+
+Para cerrar un canal se utiliza =close=. Un canal cerrado no puede
+usarse para enviar datos. Recibir datos de un canal cerrado siempre
+retornará el /valor cero/ del tipo de datos del canal.
+
+#+begin_src go
+// Enviar
+c <- "Hola"
+// Recibir
+v := <- c
+// Recibir mientras el canal esté abierto
+for v := range c {
+	processValue(v)
+}
+#+end_src
+
+A veces es necesario recibir información de más de un canal. Uno de
+los casos más comunes es usar =time.After= para establecer tiempos de
+espera para una operación.
+
+La sentencia =select= nos permite esperar por el resultado de más de
+un canal.
+
+#+begin_src go
+for {
+	select {
+	case v := <-input:
+		doOperation(v)
+	// Canal de tipo <- chan Time
+	case <- time.After(time.Duration(80) * time.Millisecond):
+		fmt.Println("Timeout!")
+		return results
+	}
+}
+#+end_src
+
+En el ejemplo anterior, en caso de que el canal =input= no reciba
+datos en 80 milisegundos el código del segundo =case= es ejecutado.
 
 ** Referencias
    :PROPERTIES:
@@ -51,3 +126,6 @@ Los canales
    :END:
 
 1. [[https://blog.golang.org/waza-talk][Concurrency is Not Parallelism]]
+2. [[https://tour.golang.org/concurrency/1][Gorutines - A Tour of Go]]
+3. [[https://tour.golang.org/concurrency/2][Channels - A Tour of Go]]
+4. [[https://tour.golang.org/concurrency/3][Buffered Channels - A Tour of Go]]

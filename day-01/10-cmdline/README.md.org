@@ -67,8 +67,8 @@ clave no existe.
   fmt.Println("FOO:", os.Getenv("FOO"))
   fmt.Println("BAR:", os.Getenv("BAR"))
 
-  > FOO: 1
-    BAR:
+//Output: FOO: 1
+//        BAR:
 #+end_src
 
 En el ejemplo anterior se le da a la variable de entorno =FOO= el valor

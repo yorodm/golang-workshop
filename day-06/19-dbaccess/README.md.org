@@ -2,3 +2,7 @@
   :PROPERTIES:
   :CUSTOM_ID: acceso-a-bases-de-datos
   :END:
+
+** Bases de datos SQL
+
+** Bases de datos NOSQL

@@ -13,7 +13,7 @@ Un arreglo se define como =[size]type=:
   var a [3]int
   fmt.Println(a)
 
-  > [0 0 0]
+// Output: [0 0 0]
 #+end_src
 
 En el ejemplo anterior se define un arreglo de enteros de 3 elementos.
@@ -32,7 +32,7 @@ con el operador ===.
 
   fmt.Println(a)
 
-  > [1 2 3]
+// Output: [1 2 3]
 #+end_src
 
 Un arreglo se puede inicializar en la declaración:
@@ -77,7 +77,7 @@ La funcion =len= se usa para conocer el tamaño de un arreglo:
   a := [...]int{1, 2, 3}
   fmt.Println(len(a))
 
-  > 3
+// Output: 3
 #+end_src
 
 Una forma de interactuar con un arreglo es utilizar el keyword =range=.
@@ -95,7 +95,7 @@ arreglo, y suma todos los valores.
   }
   fmt.Println("Sum:", sum)
 
-  > 15
+// Output: 15
 #+end_src
 
 Se puede usar el =blank identifier= (=_=) si no nos interesa alguno de
@@ -124,7 +124,7 @@ Se pueden crear arreglos de mas de una dimension de la siguiente manera:
 
   fmt.Println(a)
 
-  > [[lion tiger] [cat dog] [pigeon peacock]]
+// Output: [[lion tiger] [cat dog] [pigeon peacock]]
 #+end_src
 
 Se puede imprimir el arreglo de diferente manera utilizando el iterador
@@ -166,7 +166,7 @@ arreglo:
   sa := a[1: 4]
   fmt.Println(sa)
 
-  > [2 3 4]
+// Output: [2 3 4]
 #+end_src
 
 En el ejemplo anterior, el slice =sa= apunta a los elementos del arreglo
@@ -185,8 +185,8 @@ elemento del slice modifica el arreglo original.
 
   fmt.Println("After:", a)
 
-  > Before: [1 2 3 4 5]
-  > After: [1 22 3 4 5]
+// Output: Before: [1 2 3 4 5]
+// Output: After: [1 22 3 4 5]
 #+end_src
 
 Un slice tambien se puede crear utilizando la funcion =make=,
@@ -204,7 +204,7 @@ por defecto del tipo del slice.
   i := make([]int, 5, 5)
   fmt.Println(i)
 
-  > [0 0 0 0 0]
+// Output: [0 0 0 0 0]
 #+end_src
 
 El tamaño de un slice se puede incrementar utilizando la función
@@ -223,7 +223,7 @@ para expandir el slice en sus valores.
 
   fmt.Println(newSa)
 
-  > [1, 2, 3]
+// Output: [1, 2, 3]
 #+end_src
 
 En el ejemplo anterior la función =append= se usa para agregar 3 valores

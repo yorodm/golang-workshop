@@ -33,7 +33,7 @@ para esa clave se sobrescribe.
 
   fmt.Println(m)
 
-  > map[a:1 b:2]
+// Output: map[a:1 b:2]
 #+end_src
 
 Un =map= se puede inicializar con valores en su declaración igual que un
@@ -80,9 +80,9 @@ El iterador =for= se utiliza para recorrer las claves y valores de un
       fmt.Println("Key:", key, " Value:", value)
   }
 
-  > Key: a  Value 1
-    Key: b  Value 2
-    Key: c  Value 3
+// Output: Key: a  Value 1
+//         Key: b  Value 2
+//         Key: c  Value 3
 #+end_src
 
 Se puede utilizar el identificador en blanco (=_=) para descartar

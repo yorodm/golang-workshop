@@ -6,11 +6,11 @@
    :PROPERTIES:
    :CUSTOM_ID: etiquetas-de-estructuras
    :END:
-** Serialización
+** Utilizando =encoding/json=
    :PROPERTIES:
    :CUSTOM_ID: serialización
    :END:
-** Deserializacíon.
+** Utilizando =encoding/xml=
    :PROPERTIES:
    :CUSTOM_ID: deserializacíon.
    :END:
