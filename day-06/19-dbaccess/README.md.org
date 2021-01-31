@@ -4,5 +4,203 @@
   :END:
 
 ** Bases de datos SQL
+   :PROPERTIES:
+   :CUSTOM_ID: database-sql
+   :END:
 
-** Bases de datos NOSQL
+El paquete =database/sql= contiene interfaces genéricas para el acceso
+a bases de datos SQL. El concepto es similar a *ADO.NET* en .NET
+Framework o *JDBC* en Java.
+
+Para el resto de los ejemplo asumamos que tenemos una base de datos
+SQLIte con la siguiente estructura.
+
+#+begin_src sql
+CREATE TABLE `userinfo` (
+	   `uid` INTEGER PRIMARY KEY AUTOINCREMENT,
+	   `username` VARCHAR(64) NULL,
+	   `departname` VARCHAR(64) NULL,
+	   `created` DATE NULL
+);
+#+end_src
+
+Para acceder a una base de datos usamos la función =sql.Open=. La
+función recibe el nombre del driver y el DSN (ver documentación del
+driver)
+
+#+begin_src go
+import _ "github.com/mattn/go-sqlite3"
+
+// En una función
+db, err := sql.Open("sqlite3", "./data.db")
+if err != nil {
+	panic("Error accediendo a la base de datos")
+}
+defer db.Close() // Cerrar la base de datos siempre
+#+end_src
+
+La función =db.Query= nos permite consultar la base de datos. Las
+llamadas a =db.Query= retornan una estructura =db.Rows= que nos
+permite iterar sobre las filas recibidas e inspeccionar su valor.
+
+#+begin_src go
+// Consultar
+rows, err := db.Query("SELECT * FROM userinfo")
+checkErr(err)
+var uid int
+var username string
+var department string
+var created time.Time
+
+// Verdadero si existen más filas
+for rows.Next() {
+	// Tomar los valores de la fila
+	err = rows.Scan(&uid, &username, &department, &created)
+	checkErr(err)
+	fmt.Println(uid)
+	fmt.Println(username)
+	fmt.Println(department)
+	fmt.Println(created)
+}
+rows.Close() // Close libera recursos del iterador
+#+end_src
+
+Para ejecutar consultas que manipulen datos debemos crear una
+estructura =sql.Stmt=.
+
+#+begin_src go
+// Insertar
+stmt, err := db.Prepare("INSERT INTO userinfo(username, departname, created) values(?,?,?)")
+res, err := stmt.Exec("pparker", "Avengers", "2021-01-01")
+// Actualizar
+stmt, err = db.Prepare("update userinfo set username=? where uid=?")
+res, err = stmt.Exec("spiderman", id)
+// Eliminar
+stmt, err = db.Prepare("delete from userinfo where uid=?")
+res, err = stmt.Exec(id)
+// Llamar Close para liberar recursos
+err := stmt.Close()
+#+end_src
+
+** Bases de datos NOSQL: MongoDB
+   :PROPERTIES:
+   :CUSTOM_ID: database-nosql
+   :END:
+
+La mayoriá de los /drivers/ para bases de dato NOSQL de Golang no
+implementan las interfaces en =database/sql= por lo que cada
+biblioteca maneja sus propios tipos e interfaces.
+
+Veamos un ejemplo utilizando el /driver/ oficial para *MongoDB*
+
+#+begin_src go
+// Necesitamos estos imports
+import (
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+)
+
+#+end_src
+
+Necesitamos definir un =struct= que represente los datos de nuestra
+colección.
+
+#+begin_src go
+type Item struct {
+	ID     int    `json:"id,omitempty" bson:"id,omitempty"`
+	Title  string `json:"title,omitempty" bson:"title,omitempty"`
+	IsDone bool   `json:"isdone,omitempty" bson:"isdone,omitempty"`
+}
+#+end_src
+
+Las etiquetas =bson= son utilizadas por el /driver/ para serializar y
+deserializar hacia la base de datos. Es buena práctica incluir
+etiquetas =json= para poder mostrar o enviar los valores a otros
+componentes o servicios.
+
+A continuación se muestran ejemplos de como utilizar el cliente
+oficial de *MongoDB*
+
+Conectar y desconectar el cliente.
+
+#+begin_src go
+type MongoDB struct {
+	*mongo.Client
+}
+
+func NewMongoDB(ctx context.Context) (*MongoDB, error) {
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+	if err != nil {
+		return nil, err
+	}
+	return &MongoDB{client}, nil
+}
+
+func (m *MongoDB) Disconnect(ctx context.Context) {
+	defer m.Client.Disconnect(ctx)
+}
+#+end_src
+
+Las operaciones de crear y actualizar elementos
+
+#+begin_src go
+func (m *MongoDB) CreateItem(ctx context.Context, newItem Item) string {
+
+	collection := m.Database("todo").Collection("items")
+	result, _ := collection.InsertOne(ctx, newItem)
+
+	return result.InsertedID.(primitive.ObjectID).Hex()
+}
+
+func (m *MongoDB) UpdateItem(ctx context.Context, item Item) {
+	update := bson.M{"$set": bson.M{"title": item.Title, "isdone": item.IsDone}}
+
+	collection := m.Database("todo").Collection("items")
+	collection.UpdateOne(ctx, Item{ID: item.ID}, update)
+}
+#+end_src
+
+Obtener uno o varios elementos de la coleción.
+
+#+begin_src go
+func (m *MongoDB) GetItems(ctx context.Context) (items []Item) {
+	collection := m.Database("todo").Collection("items")
+	cursor, _ := collection.Find(ctx, bson.M{})
+
+	defer cursor.Close(ctx)
+	for cursor.Next(ctx) {
+		var oneItem Item
+		cursor.Decode(&oneItem)
+		items = append(items, oneItem)
+	}
+
+	return
+}
+
+func (m *MongoDB) GetItem(ctx context.Context, id int) (item Item) {
+
+	collection := m.Database("todo").Collection("items")
+	collection.FindOne(ctx, Item{ID: id}).Decode(&item)
+	return
+}
+#+end_src
+
+Eliminar elementos
+
+#+begin_src go
+func (m *MongoDB) DeleteItem(ctx context.Context, id int) {
+	collection := m.Database("todo").Collection("items")
+	collection.DeleteMany(ctx, Item{ID: id})
+	return
+}
+#+end_src
+
+** Referencias
+   :PROPERTIES:
+   :CUSTOM_ID: referencias
+   :END:
+
+1. [[https://pkg.go.dev/database/sql][Documentación de =database/sql=]]
+2. [[https://pkg.go.dev/go.mongodb.org/mongo-driver][Documentación del driver de MongoDB]]
