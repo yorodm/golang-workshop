@@ -12,8 +12,10 @@ El paquete =database/sql= contiene interfaces genéricas para el acceso
 a bases de datos SQL. El concepto es similar a *ADO.NET* en .NET
 Framework o *JDBC* en Java.
 
+*** Definiendo la base de datos.
+
 Para el resto de los ejemplo asumamos que tenemos una base de datos
-SQLIte con la siguiente estructura.
+con una tabla única.
 
 #+begin_src sql
 CREATE TABLE `userinfo` (
@@ -23,6 +25,8 @@ CREATE TABLE `userinfo` (
 	   `created` DATE NULL
 );
 #+end_src
+
+*** Estableciendo conexión
 
 Para acceder a una base de datos usamos la función =sql.Open=. La
 función recibe el nombre del driver y el DSN (ver documentación del
@@ -39,6 +43,9 @@ if err != nil {
 defer db.Close() // Cerrar la base de datos siempre
 #+end_src
 
+
+*** Consultas
+
 La función =db.Query= nos permite consultar la base de datos. Las
 llamadas a =db.Query= retornan una estructura =db.Rows= que nos
 permite iterar sobre las filas recibidas e inspeccionar su valor.
@@ -46,7 +53,6 @@ permite iterar sobre las filas recibidas e inspeccionar su valor.
 #+begin_src go
 // Consultar
 rows, err := db.Query("SELECT * FROM userinfo")
-checkErr(err)
 var uid int
 var username string
 var department string
@@ -64,6 +70,8 @@ for rows.Next() {
 }
 rows.Close() // Close libera recursos del iterador
 #+end_src
+
+*** Manipulación de datos
 
 Para ejecutar consultas que manipulen datos debemos crear una
 estructura =sql.Stmt=.
@@ -93,6 +101,8 @@ biblioteca maneja sus propios tipos e interfaces.
 
 Veamos un ejemplo utilizando el /driver/ oficial para *MongoDB*
 
+*** Obteniendo los paqutes necesarios
+
 #+begin_src go
 // Necesitamos estos imports
 import (
@@ -120,10 +130,8 @@ deserializar hacia la base de datos. Es buena práctica incluir
 etiquetas =json= para poder mostrar o enviar los valores a otros
 componentes o servicios.
 
-A continuación se muestran ejemplos de como utilizar el cliente
-oficial de *MongoDB*
 
-Conectar y desconectar el cliente.
+*** Conectar y desconectar.
 
 #+begin_src go
 type MongoDB struct {
@@ -143,7 +151,7 @@ func (m *MongoDB) Disconnect(ctx context.Context) {
 }
 #+end_src
 
-Las operaciones de crear y actualizar elementos
+*** Crear y actualizar
 
 #+begin_src go
 func (m *MongoDB) CreateItem(ctx context.Context, newItem Item) string {
@@ -162,7 +170,7 @@ func (m *MongoDB) UpdateItem(ctx context.Context, item Item) {
 }
 #+end_src
 
-Obtener uno o varios elementos de la coleción.
+*** Obtener elementos
 
 #+begin_src go
 func (m *MongoDB) GetItems(ctx context.Context) (items []Item) {
@@ -178,7 +186,11 @@ func (m *MongoDB) GetItems(ctx context.Context) (items []Item) {
 
 	return
 }
+#+end_src
 
+#+REVEAL: split
+
+#+begin_src go
 func (m *MongoDB) GetItem(ctx context.Context, id int) (item Item) {
 
 	collection := m.Database("todo").Collection("items")
@@ -187,7 +199,7 @@ func (m *MongoDB) GetItem(ctx context.Context, id int) (item Item) {
 }
 #+end_src
 
-Eliminar elementos
+*** Eliminar.
 
 #+begin_src go
 func (m *MongoDB) DeleteItem(ctx context.Context, id int) {

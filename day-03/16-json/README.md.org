@@ -28,7 +28,39 @@ desde/hacia bytes o representaciones de texto.
    :CUSTOM_ID: serializacion
    :END:
 
+=json.Marshal= codifica tipos Golang en JSON
 
+- =bool= como JSON Boolean.
+- valores numéricos como JSON Number.
+- =string= como JSON String, eliminando etiquetas HTML.
+- arreglos y /slices/ como JSON Array.
+- =struct= como JSON Object.
+- =nil= como =null=
+- =chan=, complex y literales de funciones provocan error.
+
+*** Serializando estructuras
+
+Las etiquetas definen como se serializan las estructuras.
+
+#+begin_src go
+type Address struct {
+	// omitempty hace que los campos vacíos no
+	// no se serialice.
+	City  string `json:"ciudad,omitempty"`
+	State string `json:"estado,omitempty"`
+	// Campos marcados con - no se serializan
+	Zip   strung `json:"-"`
+}
+
+type Employee struct {
+	FirstName string `json:"nombre"`
+	LastName  string `json:"apellido"`
+	Age       int    `json:"edad"`
+	// no se serializa porque no es exportado
+	id        string
+	Address
+}
+#+end_src
 
 ** Deserializando desde JSON (Unmarshal).
    :PROPERTIES:

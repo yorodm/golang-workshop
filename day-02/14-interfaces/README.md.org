@@ -8,12 +8,10 @@
    :CUSTOM_ID: interfaces-en-golang
    :END:
 
-En Golang, una interfaz es un conjunto de firmas de métodos. Si un tipo
-tiene una definición para esos metodos, se dice que implementa la
-interfaz. A diferencia de otros lenguajes, /la asociacion de un tipo con
-una interfaz es implicita/.
-
-Es convención en Golang hacer interfaces que contengan pocos métodos.
+En Golang, una interfaz es un conjunto de firmas de métodos. Si un
+tipo tiene una definición para esos metodos, se dice que implementa la
+interfaz. A diferencia de otros lenguajes, /la asociacion de un tipo
+con una interfaz es implicita/.
 
 Un tipo puede implementar mas de una interfaz.
 
@@ -49,15 +47,6 @@ Un tipo puede implementar mas de una interfaz.
   }
   fmt.Println(totalPayout)
 #+end_src
-
-En el ejemplo anterior se definen dos tipos para cada categoría de
-empleado, =Permanent= y =Contract=. El método =calculateSalary= se
-define para los dos tipos. El cálculo es diferente para cada tipo.
-
-El uso de la interfaz =SalaryCalculator= permite guardar en el arreglo
-estructuras de tipo =Permanent= y =Contract= indistintamente. Cada
-elemento del arreglo invocará al método =calculateSalary= del tipo
-subyacente.
 
 ** Interfaces anidadas.
    :PROPERTIES:
@@ -157,6 +146,8 @@ interfaz.
 
 La sintaxis =variable.(Tipo)= es un *type assertion*, concepto muy
 parecido al *type casting* de otros lenguajes.
+
+*** Type assertions seguras e inseguras
 
 Los type assertions se ejecutan con alguna de las siguientes variantes
 

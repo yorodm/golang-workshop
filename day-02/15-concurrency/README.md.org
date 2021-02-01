@@ -16,28 +16,20 @@ Las gorutinas se crean usando la palabre clave =go= antes de la
 llamada a una función.
 
 #+begin_src go
-func name(){
-// código
-}
-
 // llamar name como una gorutina
 go name()
 
-// llamar función anónima como
-// gorutina
+// gorutina  anónima como
 go func() {
 // código
 }()
-
 #+end_src
+
+*** Sincronizando gorutinas
 
 Las gorutinas se ejecutan de modo *concurrente*. Para sincronizar
 gorutinas es común utilizar elementos de sincronización como
 =sync.WaitGroup=.
-
-Un ejemplo recurrente es esperar que varias gorutinas terminen antes
-de salir de =main=. En otro caso el programa terminaría sin esperar
-por que las gorutinas completen su trabajo.
 
 #+begin_src go
 func main() {
@@ -73,6 +65,8 @@ c := make(chan string) // canal sin buffer
 cb := make(chan string, 200) // canal con buffer de 200
 #+end_src
 
+*** Tipos de canales
+
 La comunicación vía canales en síncrona. Cuando se envían datos a un
 canal la gorutina se bloquea hasta que estos datos sean recibidos. Lo
 mismo ocurre si se intenta recibir sin haber datos disponibles.
@@ -81,6 +75,8 @@ Los canales con buffer permiten acumular datos enviados y solo bloquean si
 
 1. Se han enviado =n= datos, donde =n= es el tamaño del buffer.
 2. Se intenta recibir desde el canal y el buffer no contiene datos.
+
+*** Terminando la comunicación.
 
 Para cerrar un canal se utiliza =close=. Un canal cerrado no puede
 usarse para enviar datos. Recibir datos de un canal cerrado siempre
@@ -100,6 +96,8 @@ for v := range c {
 A veces es necesario recibir información de más de un canal. Uno de
 los casos más comunes es usar =time.After= para establecer tiempos de
 espera para una operación.
+
+*** Multiplexing
 
 La sentencia =select= nos permite esperar por el resultado de más de
 un canal.
