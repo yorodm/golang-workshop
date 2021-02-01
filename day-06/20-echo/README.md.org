@@ -2,3 +2,93 @@
   :PROPERTIES:
   :CUSTOM_ID: labstack-echo
   :END:
+
+** Introducción
+
+*Echo* es un microframework Golang para crear servicios web.
+
+** Rutas y middleware
+   :PROPERTIES:
+   :CUSTOM_ID: rutas-middleware
+   :END:
+
+
+
+#+begin_src go
+import "github.com/labstack/echo/v4"
+
+func main(){
+	e.POST("/users", createUser)
+	e.GET("/users/:id", findUser)
+	e.PUT("/users/:id", updateUser)
+	e.DELETE("/users/:id", deleteUser)
+}
+#+end_src
+
+*** Middleware
+
+
+** Peticiones
+   :PROPERTIES:
+   :CUSTOM_ID: echo-request
+   :END:
+
+Las funciones handlers tienen la siguiente estructura:
+
+#+begin_src go
+func name (c echo.Context) (err error) {
+	// ...
+}
+#+end_src
+
+La interfaz =echo.Context= representa el acceso al estado de la
+solicitud (ruta, parámetros, /handlers/, etc) y contiene los métodos
+para generar las respuesta
+
+*** Obteniendo datos
+
+=echo.Context.Bind= nos permite enlazar una estructura con los datos
+de la petición
+
+#+begin_src go
+// Para representar el usuario, se usan las tags:
+// json - para peticiones JSON.
+// form - para formularios HTTP
+// query - para variables en la URL.
+type User struct {
+  Name  string `json:"name" form:"name" query:"name"`
+  Email string `json:"email" form:"email" query:"email"`
+}
+
+func handle(c echo.Context) (err error) {
+	u := new(User)
+	if err = c.Bind(u); err != nil {
+		return
+	}
+	// Hacer algo con el usuario
+}
+#+end_src
+
+** Respuestas
+   :PROPERTIES:
+   :CUSTOM_ID: echo-response
+   :END:
+
+=echo.Context= es también utilizada para generar respuestas.
+
+#+begin_src go
+// Retornar una cadena
+c.String(http.StatusOK, "Hello, World!")
+// Retornar HTML
+c.HTML(http.StatusOK, "<p>Hello, World!</p>")
+// Retorna JSON, serializa el valor de u
+c.JSON(http.StatusOK, u)
+// Retorna XML, serializa el valor de u
+c.XML(http.StatusOK, u)
+// Retorna el contenido del fichero
+c.File("<PATH_TO_YOUR_FILE>")
+// Retorna el contenido del fichero como flujo de datos
+c.Stream(http.StatusOK, "<CONTENT_TYPE>", file)
+// Redirige
+c.Redirect(http.StatusMovedPermanently, "<URL>")
+#+end_src
