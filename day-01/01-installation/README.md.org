@@ -16,19 +16,17 @@
 2. Abrir el instalador y seguir las
    [[https://golang.org/doc/install][instrucciones]].
 
-Golang quedará instalado por defecto en:
-
-#+begin_example
-(Unix| Linux): /usr/local/go (varía según el sistema)
-Windows: C:\Go
-#+end_example
+   #+begin_example
+   (Unix| Linux): /usr/local/go (varía según el sistema)
+   Windows: C:\Go
+   #+end_example
 
 3. Para chequear que la instalación esta correcta escribir en la
    consola
 
-#+begin_example
-$ go version
-#+end_example
+   #+begin_example
+   $ go version
+   #+end_example
 
 ** Configuración inicial
    :PROPERTIES:
@@ -37,19 +35,19 @@ $ go version
 
 1. Activar variables de entorno para el trabajo con módulos
 
-#+begin_example
-$ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
-#+end_example
+   #+begin_example
+   $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
+   #+end_example
 
 2. Para chequear que todas las variables de entorno están correctas
-   escribir en la consola
+escribir en la consola
 
-#+begin_example
-$ go env
-GOROOT = [Directorio de instalacion]
-GOPROXY=https://goproxy.io,direct
-GO111MODULE=on
-#+end_example
+   #+begin_example
+   $ go env
+   GOROOT = [Directorio de instalacion]
+   GOPROXY=https://goproxy.io,direct
+   GO111MODULE=on
+   #+end_example
 
 ** Completamiento en editores
    :PROPERTIES:

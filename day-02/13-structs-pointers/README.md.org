@@ -3,6 +3,8 @@
   :CUSTOM_ID: structs-y-punteros
   :END:
 
+** Tipos compuestos, =struct=
+
 Un =struct= es un tipo de dato definido por el usuario que representa
 una colección de campos.
 
@@ -14,9 +16,7 @@ una colección de campos.
   }
 #+end_src
 
-En el ejemplo anterior se define un =struct= con el nombre =Employee=
-que contiene atributos de un empleado como =first name=, =last name= y
-=age= con los respectivos tipos de datos de cada uno.
+#+REVEAL: split
 
 Los campos individuales de un =struct= se acceden con =.=.
 
@@ -49,6 +49,8 @@ Golang permite que los campos de un =struct= puedan ser de tipo =struct=.
   }
 #+end_src
 
+*** Inicializando un =struct=
+
 Para inicializar un campo =struct= simplemente nos referimos al mismo en
 el bloque de inicialización
 
@@ -64,11 +66,11 @@ el bloque de inicialización
           state: "New York",
       },
   }
-
   fmt.Println(emp)
-
 //Output: {Peter  {New York New York}}
 #+end_src
+
+#+REVEAL: split
 
 Los campos anidados se acceden con multiples niveles de notacion de
 punto.
@@ -87,14 +89,6 @@ punto.
 Los campos en las estructuras pueden opcionalmente tener
 etiquetas. Las etiquetas funcionan como metadatos y no afectan la
 forma en que se representan los datos de la estructura.
-
-#+begin_src go
-type Employee struct {
-	firstName string "el nombre"
-	lastName  string "el apellido"
-	age       int    "la edad"
-}
-#+end_src
 
 Las etiquetas pueden opcionalmente ser pares =llave:"valor"=.
 
@@ -129,8 +123,7 @@ composición. Para esto existe una notación especial
   }
 #+end_src
 
-Nótese que aquí no se incluye un campo para =Address=, con lo que
-indicamos que nuestro tipo =Employee= está compuesto por =Address=
+*** Inicializar =struct= compuesto
 
 Al crear una estructura compuesta tenemos que especificar todos los
 campos
@@ -145,13 +138,7 @@ campos
           state: "New York",
       },
   }
-#+end_src
-
-Los campos de la estructura interna son accesibles desde la externa.
-
-#+begin_src go
   fmt.Println(emp.city)
-
 //Output: New York
 #+end_src
 
@@ -180,12 +167,10 @@ mundo OOP. La sintaxis es la siguiente:
   }
 #+end_src
 
+*** Definiendo métodos
+
 Usualmente se define el código del método en el mismo archivo que el
 tipo que lo contiene.
-
-En el siguiente ejemplo se agrega el método =Print= al tipo =Employee=,
-definido en los ejemplo anteriores, para imprimir el contenido del
-registro mas claramente:
 
 #+begin_src go
   // Receptor por valor
@@ -194,19 +179,13 @@ registro mas claramente:
       fmt.Println("Name:", e.firstName, e.lastName)
       fmt.Println("Address:", e.address)
   }
-
+  // en main
   var emp Employee
-
   emp.Print()
-
 // Outpput  Employee Record:
 //          Name: Allen Varghese
 //          Address: {AA CO}
 #+end_src
-
-En el ejemplo anterior =e= es un parámetro implícto que se pasa al
-método =Print= (como el =this= en Java y C#). En este caso el
-parámetro se pasa /por valor/
 
 ** Punteros
    :PROPERTIES:
@@ -217,6 +196,8 @@ Golang soporta punteros para actualizar valores pero no admite
 aritmetica de punteros como en C. =*= se usa como prefijo para definir
 un puntero para de un tipo dado. El operador =&= se usa para crear
 punteros a tipos.
+
+*** Inicializando punteros
 
 El valor por defecto de los punteros en Golang es =nil=, este valor
 también se utiliza para indicar que un puntero es nulo.
@@ -230,6 +211,8 @@ var emp *Employee // puntero nil
 emp = &Employee{...} // puntero a Employee
 #+end_src
 
+*** Tipos referencias
+
 Un puntero es una referencia a un tipo, por lo que podemos utilizarlo
 para modificar el valor original. Los *receptores por puntero o por
 referencia* son una aplicación directa de este concepto.
@@ -239,10 +222,10 @@ referencia* son una aplicación directa de este concepto.
   func (e *Employee) updateAge(newAge int) {
       e.age = newAge
   }
+  // En main
   emp := Employee{
       age: 33,
   }
-
   fmt.Println("Before:", emp.age)
   emp.updateAge(34)
   fmt.Println("After:", emp.age)
@@ -250,10 +233,6 @@ referencia* son una aplicación directa de este concepto.
 //Output: Before: 33
 //        After: 34
 #+end_src
-
-En le ejemplo anterior el campo =age= se modifica en la variable
-original. Para indicar este comportamiento notar el =*= antes del tipo
-=Employee= en la definicion del metodo =updateAge=.
 
 ** Receptores: puntero o valor
    :PROPERTIES:

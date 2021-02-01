@@ -2,6 +2,7 @@
   :PROPERTIES:
   :CUSTOM_ID: manejo-de-errores-error-defer-recover-panic
   :END:
+
 ** Manejo de errores en Golang
    :PROPERTIES:
    :CUSTOM_ID: manejo-de-errores-en-golang
@@ -22,6 +23,11 @@ representado por un tipo de datos,
   }
 #+end_src
 
+** El tipo error
+   :PROPERTIES:
+   :CUSTOM_ID: error-type
+   :END:
+
 El tipo =error= es una interfaz /built-in/ del lenguaje
 
 #+begin_src go
@@ -29,6 +35,8 @@ El tipo =error= es una interfaz /built-in/ del lenguaje
       Error() string
   }
 #+end_src
+
+*** Errores personalizados
 
 Esto nos permite crear nuestros propios tipos de error
 
@@ -50,9 +58,11 @@ Esto nos permite crear nuestros propios tipos de error
   }
 #+end_src
 
+*** Operando con errores
+
 El paquete =errors= contiene funciones dedicadas a manejar tipos de
-error. Podemos usar la función =errors.Is= para verificar si un error es
-de un tipo específico.
+error. Podemos usar la función =errors.Is= para verificar si un error
+es de un tipo específico.
 
 #+begin_src go
   if _, err := os.Open("non-existing"); err != nil {
@@ -68,6 +78,7 @@ de un tipo específico.
    :PROPERTIES:
    :CUSTOM_ID: defer
    :END:
+
 La sentencia =defer= se utiliza para indicar que la función a
 continuación se debe ejecutar a la salida de la función actual
 
@@ -75,7 +86,6 @@ Es muy usual en Golang usar =defer= para destruir o liberar cualquier
 tipo de recursos temporal que se obtenga en la función.
 
 #+begin_src go
-
   func doSomething() {
    a := getExternalResource();
    defer a.Release()
@@ -83,8 +93,8 @@ tipo de recursos temporal que se obtenga en la función.
   }
 #+end_src
 
-=defer= se ejecuta sin importar las causas por las que la función actual
-haya terminado, lo que garantiza en el ejemplo anterior que
+=defer= se ejecuta sin importar las causas por las que la función
+actual haya terminado, lo que garantiza en el ejemplo anterior que
 =a.Release()= siempre se ejecute.
 
 ** Panic y recover
@@ -102,6 +112,8 @@ Si una llamada a =panic= no es seguida por un =recover= la función
 termina y el contexto pasa al invocador. Esto continúa hasta que se
 encuentre un recover o se llegue a la función =main= en cuyo caso el
 programa se detendrá con un mensaje de error.
+
+#+REVEAL: split
 
 #+begin_src go
   func f() {
@@ -125,9 +137,6 @@ programa se detendrá con un mensaje de error.
       g(i + 1)
   }
 #+end_src
-
-La función =f= usa =defer= y =recover= para garantizar que la llamada a
-=panic= en =g= no interrumpa al programa.
 
 ** Panic y recover no son try y catch
    :PROPERTIES:

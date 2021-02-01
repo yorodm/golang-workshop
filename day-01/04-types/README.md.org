@@ -2,6 +2,9 @@
   :PROPERTIES:
   :CUSTOM_ID: tipos
   :END:
+
+** Tipos simples
+
 Los siguientes tipos de datos estan disponibles en Golang:
 
 - bool
@@ -13,12 +16,15 @@ Los siguientes tipos de datos estan disponibles en Golang:
   - complex64, complex128
   - byte
   - rune
-
 - string
 - error
+- chan
 
+*** Booleanos
 
 =bool= representa valores boleanos =true= o =false=.
+
+*** Tipos numéricos
 
 Para tipos numéricos, el número que sigue al tipo indica el número de
 bits que se usa para representar el valor en memoria. El número de bits
@@ -42,7 +48,7 @@ determina que tan grande el número puede ser.
 
 =rune= alias de  =int32=
 
---------------
+*** Números complejos
 
 =complex64=: complex numbers which have float32 real and imaginary parts
 
@@ -55,7 +61,7 @@ partes reales e imaginarias:
   func complex(r, i FloatType) ComplexType
 #+end_src
 
---------------
+*** El tipo string
 
 =string= es una colección de caracteres encerrados entre comillas.
 
@@ -66,13 +72,16 @@ partes reales e imaginarias:
   fmt.Println("My name is",name)
 #+end_src
 
+*** Errores y canales.
 
 =error= es un tipo especial para indicar condiciones de error.
+=chan= es un tipo especial que representa un canal de comunicación.
 
 ** Conversion de tipos
    :PROPERTIES:
    :CUSTOM_ID: conversion-de-tipos
    :END:
+
 No hay conversión automatica de tipos en Golang. Se utilizan funciones
 de tipo para hacer una conversion.
 
@@ -85,6 +94,7 @@ de tipo para hacer una conversion.
    :PROPERTIES:
    :CUSTOM_ID: constantes
    :END:
+
 Las constantes no cambian su valor una vez asignado. Se usa el keyword
 =const= en vez de =var= para declarar una constante.
 

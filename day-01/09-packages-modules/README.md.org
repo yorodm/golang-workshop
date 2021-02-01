@@ -13,6 +13,8 @@ considerado una buena práctica.
 
 Supongamos que creamos el proyecto =github.com/ourcompany/superproduct=
 
+#+REVEAL: split
+
 #+begin_example
 +-- LICENSE
 +-- README.md
@@ -35,6 +37,8 @@ Supongamos que creamos el proyecto =github.com/ourcompany/superproduct=
        +-- lib.go             # package server
 #+end_example
 
+#+REVEAL: split
+
 El paquete =main= tiene significado especial ya que representa el
 punto de entrada de la aplicación. Como se ve en el ejemplo anterior
 podemos tener más de una aplicación en un mismo proyecto Golang
@@ -44,32 +48,6 @@ Al menos uno de los archivos en el paquete =main= debe tener una
 función =main=.
 
 ** Estructura de un proyecto
-
-Existen varias convenciones acerca de como estructurar un proyecto de
-Golang. Cada una tiene ventajas y desventajas. Hagamos un resumen de
-la que se muestra.
-
-#+begin_example
-+-- LICENSE
-+-- README.md
-+-- config.go  # package superproduct
-+-- go.mod
-+-- go.sum
-+-- client
-       +-- lib.go             # package client
-       +-- lib_test.go        # package server
-+-- cmd
-       +-- super-client
-           +-- main.go        # package main
-       +-- super-server       # package main
-           +-- main.go
-+-- internal
-       +-- auth
-           +-- auth.go        # package auth
-           +-- auth_test.go   # package auth
-+-- server
-       +-- lib.go             # package server
-#+end_example
 
 1. En la raiz se situan los archivos con funcionalidades comunes que
    se desean exportar.
@@ -87,9 +65,6 @@ la que se muestra.
 Para importar paquetes utilizamos *la ruta completa del paquete dentro
 del módulo*
 
-Una aplicación ficticia que haga uso de nuestro =superproduct= haría
-lo siguiente
-
 #+begin_src go
 package main
 
@@ -103,11 +78,15 @@ func main() {
 }
 #+end_src
 
+*** Alias con =import=
+
 Es posible usar alias para los paquetes importados
 
 #+begin_src go
 import s "github.com/ourcompany/superproduct"
 #+end_src
+
+*** Importando varios paquetes
 
 Cuando existen varios =imports=, la convención es agruparlos.
 
@@ -119,6 +98,8 @@ import (
 )
 #+end_src
 
+*** Casos especiales
+
 Existen dos casos especiales de alias para =import=
 
 1. El =.= incorpora todos los elementos del paquete que se importa a
@@ -129,7 +110,8 @@ Existen dos casos especiales de alias para =import=
 ** La función init
 
 La función =init= nos permite ejecutar código de inicialización para
-nustros paquetes.
+nustros paquetes. A diferencia de la función =main=, puede existir más
+de una función =init= por paquete.
 
 #+begin_src go
 // tomado de /github.com/lib/pq/conn.go
@@ -138,9 +120,6 @@ func init() {
 	sql.Register("postgres", &Driver{})
 }
 #+end_src
-
-A diferencia de la función =main=, puede existir más de una función
-=init= por paquete.
 
 ** Reglas de visibilidad
 
@@ -163,7 +142,10 @@ func NewSquare(a, b int) *square {
 }
 #+end_src
 
-Es posible para un tipo no exportado tener campos o métodos que sean exportados.
+#+REVEAL: split
+
+Es posible para un tipo no exportado tener campos o métodos que sean
+exportados.
 
 #+begin_src go
 // Area of a square
@@ -183,6 +165,9 @@ fmt.Println("Area is", s.Area())
 #+end_src
 
 ** Módulos
+   :PROPERTIES:
+   :CUSTOM_ID: paquetes-y-módulos
+   :END:
 
 A partir de la versión =1.13=, Golang incluye un sistema nativo de
 manejo de dependencias utilizando módulos. En versiones anteriores el
@@ -194,6 +179,8 @@ Para crear un módulo ejecutamos el siguiente comando:
 #+begin_src shell
 go mod init <nombre del módulo>
 #+end_src
+
+#+REVEAL: split
 
 Por convención el nombre del módulo es la URL del repositorio de
 control de versiones que alberga el código.

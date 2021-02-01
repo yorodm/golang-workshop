@@ -2,13 +2,16 @@
   :PROPERTIES:
   :CUSTOM_ID: variables
   :END:
+
+** Definiendo variables
+
 Una variable es un nombre que se le asigna a una porcion de memoria para
 almacenar un valor de un determinado tipo.
 
 El keyword =var= se usa para declarar variables. La sintaxis es
 =var <name> <type>= seguido (opcionalmente) por un valor inicial.
 
-Ejemplos:
+*** Ejemplos de variables
 
 #+begin_src go
   var a int // Inicializado por defecto
@@ -19,6 +22,8 @@ Ejemplos:
 
   e, f := 40, 50 // Crear y asignar
 #+end_src
+
+*** Valor inicial
 
 Si no se especifica un valor inicial Golang asigna uno por defecto
 dependiento del tipo de dato de la variable.

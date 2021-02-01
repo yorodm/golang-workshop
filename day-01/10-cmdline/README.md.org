@@ -2,14 +2,18 @@
   :PROPERTIES:
   :CUSTOM_ID: linea-de-comandos
   :END:
+
 ** Argumentos
    :PROPERTIES:
    :CUSTOM_ID: argumentos
    :END:
+
 Interactuar con la linea de comando es muy util y muy comun al ejecutar
 scripts y programas que no tienen GUI. El paquete =os= se usa para tener
 acceso a los argumentos de la linea de comandos al ejecutar un programa
 de Golang.
+
+#+REVEAL: split
 
 Los argumentos de la linea de comandos estan disponibles en el arreglo
 =os.Args=:
@@ -25,6 +29,7 @@ Los argumentos de la linea de comandos estan disponibles en el arreglo
    :PROPERTIES:
    :CUSTOM_ID: flags
    :END:
+
 Especificar los argumentos como valores separados por espacios en la
 terminal es muy basico y dificil de extender. El uso de =flags= provee
 mas flexibilidad en como los argumentos se especifican, sobre todo los
@@ -36,6 +41,8 @@ soportarlos.
 
   flag.<type>(nombre del flag, valor default, descripcion)
 #+end_src
+
+#+REVEAL: split
 
 Un flag se define con la sintaxis anterior. El =<type>= puede ser
 =string=, =int= o =bool=.
@@ -50,11 +57,14 @@ usuario los hubiera especificado.
    :PROPERTIES:
    :CUSTOM_ID: environment-variables
    :END:
+
 La variables de entorno se usan para configurar aspectos de sistema en
 la mayoria de los *NIX y tambien en Windows. Son pares de clave-valor
 usualmente disponibles para todos los programas que corren en la
 terminal/shell. Se pueden definir variables de entorno custom solo
 disponibles durante la ejecucion de un script de shell.
+
+#+REVEAL: split
 
 El paquete =os= proporciona dos funciones, =Setenv= y =Getenv=, para
 escribir y leer variables de entorno. Un string vacio se retorna si la
@@ -71,9 +81,7 @@ clave no existe.
 //        BAR:
 #+end_src
 
-En el ejemplo anterior se le da a la variable de entorno =FOO= el valor
-=1= al comienzo del programa, y se lee el valor de la variable =BAR=
-desde la lista de variables de entorno existentes.
+#+REVEAL: split
 
 La funcion =Environ= retorna la lista completa de todas las variables de
 entorno existentes.
@@ -86,7 +94,3 @@ entorno existentes.
       fmt.Println(pair[0])
   }
 #+end_src
-
-La lista se retorna en el formato =KEY=VALUE=. Por la tanto el string se
-puede dividir en === para tener acceso a la clave y al valor. Esto se
-hace con la funcion =strings.Split= que retorna un arreglo.

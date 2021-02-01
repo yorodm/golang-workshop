@@ -3,6 +3,11 @@
   :CUSTOM_ID: maps
   :END:
 
+** Tipos asociativos, =map=
+   :PROPERTIES:
+   :CUSTOM_ID: maps-inicial
+   :END:
+
 Un =map= un tipo de dato incluido en Golang que asocia una clave con un
 valor. El valor puede ser recuperado a partir de la clave.
 
@@ -13,9 +18,6 @@ Un =map= vacío se crea con la función =make=:
 
   eg: make(map[string]int)
 #+end_src
-
-En el ejemplo anterior se crea un =map= con una clave de tipo =string= que
-puede almacenar y recuperar valores de tipo =integer=.
 
 ** Agregando valores
    :PROPERTIES:
@@ -35,6 +37,8 @@ para esa clave se sobrescribe.
 
 // Output: map[a:1 b:2]
 #+end_src
+
+*** Inicializando un =map=
 
 Un =map= se puede inicializar con valores en su declaración igual que un
 arreglo:
@@ -79,11 +83,12 @@ El iterador =for= se utiliza para recorrer las claves y valores de un
   for key, value := range m {
       fmt.Println("Key:", key, " Value:", value)
   }
-
 // Output: Key: a  Value 1
 //         Key: b  Value 2
 //         Key: c  Value 3
 #+end_src
+
+#+REVEAL: split
 
 Se puede utilizar el identificador en blanco (=_=) para descartar
 cualquiera de los elementos del par.

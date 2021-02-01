@@ -30,7 +30,10 @@ Vamos a programar el tradicional =Hello World=.
    :PROPERTIES:
    :CUSTOM_ID: deep-dive
    :END:
+
 En esta sección vamos a revisar cada linea del programa =Hello World=.
+
+*** Packages e imports
 
 Linea 1 => =package main=
 
@@ -43,6 +46,8 @@ Linea 3 => =import "fmt"=
 En esta linea especificamos que el package =fmt= (que se incluye como
 parte de Golang), es requerido para ejecutar este programa.
 
+*** Funciones
+
 Linea 5 => =func main() {=
 
 Las funciones en Golang se definen con el keyword =func=. En esta linea
@@ -54,13 +59,13 @@ Para crear un ejecutable en Golang tiene que existir una funcion llamada
 funcion =main=, incluso si tenemos muchos archivos =.go= (solo puede
 existir un entrypoint por ejecutable)
 
+*** Bibliotecas
+
 Linea 6 => =fmt.Println("Hello World")=
 
 Esta linea imprime =Hello World= en la consola. =Println= es una función
 dentro del package =fmt= que recibe como argumento el string
-="Hello World"=. El =.= es usado para indicar donde encontrar a la
-función (=fmt.Println= quiere decir que =Println= esta definida en el
-package =fmt=).
+="Hello World"=.
 
 La función =Println= hace dos cosas::
 

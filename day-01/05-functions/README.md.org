@@ -2,20 +2,18 @@
   :PROPERTIES:
   :CUSTOM_ID: funciones
   :END:
+
+** Funciones en Golang
+   :PROPERTIES:
+   :CUSTOM_ID: golang-funcs
+   :END:
+
 Una funcion es un grupo de instrucciones que se ejecutan todas juntas
 como un bloque. Una funcion puede o no tener argumentos de entrada, y
 retornar valores.
 
-En Golang una funcion se define con el keyword =func= con el siguiente
-formato:
-
-#+begin_src go
-  func <name>(<arg1> <type of arg1>, ...) <return type> {
-      // cuerpo de la funcion (una o mas instrucciones)
-  }
-#+end_src
-
-El siguiente es un ejemplo de una funcion que suma dos enteros:
+En Golang una funcion se define con el keyword =func=. El siguiente es
+un ejemplo de una funcion que suma dos enteros:
 
 #+begin_src go
   func AddIntegers(a int, b int) int {
@@ -23,20 +21,15 @@ El siguiente es un ejemplo de una funcion que suma dos enteros:
   }
 #+end_src
 
+** Retornando valores
+   :PROPERTIES:
+   :CUSTOM_ID: golang-returns
+   :END:
+
 El keyword =return= es usado para indicar que valor va a retornar la
 funcion.
 
-Para llamar una funcion:
-
-#+begin_src go
-  AddIntegers(10, 20) => 30
-#+end_src
-
 Golang soporta que una funcion devuelva multiples valores:
-
-#+begin_src go
-  return a, b
-#+end_src
 
 #+begin_src go
   func SumDifference(a int, b int) (int, int) {
@@ -44,13 +37,11 @@ Golang soporta que una funcion devuelva multiples valores:
   }
 #+end_src
 
-En el ejemplo anterior se calcula los valores en la misma linea junto
-con la instruccion =return=.
-
 ** Identificador en blanco
    :PROPERTIES:
    :CUSTOM_ID: blank-identifier
    :END:
+
 Se utiliza el *identificador en blanco* en el lugar de un valor que se
 quiere descartar al llamar a una funcion:
 
@@ -64,6 +55,7 @@ quiere descartar al llamar a una funcion:
    :PROPERTIES:
    :CUSTOM_ID: named-return-values
    :END:
+
 Cuando se define una funcion se le puede asignar un nombre al tipo de
 dato de retorno para luego referenciarlo en el codigo de la funcion.
 
@@ -92,7 +84,9 @@ func Slice(slice interface{}, less func(i, j int) bool)
 El parámetro =less= describe una función que toma dos enteros y
 retorna un valor =bool=
 
-Podemos crear una variable que represente este tipo
+*** Literales función.
+
+Podemos asignar una función a una variable.
 
 #+begin_src go
 c := []int{20, 11, 12, 1, 5}
@@ -104,7 +98,9 @@ fmt.Println("Despues del sort", c)
 //Output: [1 5 11 12 20]
 #+end_src
 
-O utilizar una función anónima.
+*** Funciones anónimas
+
+Se puede definir una función en el momento de su uso
 
 #+begin_src go
 c := []int{20, 11, 12, 1, 5}
@@ -115,8 +111,5 @@ fmt.Println("Despues del sort", c)
 //Output: [1 5 11 12 20]
 #+end_src
 
-En el ejemplo anterior, la función es definida en el momento en vez de
-utilizar una variable intermedia.
-
-Las funciones anónimas tienen acceso a las variables de entorno donde
-están definidas formando *clausuras*
+Las funciones anónimas y los literales tienen acceso a las variables
+de entorno donde están definidas formando *clausuras*
