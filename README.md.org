@@ -1,3 +1,14 @@
+#+Title: Golang de 0 a API.
+#+Author: Yoandy Rodríguez Martínez
+#+Email: yoandy.rmartinez@gmail.com
+
+#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition:'none'
+#+OPTIONS: toc:nil
+#+REVEAL_THEME: moon
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Golang de 0 a API.">
+#+REVEAL_POSTAMBLE: <p> Created by yorodm. </p>
+
 #+INCLUDE: day-01/01-installation/README.md.org
 #+INCLUDE: day-01/02-hello-world/README.md.org
 #+INCLUDE: day-01/03-variables/README.md.org
@@ -13,7 +24,7 @@
 #+INCLUDE: day-02/13-structs-pointers/README.md.org
 #+INCLUDE: day-02/14-interfaces/README.md.org
 #+INCLUDE: day-02/15-concurrency/README.md.org
-#+INCLUDE: day-03/16-json-xml/README.md.org
+#+INCLUDE: day-03/16-json/README.md.org
 #+INCLUDE: day-03/17-rest-api/README.md.org
 #+INCLUDE: day-03/18-http-client/README.md.org
 #+INCLUDE: day-04/challenge1/1.1/README.md.org
