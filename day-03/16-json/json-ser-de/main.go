@@ -31,4 +31,11 @@ func main() {
 		log.Fatal("No se pudo serializar")
 	}
 	fmt.Println(string(d))
+	tony := `{"nombre":"Tony","apellido":"Stark","edad":44}`
+	var emp3 Employee
+	err = json.Unmarshal([]byte(tony), &emp3)
+	if err != nil {
+		log.Fatal("No se pudo deserializar")
+	}
+	fmt.Println(emp3)
 }

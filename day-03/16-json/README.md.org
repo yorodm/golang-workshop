@@ -66,3 +66,23 @@ type Employee struct {
    :PROPERTIES:
    :CUSTOM_ID: deserializacion
    :END:
+
+=json.Unmarshal= es la contraparte de =json.Marshal=.
+
+#+begin_src go
+tony := `{"nombre":"Tony","apellido":"Stark","edad":44}`
+var emp3 Employee
+err = json.Unmarshal([]byte(tony), &emp3)
+if err != nil {
+	log.Fatal("No se pudo deserializar")
+}
+#+end_src
+
+*** Consideraciones.
+
+1. =Unmarshal= a un slice elimina los valores del slice.
+2. =Unmarshal= a un array descarta los valores extra si el array
+   destino es muy pequeño.
+3. =Unmarshal= a un =map= conserva las llaves existentes.
+4. =null= se traduce a =nil= o al valor que tenga el tipo sin
+   inicializar
