@@ -2,15 +2,35 @@
   :PROPERTIES:
   :CUSTOM_ID: formatos-de-datos-json-y-xml
   :END:
-** Etiquetas de estructuras
+
+** El paquete =encoding=.
    :PROPERTIES:
-   :CUSTOM_ID: etiquetas-de-estructuras
+   :CUSTOM_ID: encoding
    :END:
-** Utilizando =encoding/json=
+
+El paquete =encoding= define interfaces para convertir datos
+desde/hacia bytes o representaciones de texto.
+
+- =ascii85= Formato utilizado por Adobe PDF y Postcript.
+- =asn1= 	Estructuras ASN.1 en formato DER.
+- =base32= 	Codificación Base32, RFC 4648.
+- =base64= 	Codificación Base64, RFC 4648.
+- =binary= 	Traducción entre formatos numéricos y codificación a  bytes de los mismos.
+- =csv= 	Archivos con valores separados por coma (CSV).
+- =gob= 	Transmisión de flujos de datos entre emisor y receptor ()
+- =hex= 	Valores hexadecimales.
+- =json= 	JSON como se define en la RFC 7159.
+- =pem= 	Formato PEM usado actualmente para representar llaves TLS y certificados.
+- =xml= 	Parser XML 1.0 con soporte para espacios de nombres.
+
+** Serializando a JSON (Marshal).
    :PROPERTIES:
-   :CUSTOM_ID: serialización
+   :CUSTOM_ID: serializacion
    :END:
-** Utilizando =encoding/xml=
+
+
+
+** Deserializando desde JSON (Unmarshal).
    :PROPERTIES:
-   :CUSTOM_ID: deserializacíon.
+   :CUSTOM_ID: deserializacion
    :END:
