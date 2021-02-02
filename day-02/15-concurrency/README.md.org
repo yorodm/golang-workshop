@@ -93,16 +93,13 @@ for v := range c {
 }
 #+end_src
 
-A veces es necesario recibir información de más de un canal. Uno de
-los casos más comunes es usar =time.After= para establecer tiempos de
-espera para una operación.
-
 *** Multiplexing
 
 La sentencia =select= nos permite esperar por el resultado de más de
 un canal.
 
 #+begin_src go
+// Esperamos por mensaje o timeout
 for {
 	select {
 	case v := <-input:
@@ -114,9 +111,6 @@ for {
 	}
 }
 #+end_src
-
-En el ejemplo anterior, en caso de que el canal =input= no reciba
-datos en 80 milisegundos el código del segundo =case= es ejecutado.
 
 ** Referencias
    :PROPERTIES:

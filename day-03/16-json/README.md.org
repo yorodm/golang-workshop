@@ -62,6 +62,14 @@ type Employee struct {
 }
 #+end_src
 
+#+REVEAL: split
+
+#+begin_src go
+emp1 := Employee{"Peter", "Parker", 22, Address{"Manhattan", "New York"}}
+d, _ := json.Marshal(&emp1)
+fmt.Println(string(d))
+#+end_src
+
 ** Deserializando desde JSON (Unmarshal).
    :PROPERTIES:
    :CUSTOM_ID: deserializacion

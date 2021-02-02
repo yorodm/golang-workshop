@@ -75,6 +75,7 @@ partes reales e imaginarias:
 *** Errores y canales.
 
 =error= es un tipo especial para indicar condiciones de error.
+
 =chan= es un tipo especial que representa un canal de comunicación.
 
 ** Conversion de tipos

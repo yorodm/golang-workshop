@@ -99,8 +99,6 @@ La mayoriá de los /drivers/ para bases de dato NOSQL de Golang no
 implementan las interfaces en =database/sql= por lo que cada
 biblioteca maneja sus propios tipos e interfaces.
 
-Veamos un ejemplo utilizando el /driver/ oficial para *MongoDB*
-
 *** Obteniendo los paqutes necesarios
 
 #+begin_src go
@@ -114,8 +112,11 @@ import (
 
 #+end_src
 
-Necesitamos definir un =struct= que represente los datos de nuestra
-colección.
+*** Definiendo los datos
+
+1. Las etiquetas =bson= para serializar y deserializar hacia la base
+   de datos.
+2. Las etiquetas =json= para comunición entre servicios.
 
 #+begin_src go
 type Item struct {
@@ -124,12 +125,6 @@ type Item struct {
 	IsDone bool   `json:"isdone,omitempty" bson:"isdone,omitempty"`
 }
 #+end_src
-
-Las etiquetas =bson= son utilizadas por el /driver/ para serializar y
-deserializar hacia la base de datos. Es buena práctica incluir
-etiquetas =json= para poder mostrar o enviar los valores a otros
-componentes o servicios.
-
 
 *** Conectar y desconectar.
 

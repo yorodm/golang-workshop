@@ -23,9 +23,10 @@ opcional:
   }
 #+end_src
 
-*Nota:* El bloque =else= debe estar en la misma linea que la llave de
-cierre (=}=) por que de esta manera Golang automaticamente inserta el
-=;=. Mas detalles [[https://golang.org/ref/spec#Semicolons][aqui]].
+#+begin_quote
+El bloque =else= debe estar en la misma linea que la llave de cierre
+(=}=).
+#+end_quote
 
 *** Inicializar la condición.
 
@@ -94,8 +95,7 @@ Es una forma abreviada de escribir muchas clausulas =if else=.
 
 *** =break=, =fallthrough= y =default=
 
-1. Las expresiones =break= y =fallthrough= se utilizan para detener o
-continuar el flujo entre sentencias =case=.
+1. =break= detiene el flujo y sale del =switch=
+2. =fallthrough= continúa al próximo =case=.
 2. Si no hay coincidencias, se ejecuta el codigo en el bloque
    =default=.
-3. Aunque los bloques =default= son opcionales es buena idea
