@@ -84,16 +84,16 @@ type Server struct {
 	AccessLogProducer sarama.AsyncProducer
 }
 
-func (s *Server) Close() error {
-	if err := s.DataCollector.Close(); err != nil {
+func (s *Server) Close() (err error) {
+	if err = s.DataCollector.Close(); err != nil {
 		log.Println("Failed to shut down data collector cleanly", err)
 	}
 
-	if err := s.AccessLogProducer.Close(); err != nil {
+	if err = s.AccessLogProducer.Close(); err != nil {
 		log.Println("Failed to shut down access log producer cleanly", err)
 	}
 
-	return nil
+	return
 }
 
 func (s *Server) Handler() http.Handler {
