@@ -41,3 +41,4 @@
 #+INCLUDE: day-05/challenge4/4.3/README.md.org
 #+INCLUDE: day-06/19-dbaccess/README.md.org
 #+INCLUDE: day-06/20-echo/README.md.org
+#+INCLUDE: day-07/21-sarama/README.md.org
