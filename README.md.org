@@ -3,7 +3,7 @@
 #+Email: yoandy.rmartinez@gmail.com
 
 #+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition:'none'
-#+OPTIONS: toc:nil
+#+OPTIONS: date:nil toc:nil timestamp:nil
 #+REVEAL_THEME: moon
 #+REVEAL_HLEVEL: 2
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Golang de 0 a API.">
