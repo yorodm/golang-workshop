@@ -59,7 +59,7 @@ opcionales en Golang.
 
 1. La inicialización se ejecuta una sola vez.
 2. La condición se prueba antes de ejecutar el ciclo.
-3. El post se ejecuta después del ciclo.
+3. El post se ejecuta después de cada iteración del ciclo.
 
 *** Ejemplo de =for=
 
