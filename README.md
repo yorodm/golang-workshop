@@ -36,4 +36,4 @@ Slides y ejemplos para un workshop de Golang para principiantes.
 30. Challenge 4.3
 31. Acceso a bases de datos
 32. Labstack Echo
-33. Golang y Kafka
+33. Golang y Kafka [en progreso]
