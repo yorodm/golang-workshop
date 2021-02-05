@@ -69,12 +69,12 @@ dato de retorno para luego referenciarlo en el codigo de la funcion.
 Al asignar un valor de retorno con nombre no hace falta incluirlo en
 la sentencia =return=.
 
-** Literales función, funciones anónimas y clausuras
+** Funciones anónimas y clausuras
    :PROPERTIES:
    :CUSTOM_ID: funciones-anónimas-y-clausuras
    :END:
 
-Golang soporta funciones de segundo orden y literales función. Tomemos por
+Golang soporta funciones anónimas y de segundo orden. Tomemos por
 ejemplo la función =sort.Slice=
 
 #+begin_src go
@@ -84,9 +84,10 @@ func Slice(slice interface{}, less func(i, j int) bool)
 El parámetro =less= describe una función que toma dos enteros y
 retorna un valor =bool=
 
-*** Literales función.
+*** Funciones anónimas.
 
-Podemos asignar una función a una variable.
+Podemos asignar una función a una variable o definirla en el momento
+de su uso. Las funciones anónimas forman *clausuras*
 
 #+begin_src go
 c := []int{20, 11, 12, 1, 5}
@@ -96,13 +97,6 @@ less := func(i int, j int) bool {
 sort.Slice(c, less)
 fmt.Println("Despues del sort", c)
 //Output: [1 5 11 12 20]
-#+end_src
-
-*** Funciones anónimas
-
-Se puede definir una función en el momento de su uso
-
-#+begin_src go
 c := []int{20, 11, 12, 1, 5}
 sort.Slice(c, func(i int, j int) bool {
 	return c[i] < c[j]
@@ -110,6 +104,3 @@ sort.Slice(c, func(i int, j int) bool {
 fmt.Println("Despues del sort", c)
 //Output: [1 5 11 12 20]
 #+end_src
-
-Las funciones anónimas y los literales tienen acceso a las variables
-de entorno donde están definidas formando *clausuras*

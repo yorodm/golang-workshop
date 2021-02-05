@@ -38,7 +38,7 @@ Abrir el instalador y seguir las
 <a href="https://golang.org/doc/install">instrucciones</a>.
 </p>
 
-<pre class="example" id="orga1bc25c">
+<pre class="example" id="org4e33942">
    (Unix| Linux): /usr/local/go (varía según el sistema)
    Windows: C:\Go
 </pre></li>
@@ -48,7 +48,7 @@ Para chequear que la instalación esta correcta escribir en la
 consola
 </p>
 
-<pre class="example" id="org1702e20">
+<pre class="example" id="orgd7622fd">
    $ go version
 </pre></li>
 
@@ -64,7 +64,7 @@ consola
 Activar variables de entorno para el trabajo con módulos
 </p>
 
-<pre class="example" id="orgc56934b">
+<pre class="example" id="org63af5c4">
    $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
 </pre></li>
 
@@ -75,7 +75,7 @@ Activar variables de entorno para el trabajo con módulos
 escribir en la consola
 </p>
 
-<pre class="example" id="orgdd67240">
+<pre class="example" id="org4daf861">
    $ go env
    GOROOT = [Directorio de instalacion]
    GOPROXY=https://goproxy.io,direct
@@ -92,7 +92,7 @@ escribir en la consola
 
 </ol>
 
-<pre class="example" id="orgd029b9d">
+<pre class="example" id="orgc8bdae0">
 $ go get golang.org/x/tools/gopls@latest
 </pre>
 
@@ -538,9 +538,9 @@ la sentencia <code>return</code>.
 </section>
 <section>
 <section id="slide-funciones-anónimas-y-clausuras">
-<h3 id="funciones-anónimas-y-clausuras"><span class="section-number-3">5.5</span> Literales función, funciones anónimas y clausuras</h3>
+<h3 id="funciones-anónimas-y-clausuras"><span class="section-number-3">5.5</span> Funciones anónimas y clausuras</h3>
 <p>
-Golang soporta funciones de segundo orden y literales función. Tomemos por
+Golang soporta funciones anónimas y de segundo orden. Tomemos por
 ejemplo la función <code>sort.Slice</code>
 </p>
 
@@ -557,9 +557,10 @@ retorna un valor <code>bool</code>
 
 </section>
 <section id="slide-5-5-1">
-<h4 id="5-5-1"><span class="section-number-4">5.5.1</span> Literales función.</h4>
+<h4 id="5-5-1"><span class="section-number-4">5.5.1</span> Funciones anónimas.</h4>
 <p>
-Podemos asignar una función a una variable.
+Podemos asignar una función a una variable o definirla en el momento
+de su uso. Las funciones anónimas forman <b>clausuras</b>
 </p>
 
 <div class="org-src-container">
@@ -571,19 +572,7 @@ Podemos asignar una función a una variable.
 sort.<span style="color: #d75fd7; font-weight: bold;">Slice</span>(c, less)
 fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Despues del sort"</span>, c)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: [1 5 11 12 20]</span>
-</pre>
-</div>
-
-</section>
-<section id="slide-5-5-2">
-<h4 id="5-5-2"><span class="section-number-4">5.5.2</span> Funciones anónimas</h4>
-<p>
-Se puede definir una función en el momento de su uso
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-go"><span style="color: #8787d7;">c</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{20, 11, 12, 1, 5}
+<span style="color: #8787d7;">c</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{20, 11, 12, 1, 5}
 sort.<span style="color: #d75fd7; font-weight: bold;">Slice</span>(c, <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">i</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">j</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">bool</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> c[i] &lt; c[j]
 })
@@ -591,11 +580,6 @@ fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style=
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: [1 5 11 12 20]</span>
 </pre>
 </div>
-
-<p>
-Las funciones anónimas y los literales tienen acceso a las variables
-de entorno donde están definidas formando <b>clausuras</b>
-</p>
 </section>
 </section>
 <section>
@@ -1233,7 +1217,7 @@ Supongamos que creamos el proyecto <code>github.com/ourcompany/superproduct</cod
 </section>
 <section>
 
-<pre class="example" id="org2991189">
+<pre class="example" id="orge199428">
 +-- LICENSE
 +-- README.md
 +-- config.go  # package superproduct
@@ -3832,7 +3816,6 @@ conf.Consumer.Interceptors = []<span style="color: #df005f; font-weight: bold;">
 </section>
 </div>
 </div>
-<p> Created by yorodm. </p>
 <script src="./reveal/dist/reveal.js"></script>
 <script src="./reveal/plugin/markdown/markdown.js"></script>
 <script src="./reveal/plugin/notes/notes.js"></script>
@@ -3856,6 +3839,11 @@ hashOneBasedIndex: false,
 pdfSeparateFragments: true,
 
 overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.20,
+maxScale: 2.50,
 
 transition: 'none',
 transitionSpeed: 'default',

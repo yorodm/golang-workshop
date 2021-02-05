@@ -4,13 +4,14 @@
 #+Author: Yoandy Rodríguez Martínez
 #+Email: yoandy.rmartinez@gmail.com
 
-#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition:'none'
-#+OPTIONS: date:nil toc:nil timestamp:nil
+#+OPTIONS: date:nil toc:nil timestamp:nil reveal_width:1200, reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.2
+#+REVEAL_MAX_SCALE: 2.5
 #+REVEAL_THEME: moon
 #+REVEAL_TRANS: none
 #+REVEAL_HLEVEL: 2
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Golang de 0 a API.">
-#+REVEAL_POSTAMBLE: <p> Created by yorodm. </p>
 
 #+INCLUDE: day-01/01-installation/README.md.org
 #+INCLUDE: day-01/02-hello-world/README.md.org
