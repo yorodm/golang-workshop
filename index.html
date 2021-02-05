@@ -3,36 +3,26 @@
 <head>
 <meta charset="utf-8"/>
 <title>Golang de 0 a API.</title>
-<meta name="author" content="(Yoandy Rodríguez Martínez)"/>
+<meta name="author" content="Yoandy Rodríguez Martínez"/>
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="file:///home/jadex/Documents/sources/reveal.js/dist/reveal.css"/>
+<link rel="stylesheet" href="./reveal/dist/reveal.css"/>
 
-<link rel="stylesheet" href="file:///home/jadex/Documents/sources/reveal.js/dist/theme/moon.css" id="theme"/>
-
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-    if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'file:///home/jadex/Documents/sources/reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-    }
-</script>
+<link rel="stylesheet" href="./reveal/dist/theme/moon.css" id="theme"/>
 <meta name="description" content="Golang de 0 a API.">
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Golang de 0 a API.</h1><h2 class="author">Yoandy Rodríguez Martínez</h2>
+<section id="sec-title-slide">
+<h1 class="title">Golang de 0 a API.</h1><h2 class="author">Yoandy Rodríguez Martínez</h2>
 </section>
 
 <section>
 <section id="slide-first-steps">
 <h2 id="first-steps"><span class="section-number-2">1</span> Primeros pasos</h2>
+
 </section>
 </section>
 <section>
@@ -48,7 +38,7 @@ Abrir el instalador y seguir las
 <a href="https://golang.org/doc/install">instrucciones</a>.
 </p>
 
-<pre class="example" id="org4f56477">
+<pre class="example" id="orga1bc25c">
    (Unix| Linux): /usr/local/go (varía según el sistema)
    Windows: C:\Go
 </pre></li>
@@ -58,7 +48,7 @@ Para chequear que la instalación esta correcta escribir en la
 consola
 </p>
 
-<pre class="example" id="org604a3e9">
+<pre class="example" id="org1702e20">
    $ go version
 </pre></li>
 
@@ -74,7 +64,7 @@ consola
 Activar variables de entorno para el trabajo con módulos
 </p>
 
-<pre class="example" id="orgf690090">
+<pre class="example" id="orgc56934b">
    $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
 </pre></li>
 
@@ -85,7 +75,7 @@ Activar variables de entorno para el trabajo con módulos
 escribir en la consola
 </p>
 
-<pre class="example" id="orgf8405eb">
+<pre class="example" id="orgdd67240">
    $ go env
    GOROOT = [Directorio de instalacion]
    GOPROXY=https://goproxy.io,direct
@@ -102,7 +92,7 @@ escribir en la consola
 
 </ol>
 
-<pre class="example" id="org07c1433">
+<pre class="example" id="orgd029b9d">
 $ go get golang.org/x/tools/gopls@latest
 </pre>
 
@@ -142,14 +132,14 @@ creado en el paso 1.</li>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">package</span> main
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">package</span> main
 
   <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"fmt"</span>
 
   <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">main</span>() {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Hello World"</span>)
   }
-</code></pre>
+</pre>
 </div>
 
 <ul>
@@ -167,8 +157,8 @@ En esta sección vamos a revisar cada linea del programa <code>Hello World</code
 </p>
 
 </section>
-<section id="slide-org6f186fb">
-<h4 id="org6f186fb"><span class="section-number-4">2.2.1</span> Packages e imports</h4>
+<section id="slide-2-2-1">
+<h4 id="2-2-1"><span class="section-number-4">2.2.1</span> Packages e imports</h4>
 <p>
 Linea 1 <code>&gt; =package main</code>
 </p>
@@ -189,8 +179,8 @@ parte de Golang), es requerido para ejecutar este programa.
 </p>
 
 </section>
-<section id="slide-orgf983353">
-<h4 id="orgf983353"><span class="section-number-4">2.2.2</span> Funciones</h4>
+<section id="slide-2-2-2">
+<h4 id="2-2-2"><span class="section-number-4">2.2.2</span> Funciones</h4>
 <p>
 Linea 5 <code>&gt; =func main() {</code>
 </p>
@@ -209,8 +199,8 @@ existir un entrypoint por ejecutable)
 </p>
 
 </section>
-<section id="slide-orgb39b021">
-<h4 id="orgb39b021"><span class="section-number-4">2.2.3</span> Bibliotecas</h4>
+<section id="slide-2-2-3">
+<h4 id="2-2-3"><span class="section-number-4">2.2.3</span> Bibliotecas</h4>
 <p>
 Linea 6 <code>&gt; =fmt.Println("Hello World")</code>
 </p>
@@ -235,11 +225,12 @@ La función <code>Println</code> hace dos cosas::
 <section>
 <section id="slide-variables">
 <h2 id="variables"><span class="section-number-2">3</span> Variables</h2>
+
 </section>
 </section>
 <section>
-<section id="slide-orgc27997e">
-<h3 id="orgc27997e"><span class="section-number-3">3.1</span> Definiendo variables</h3>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1</span> Definiendo variables</h3>
 <p>
 Una variable es un nombre que se le asigna a una porcion de memoria para
 almacenar un valor de un determinado tipo.
@@ -251,23 +242,23 @@ El keyword <code>var</code> se usa para declarar variables. La sintaxis es
 </p>
 
 </section>
-<section id="slide-org553bb2d">
-<h4 id="org553bb2d"><span class="section-number-4">3.1.1</span> Ejemplos de variables</h4>
+<section id="slide-3-1-1">
+<h4 id="3-1-1"><span class="section-number-4">3.1.1</span> Ejemplos de variables</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span> <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Inicializado por defecto</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span> <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Inicializado por defecto</span>
 
   <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">b</span> = 10 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Se infiere el tipo</span>
 
   <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">c</span>, <span style="color: #8787d7;">d</span> = 20, 30 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Asignando valores m&#250;ltiples</span>
 
   <span style="color: #8787d7;">e</span>, <span style="color: #8787d7;">f</span> := 40, 50 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Crear y asignar</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org7b4a629">
-<h4 id="org7b4a629"><span class="section-number-4">3.1.2</span> Valor inicial</h4>
+<section id="slide-3-1-2">
+<h4 id="3-1-2"><span class="section-number-4">3.1.2</span> Valor inicial</h4>
 <p>
 Si no se especifica un valor inicial Golang asigna uno por defecto
 dependiento del tipo de dato de la variable.
@@ -285,11 +276,12 @@ Para imprimir el valor de una variable se puede usar <code>Println</code>.
 <section>
 <section id="slide-tipos">
 <h2 id="tipos"><span class="section-number-2">4</span> Tipos</h2>
+
 </section>
 </section>
 <section>
-<section id="slide-orgf40be37">
-<h3 id="orgf40be37"><span class="section-number-3">4.1</span> Tipos simples</h3>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1</span> Tipos simples</h3>
 <p>
 Los siguientes tipos de datos estan disponibles en Golang:
 </p>
@@ -314,15 +306,15 @@ Los siguientes tipos de datos estan disponibles en Golang:
 </ul>
 
 </section>
-<section id="slide-orgd21141d">
-<h4 id="orgd21141d"><span class="section-number-4">4.1.1</span> Booleanos</h4>
+<section id="slide-4-1-1">
+<h4 id="4-1-1"><span class="section-number-4">4.1.1</span> Booleanos</h4>
 <p>
 <code>bool</code> representa valores boleanos <code>true</code> o <code>false</code>.
 </p>
 
 </section>
-<section id="slide-orgeba8bca">
-<h4 id="orgeba8bca"><span class="section-number-4">4.1.2</span> Tipos numéricos</h4>
+<section id="slide-4-1-2">
+<h4 id="4-1-2"><span class="section-number-4">4.1.2</span> Tipos numéricos</h4>
 <p>
 Para tipos numéricos, el número que sigue al tipo indica el número de
 bits que se usa para representar el valor en memoria. El número de bits
@@ -366,8 +358,8 @@ determina que tan grande el número puede ser.
 </p>
 
 </section>
-<section id="slide-org3742a3b">
-<h4 id="org3742a3b"><span class="section-number-4">4.1.3</span> Números complejos</h4>
+<section id="slide-4-1-3">
+<h4 id="4-1-3"><span class="section-number-4">4.1.3</span> Números complejos</h4>
 <p>
 <code>complex64</code>: complex numbers which have float32 real and imaginary parts
 </p>
@@ -383,29 +375,29 @@ partes reales e imaginarias:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #268bd2;">complex</span>(<span style="color: #8787d7;">r</span>, <span style="color: #8787d7;">i</span> <span style="color: #df005f; font-weight: bold;">FloatType</span>) <span style="color: #df005f; font-weight: bold;">ComplexType</span>
-</code></pre>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #268bd2;">complex</span>(<span style="color: #8787d7;">r</span>, <span style="color: #8787d7;">i</span> <span style="color: #df005f; font-weight: bold;">FloatType</span>) <span style="color: #df005f; font-weight: bold;">ComplexType</span>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgb9cced7">
-<h4 id="orgb9cced7"><span class="section-number-4">4.1.4</span> El tipo string</h4>
+<section id="slide-4-1-4">
+<h4 id="4-1-4"><span class="section-number-4">4.1.4</span> El tipo string</h4>
 <p>
 <code>string</code> es una colección de caracteres encerrados entre comillas.
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">first</span> := <span style="color: #2aa198;">"Allen"</span>
+<pre class="src src-go">  <span style="color: #8787d7;">first</span> := <span style="color: #2aa198;">"Allen"</span>
   <span style="color: #8787d7;">last</span> := <span style="color: #2aa198;">"Varghese"</span>
   <span style="color: #8787d7;">name</span> := first +<span style="color: #2aa198;">" "</span>+ last
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"My name is"</span>,name)
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org014c97d">
-<h4 id="org014c97d"><span class="section-number-4">4.1.5</span> Errores y canales.</h4>
+<section id="slide-4-1-5">
+<h4 id="4-1-5"><span class="section-number-4">4.1.5</span> Errores y canales.</h4>
 <p>
 <code>error</code> es un tipo especial para indicar condiciones de error.
 </p>
@@ -426,9 +418,9 @@ de tipo para hacer una conversion.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #d75fd7; font-weight: bold;">int</span>(&lt;float <span style="color: #df005f; font-weight: bold;">value</span>&gt;)
+<pre class="src src-go">  <span style="color: #d75fd7; font-weight: bold;">int</span>(&lt;float <span style="color: #df005f; font-weight: bold;">value</span>&gt;)
   <span style="color: #d75fd7; font-weight: bold;">float64</span>(&lt;integer <span style="color: #df005f; font-weight: bold;">value</span>&gt;)
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -443,16 +435,17 @@ Las constantes no cambian su valor una vez asignado. Se usa el keyword
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #d75fd7;">a</span> <span style="color: #df005f; font-weight: bold;">bool</span> = <span style="color: #d75fd7;">true</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #d75fd7;">a</span> <span style="color: #df005f; font-weight: bold;">bool</span> = <span style="color: #d75fd7;">true</span>
   <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #d75fd7;">b</span> <span style="color: #df005f; font-weight: bold;">int32</span> = 32890
   <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #d75fd7;">c</span> <span style="color: #df005f; font-weight: bold;">string</span> = <span style="color: #2aa198;">"Something"</span>
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
 <section>
 <section id="slide-funciones">
 <h2 id="funciones"><span class="section-number-2">5</span> Funciones</h2>
+
 </section>
 </section>
 <section>
@@ -471,10 +464,10 @@ un ejemplo de una funcion que suma dos enteros:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">AddIntegers</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">int</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">AddIntegers</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">int</span> {
       <span style="color: #268bd2; font-weight: bold;">return</span> a + b
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -493,10 +486,10 @@ Golang soporta que una funcion devuelva multiples valores:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">SumDifference</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #df005f; font-weight: bold;">int</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">SumDifference</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #df005f; font-weight: bold;">int</span>) {
       <span style="color: #268bd2; font-weight: bold;">return</span> a + b, a - b
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -511,10 +504,10 @@ quiere descartar al llamar a una funcion:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">diff</span> = <span style="color: #d75fd7; font-weight: bold;">SumDifference</span>(10, 20)
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">diff</span> = <span style="color: #d75fd7; font-weight: bold;">SumDifference</span>(10, 20)
 
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Difference is "</span>, diff)
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -529,11 +522,11 @@ dato de retorno para luego referenciarlo en el codigo de la funcion.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Product</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #8787d7;">prod</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Product</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #8787d7;">prod</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
       prod = a * b
       <span style="color: #268bd2; font-weight: bold;">return</span>
   }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -553,8 +546,8 @@ ejemplo la función <code>sort.Slice</code>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Slice</span>(<span style="color: #8787d7;">slice</span> <span style="color: #268bd2; font-weight: bold;">interface</span>{}, <span style="color: #8787d7;">less</span> <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">i</span>, <span style="color: #8787d7;">j</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">bool</span>)
-</code></pre>
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Slice</span>(<span style="color: #8787d7;">slice</span> <span style="color: #268bd2; font-weight: bold;">interface</span>{}, <span style="color: #8787d7;">less</span> <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">i</span>, <span style="color: #8787d7;">j</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">bool</span>)
+</pre>
 </div>
 
 <p>
@@ -563,40 +556,40 @@ retorna un valor <code>bool</code>
 </p>
 
 </section>
-<section id="slide-org984c464">
-<h4 id="org984c464"><span class="section-number-4">5.5.1</span> Literales función.</h4>
+<section id="slide-5-5-1">
+<h4 id="5-5-1"><span class="section-number-4">5.5.1</span> Literales función.</h4>
 <p>
 Podemos asignar una función a una variable.
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">c</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{20, 11, 12, 1, 5}
+<pre class="src src-go"><span style="color: #8787d7;">c</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{20, 11, 12, 1, 5}
 <span style="color: #8787d7;">less</span> := <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">i</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">j</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">bool</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> c[i] &lt; c[j]
 }
 sort.<span style="color: #d75fd7; font-weight: bold;">Slice</span>(c, less)
 fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Despues del sort"</span>, c)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: [1 5 11 12 20]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org999220b">
-<h4 id="org999220b"><span class="section-number-4">5.5.2</span> Funciones anónimas</h4>
+<section id="slide-5-5-2">
+<h4 id="5-5-2"><span class="section-number-4">5.5.2</span> Funciones anónimas</h4>
 <p>
 Se puede definir una función en el momento de su uso
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">c</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{20, 11, 12, 1, 5}
+<pre class="src src-go"><span style="color: #8787d7;">c</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{20, 11, 12, 1, 5}
 sort.<span style="color: #d75fd7; font-weight: bold;">Slice</span>(c, <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">i</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">j</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">bool</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> c[i] &lt; c[j]
 })
 fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Despues del sort"</span>, c)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: [1 5 11 12 20]</span>
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -624,17 +617,17 @@ opcional:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">if</span> condition {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">if</span> condition {
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
   } <span style="color: #268bd2; font-weight: bold;">else</span> <span style="color: #268bd2; font-weight: bold;">if</span> condition {
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
   } <span style="color: #268bd2; font-weight: bold;">else</span> {
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
   }
-</code></pre>
+</pre>
 </div>
 
-<blockquote >
+<blockquote>
 <p>
 El bloque <code>else</code> debe estar en la misma linea que la llave de cierre
 (<code>}</code>).
@@ -642,8 +635,8 @@ El bloque <code>else</code> debe estar en la misma linea que la llave de cierre
 </blockquote>
 
 </section>
-<section id="slide-org9d4c581">
-<h4 id="org9d4c581"><span class="section-number-4">6.1.1</span> Inicializar la condición.</h4>
+<section id="slide-6-1-1">
+<h4 id="6-1-1"><span class="section-number-4">6.1.1</span> Inicializar la condición.</h4>
 <p>
 La instruccion <code>if</code> soporta indicar una instruccion opcional que se
 ejecuta antes de la condicion:
@@ -651,10 +644,10 @@ ejecuta antes de la condicion:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">if</span> statement; condition {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">if</span> statement; condition {
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -668,10 +661,10 @@ Hay una sola instruccion de iteracion en Golang, el iterador <code>for</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">for</span> initialization; condition; post {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">for</span> initialization; condition; post {
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
   }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -680,18 +673,18 @@ opcionales en Golang.
 </p>
 
 </section>
-<section id="slide-orge4a4311">
-<h4 id="orge4a4311"><span class="section-number-4">6.2.1</span> <code>for</code> en detalle</h4>
+<section id="slide-6-2-1">
+<h4 id="6-2-1"><span class="section-number-4">6.2.1</span> <code>for</code> en detalle</h4>
 <ol>
 <li>La inicialización se ejecuta una sola vez.</li>
 <li>La condición se prueba antes de ejecutar el ciclo.</li>
-<li>El post se ejecuta después del ciclo.</li>
+<li>El post se ejecuta después de cada iteración del ciclo.</li>
 
 </ol>
 
 </section>
-<section id="slide-org5e05ae9">
-<h4 id="org5e05ae9"><span class="section-number-4">6.2.2</span> Ejemplo de <code>for</code></h4>
+<section id="slide-6-2-2">
+<h4 id="6-2-2"><span class="section-number-4">6.2.2</span> Ejemplo de <code>for</code></h4>
 <p>
 El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
 <code>for</code>:
@@ -699,10 +692,10 @@ El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">i</span> := 1; i &lt;= 10; i = i + 1 {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">i</span> := 1; i &lt;= 10; i = i + 1 {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(i)
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -718,7 +711,7 @@ Es una forma abreviada de escribir muchas clausulas <code>if else</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">switch</span> expression {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">switch</span> expression {
       <span style="color: #268bd2; font-weight: bold;">case</span> expression <span style="color: #df005f; font-weight: bold;">or</span> value | (, expression <span style="color: #df005f; font-weight: bold;">or</span> value)*:
           <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
           (<span style="color: #268bd2; font-weight: bold;">break</span> | <span style="color: #268bd2; font-weight: bold;">fallthrough</span>)
@@ -727,12 +720,12 @@ Es una forma abreviada de escribir muchas clausulas <code>if else</code>.
       <span style="color: #268bd2; font-weight: bold;">default</span>:
           <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org170ac59">
-<h4 id="org170ac59"><span class="section-number-4">6.3.1</span> <code>break</code>, <code>fallthrough</code> y <code>default</code></h4>
+<section id="slide-6-3-1">
+<h4 id="6-3-1"><span class="section-number-4">6.3.1</span> <code>break</code>, <code>fallthrough</code> y <code>default</code></h4>
 <ol>
 <li><code>break</code> detiene el flujo y sale del <code>switch</code></li>
 <li><code>fallthrough</code> continúa al próximo <code>case</code>.</li>
@@ -745,11 +738,12 @@ Es una forma abreviada de escribir muchas clausulas <code>if else</code>.
 <section>
 <section id="slide-arreglos">
 <h2 id="arreglos"><span class="section-number-2">7</span> Arreglos</h2>
+
 </section>
 </section>
 <section>
-<section id="slide-orgab33375">
-<h3 id="orgab33375"><span class="section-number-3">7.1</span> Arreglos en Golang</h3>
+<section id="slide-7-1">
+<h3 id="7-1"><span class="section-number-3">7.1</span> Arreglos en Golang</h3>
 <p>
 Una colección de elementos de un mismo tipo es un arreglo. Como Golang
 es un lenguaje fuertemente tipado no es posible mezclar valores de
@@ -762,16 +756,16 @@ Un arreglo se define como <code>[size]type</code>:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">a</span> [3]<span style="color: #df005f; font-weight: bold;">int</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">a</span> [3]<span style="color: #df005f; font-weight: bold;">int</span>
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(a)
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: [0 0 0]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org3b7f5af">
-<h4 id="org3b7f5af"><span class="section-number-4">7.1.1</span> Comenzando en 0.</h4>
+<section id="slide-7-1-1">
+<h4 id="7-1-1"><span class="section-number-4">7.1.1</span> Comenzando en 0.</h4>
 <p>
 El primer indice de un arreglo es <code>0</code> en vez de <code>1</code>. Se accede a los
 valores de un arreglo usando el numero del indice, y se asignan valores
@@ -780,26 +774,26 @@ con el operador <code>=</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">a</span> [3]<span style="color: #df005f; font-weight: bold;">int</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">a</span> [3]<span style="color: #df005f; font-weight: bold;">int</span>
   a[0] = 1
   a[1] = 2
   a[2] = 3
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(a)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: [1 2 3]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org05cf1bb">
-<h4 id="org05cf1bb"><span class="section-number-4">7.1.2</span> Inicializando arreglos.</h4>
+<section id="slide-7-1-2">
+<h4 id="7-1-2"><span class="section-number-4">7.1.2</span> Inicializando arreglos.</h4>
 <p>
 Un arreglo se puede inicializar en la declaración:
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [3]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
-</code></pre>
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [3]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
+</pre>
 </div>
 
 <p>
@@ -809,13 +803,13 @@ la declaración:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
-</code></pre>
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
+</pre>
 </div>
 
 </section>
-<section id="slide-orgd722a45">
-<h4 id="orgd722a45"><span class="section-number-4">7.1.3</span> Tipos valor</h4>
+<section id="slide-7-1-3">
+<h4 id="7-1-3"><span class="section-number-4">7.1.3</span> Tipos valor</h4>
 <p>
 Un detalle importante a tener en cuenta es que un arreglo es un <i>tipo
 valor</i>, esto quiere decir que cada vez que un arreglo es asignado a
@@ -826,14 +820,14 @@ variable original.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">string</span>{<span style="color: #2aa198;">"IRL"</span>, <span style="color: #2aa198;">"IND"</span>, <span style="color: #2aa198;">"US"</span>, <span style="color: #2aa198;">"CAN"</span>}
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">string</span>{<span style="color: #2aa198;">"IRL"</span>, <span style="color: #2aa198;">"IND"</span>, <span style="color: #2aa198;">"US"</span>, <span style="color: #2aa198;">"CAN"</span>}
   <span style="color: #8787d7;">b</span> := a
 
   b[1] = <span style="color: #2aa198;">"CHN"</span>
 
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Original:"</span>, a)
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Copy    :"</span>, b)
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -843,29 +837,29 @@ Esto afecta el modo en que los arreglos son pasados por parámetros.
 </section>
 </section>
 <section>
-<section id="slide-org5154057">
-<h3 id="org5154057"><span class="section-number-3">7.2</span> Funciones para operar con arreglos.</h3>
+<section id="slide-7-2">
+<h3 id="7-2"><span class="section-number-3">7.2</span> Funciones para operar con arreglos.</h3>
 <div class="outline-text-3" id="text-7-2">
 </div>
 </section>
-<section id="slide-org1ecd9c3">
-<h4 id="org1ecd9c3"><span class="section-number-4">7.2.1</span> <code>len</code></h4>
+<section id="slide-7-2-1">
+<h4 id="7-2-1"><span class="section-number-4">7.2.1</span> <code>len</code></h4>
 <p>
 La funcion <code>len</code> se usa para conocer el tamaño de un arreglo:
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #268bd2;">len</span>(a))
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: 3</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org9b5b9f6">
-<h4 id="org9b5b9f6"><span class="section-number-4">7.2.2</span> <code>range</code></h4>
+<section id="slide-7-2-2">
+<h4 id="7-2-2"><span class="section-number-4">7.2.2</span> <code>range</code></h4>
 <p>
 Una forma de interactuar con un arreglo es utilizar el keyword <code>range</code>.
 Este retorna el indice del arreglo y el valor.
@@ -873,7 +867,7 @@ Este retorna el indice del arreglo y el valor.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
   <span style="color: #8787d7;">sum</span> := 0
   <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">i</span>, <span style="color: #8787d7;">v</span> := <span style="color: #268bd2; font-weight: bold;">range</span> a {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Index:"</span>, i, <span style="color: #2aa198;">" Value is:"</span>, v)
@@ -882,12 +876,12 @@ Este retorna el indice del arreglo y el valor.
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Sum:"</span>, sum)
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: 15</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orge3b4571">
-<h4 id="orge3b4571"><span class="section-number-4">7.2.3</span> <code>range</code> y el blank identifier</h4>
+<section id="slide-7-2-3">
+<h4 id="7-2-3"><span class="section-number-4">7.2.3</span> <code>range</code> y el blank identifier</h4>
 <p>
 Se puede usar el <b>blank identifier</b> (<code>_</code>) si no nos interesa alguno de
 los valores que retorna el keyword <code>range</code>.
@@ -895,8 +889,8 @@ los valores que retorna el keyword <code>range</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">v</span> := <span style="color: #268bd2; font-weight: bold;">range</span> a
-</code></pre>
+<pre class="src src-go">  <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">v</span> := <span style="color: #268bd2; font-weight: bold;">range</span> a
+</pre>
 </div>
 
 </section>
@@ -910,23 +904,23 @@ Se pueden crear arreglos de mas de una dimension de la siguiente manera:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [3][2]<span style="color: #df005f; font-weight: bold;">int</span>
-</code></pre>
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [3][2]<span style="color: #df005f; font-weight: bold;">int</span>
+</pre>
 </div>
 
 </section>
-<section id="slide-orged1fd94">
-<h4 id="orged1fd94"><span class="section-number-4">7.3.1</span> Inicializando arreglos multidimensionales</h4>
+<section id="slide-7-3-1">
+<h4 id="7-3-1"><span class="section-number-4">7.3.1</span> Inicializando arreglos multidimensionales</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [3][2]<span style="color: #df005f; font-weight: bold;">string</span>{
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [3][2]<span style="color: #df005f; font-weight: bold;">string</span>{
       {<span style="color: #2aa198;">"lion"</span>, <span style="color: #2aa198;">"tiger"</span>},
       {<span style="color: #2aa198;">"cat"</span>, <span style="color: #2aa198;">"dog"</span>},
       {<span style="color: #2aa198;">"pigeon"</span>, <span style="color: #2aa198;">"peacock"</span>},
   }
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(a)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: [[lion tiger] [cat dog] [pigeon peacock]]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -941,16 +935,16 @@ tienen datos, solo apunta a un arreglo.
 </p>
 
 </section>
-<section id="slide-org114602c">
-<h4 id="org114602c"><span class="section-number-4">7.4.1</span> Creando slices</h4>
+<section id="slide-7-4-1">
+<h4 id="7-4-1"><span class="section-number-4">7.4.1</span> Creando slices</h4>
 <p>
 Un slice vacio se crea asi:
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">sa</span> []<span style="color: #df005f; font-weight: bold;">int</span>
-</code></pre>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">sa</span> []<span style="color: #df005f; font-weight: bold;">int</span>
+</pre>
 </div>
 
 <p>
@@ -964,16 +958,16 @@ arreglo:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
   <span style="color: #8787d7;">sa</span> := a[1: 4]
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(sa)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: [2 3 4]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgb191561">
-<h4 id="orgb191561"><span class="section-number-4">7.4.2</span> Tipos referencia</h4>
+<section id="slide-7-4-2">
+<h4 id="7-4-2"><span class="section-number-4">7.4.2</span> Tipos referencia</h4>
 <p>
 Como un slice es un <i>tipo referencia</i>, modificar un valor en un
 elemento del slice modifica el arreglo original.
@@ -981,7 +975,7 @@ elemento del slice modifica el arreglo original.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
+<pre class="src src-go">  <span style="color: #8787d7;">a</span> := [...]<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3, 4, 5}
   <span style="color: #8787d7;">sa</span> := a[1: 4]
 
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Before:"</span>, a)
@@ -991,12 +985,12 @@ elemento del slice modifica el arreglo original.
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: Before: [1 2 3 4 5]</span>
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: After: [1 22 3 4 5]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org2794dfa">
-<h4 id="org2794dfa"><span class="section-number-4">7.4.3</span> La función <code>make</code></h4>
+<section id="slide-7-4-3">
+<h4 id="7-4-3"><span class="section-number-4">7.4.3</span> La función <code>make</code></h4>
 <p>
 Un slice tambien se puede crear utilizando la funcion <code>make</code>,
 especificando el tipo, y el tamaño, y opcionalmente la capacidad (que
@@ -1005,11 +999,11 @@ indica el maximo tamaño que el slice puede crecer):
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>#+begin_src <span style="color: #268bd2; font-weight: bold;">go</span>
+<pre class="src src-go">#+begin_src <span style="color: #268bd2; font-weight: bold;">go</span>
   <span style="color: #8787d7;">i</span> := <span style="color: #268bd2;">make</span>([]<span style="color: #df005f; font-weight: bold;">int</span>, 5, 5)
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(i)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: [0 0 0 0 0]</span>
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -1018,8 +1012,8 @@ por defecto del tipo del slice.
 </p>
 
 </section>
-<section id="slide-orga5a4670">
-<h4 id="orga5a4670"><span class="section-number-4">7.4.4</span> Cambiando el tamaño de un slice</h4>
+<section id="slide-7-4-4">
+<h4 id="7-4-4"><span class="section-number-4">7.4.4</span> Cambiando el tamaño de un slice</h4>
 <p>
 El tamaño de un slice se puede incrementar utilizando la función
 <code>append</code>.
@@ -1027,11 +1021,11 @@ El tamaño de un slice se puede incrementar utilizando la función
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">sa</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
+<pre class="src src-go">  <span style="color: #8787d7;">sa</span> := []<span style="color: #df005f; font-weight: bold;">int</span>{1, 2, 3}
   <span style="color: #8787d7;">newSa</span> := <span style="color: #268bd2;">append</span>([]<span style="color: #df005f; font-weight: bold;">int</span>{}, sa...)
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(newSa)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: [1, 2, 3]</span>
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -1043,6 +1037,7 @@ para expandir el slice en sus valores.
 <section>
 <section id="slide-maps">
 <h2 id="maps"><span class="section-number-2">8</span> Maps</h2>
+
 </section>
 </section>
 <section>
@@ -1059,10 +1054,10 @@ Un <code>map</code> vacío se crea con la función <code>make</code>:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #268bd2; font-weight: bold;">type</span> of <span style="color: #df005f; font-weight: bold;">key</span>]<span style="color: #268bd2; font-weight: bold;">type</span> of <span style="color: #df005f; font-weight: bold;">value</span>)
+<pre class="src src-go">  <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #268bd2; font-weight: bold;">type</span> of <span style="color: #df005f; font-weight: bold;">key</span>]<span style="color: #268bd2; font-weight: bold;">type</span> of <span style="color: #df005f; font-weight: bold;">value</span>)
 
   <span style="color: #d75fd7;">eg</span>: <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span>)
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1078,19 +1073,19 @@ para esa clave se sobrescribe.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">m</span> := <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span>)
+<pre class="src src-go">  <span style="color: #8787d7;">m</span> := <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span>)
   m[<span style="color: #2aa198;">"a"</span>] = 1
   m[<span style="color: #2aa198;">"b"</span>] = 2
 
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(m)
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: map[a:1 b:2]</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgaceb199">
-<h4 id="orgaceb199"><span class="section-number-4">8.2.1</span> Inicializando un <code>map</code></h4>
+<section id="slide-8-2-1">
+<h4 id="8-2-1"><span class="section-number-4">8.2.1</span> Inicializando un <code>map</code></h4>
 <p>
 Un <code>map</code> se puede inicializar con valores en su declaración igual que un
 arreglo:
@@ -1098,11 +1093,11 @@ arreglo:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">m</span> := <span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span> {
+<pre class="src src-go">  <span style="color: #8787d7;">m</span> := <span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span> {
       <span style="color: #2aa198;">"a"</span>: 1,
       <span style="color: #2aa198;">"b"</span>: 2,
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1116,8 +1111,8 @@ Una manera de chequear si una clave existe es la siguiente:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">data</span>, <span style="color: #8787d7;">ok</span> := m[<span style="color: #2aa198;">"some key"</span>]
-</code></pre>
+<pre class="src src-go">  <span style="color: #8787d7;">data</span>, <span style="color: #8787d7;">ok</span> := m[<span style="color: #2aa198;">"some key"</span>]
+</pre>
 </div>
 
 <p>
@@ -1141,7 +1136,7 @@ El iterador <code>for</code> se utiliza para recorrer las claves y valores de un
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">m</span> := <span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span> {
+<pre class="src src-go">  <span style="color: #8787d7;">m</span> := <span style="color: #268bd2; font-weight: bold;">map</span>[<span style="color: #df005f; font-weight: bold;">string</span>]<span style="color: #df005f; font-weight: bold;">int</span> {
       <span style="color: #2aa198;">"a"</span>: 1,
       <span style="color: #2aa198;">"b"</span>: 2,
       <span style="color: #2aa198;">"c"</span>: 3,
@@ -1152,18 +1147,18 @@ El iterador <code>for</code> se utiliza para recorrer las claves y valores de un
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: Key: a  Value 1</span>
 <span style="color: #008787; background-color: #262626;">//         </span><span style="color: #008787; background-color: #262626;">Key: b  Value 2</span>
 <span style="color: #008787; background-color: #262626;">//         </span><span style="color: #008787; background-color: #262626;">Key: c  Value 3</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-iteraciones-split">
+<section>
 
 <p>
 Se puede utilizar el identificador en blanco (<code>_</code>) para descartar
 cualquiera de los elementos del par.
 </p>
 
-<blockquote >
+<blockquote>
 <p>
 El orden en que se recorre el <code>map</code> no esta garantizado, y cada ejecucion puede tener un order diferente.
 </p>
@@ -1181,8 +1176,8 @@ retorna nada. La sintaxis es la siguiente:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2;">delete</span>(m, key)
-</code></pre>
+<pre class="src src-go">  <span style="color: #268bd2;">delete</span>(m, key)
+</pre>
 </div>
 
 </section>
@@ -1198,8 +1193,8 @@ siguiente:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2;">len</span>(m)
-</code></pre>
+<pre class="src src-go">  <span style="color: #268bd2;">len</span>(m)
+</pre>
 </div>
 
 </section>
@@ -1217,11 +1212,13 @@ Un <code>map</code> es un <i>tipo referencia</i>. Por lo tanto si un <code>map</
 <section>
 <section id="slide-paquetes-y-módulos">
 <h2 id="paquetes-y-módulos"><span class="section-number-2">9</span> Paquetes y módulos</h2>
+
+
 </section>
 </section>
 <section>
-<section id="slide-orgac4d704">
-<h3 id="orgac4d704"><span class="section-number-3">9.1</span> Paquetes</h3>
+<section id="slide-9-1">
+<h3 id="9-1"><span class="section-number-3">9.1</span> Paquetes</h3>
 <p>
 En Golang, los paquetes corresponden a los archivos en un mismo
 directorio. Por convención los paquetes llevan el nombre del
@@ -1234,9 +1231,9 @@ Supongamos que creamos el proyecto <code>github.com/ourcompany/superproduct</cod
 </p>
 
 </section>
-<section id="slide-orgac4d704-split">
+<section>
 
-<pre class="example" id="org44e7146">
+<pre class="example" id="org2991189">
 +-- LICENSE
 +-- README.md
 +-- config.go  # package superproduct
@@ -1259,7 +1256,7 @@ Supongamos que creamos el proyecto <code>github.com/ourcompany/superproduct</cod
 </pre>
 
 </section>
-<section id="slide-orgac4d704-split">
+<section>
 
 <p>
 El paquete <code>main</code> tiene significado especial ya que representa el
@@ -1276,8 +1273,8 @@ función <code>main</code>.
 </section>
 </section>
 <section>
-<section id="slide-org0fc6408">
-<h3 id="org0fc6408"><span class="section-number-3">9.2</span> Estructura de un proyecto</h3>
+<section id="slide-9-2">
+<h3 id="9-2"><span class="section-number-3">9.2</span> Estructura de un proyecto</h3>
 <ol>
 <li>En la raiz se situan los archivos con funcionalidades comunes que
 se desean exportar.</li>
@@ -1295,8 +1292,8 @@ de sus subpaquetes desde módulos de terceros)</li>
 </section>
 </section>
 <section>
-<section id="slide-org81d149a">
-<h3 id="org81d149a"><span class="section-number-3">9.3</span> Importando paquetes.</h3>
+<section id="slide-9-3">
+<h3 id="9-3"><span class="section-number-3">9.3</span> Importando paquetes.</h3>
 <p>
 Para importar paquetes utilizamos <b>la ruta completa del paquete dentro
 del módulo</b>
@@ -1304,7 +1301,7 @@ del módulo</b>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">package</span> main
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">package</span> main
 
 <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"fmt"</span>
 <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"github.com/ourcompany/superproduct"</span>
@@ -1314,42 +1311,42 @@ del módulo</b>
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(superproduct.<span style="color: #d75fd7; font-weight: bold;">Config</span>())
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(client.<span style="color: #d75fd7; font-weight: bold;">Hello</span>())
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org34494fe">
-<h4 id="org34494fe"><span class="section-number-4">9.3.1</span> Alias con <code>import</code></h4>
+<section id="slide-9-3-1">
+<h4 id="9-3-1"><span class="section-number-4">9.3.1</span> Alias con <code>import</code></h4>
 <p>
 Es posible usar alias para los paquetes importados
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">import</span> s <span style="color: #2aa198;">"github.com/ourcompany/superproduct"</span>
-</code></pre>
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">import</span> s <span style="color: #2aa198;">"github.com/ourcompany/superproduct"</span>
+</pre>
 </div>
 
 </section>
-<section id="slide-org43049eb">
-<h4 id="org43049eb"><span class="section-number-4">9.3.2</span> Importando varios paquetes</h4>
+<section id="slide-9-3-2">
+<h4 id="9-3-2"><span class="section-number-4">9.3.2</span> Importando varios paquetes</h4>
 <p>
 Cuando existen varios <code>imports</code>, la convención es agruparlos.
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">import</span> (
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">import</span> (
     <span style="color: #2aa198;">"fmt"</span>
     s <span style="color: #2aa198;">"github.com/ourcompany/superproduct"</span>
     <span style="color: #2aa198;">"github.com/ourcompany/superproduct/client"</span>
 )
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgbe762a7">
-<h4 id="orgbe762a7"><span class="section-number-4">9.3.3</span> Casos especiales</h4>
+<section id="slide-9-3-3">
+<h4 id="9-3-3"><span class="section-number-4">9.3.3</span> Casos especiales</h4>
 <p>
 Existen dos casos especiales de alias para <code>import</code>
 </p>
@@ -1365,8 +1362,8 @@ a nuestro namespace.</li>
 </section>
 </section>
 <section>
-<section id="slide-org8fd4da0">
-<h3 id="org8fd4da0"><span class="section-number-3">9.4</span> La función init</h3>
+<section id="slide-9-4">
+<h3 id="9-4"><span class="section-number-3">9.4</span> La función init</h3>
 <p>
 La función <code>init</code> nos permite ejecutar código de inicialización para
 nustros paquetes. A diferencia de la función <code>main</code>, puede existir más
@@ -1375,19 +1372,19 @@ de una función <code>init</code> por paquete.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">tomado de /github.com/lib/pq/conn.go</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">tomado de /github.com/lib/pq/conn.go</span>
 
 <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">init</span>() {
     sql.<span style="color: #d75fd7; font-weight: bold;">Register</span>(<span style="color: #2aa198;">"postgres"</span>, &amp;<span style="color: #df005f; font-weight: bold;">Driver</span>{})
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org3550847">
-<h3 id="org3550847"><span class="section-number-3">9.5</span> Reglas de visibilidad</h3>
+<section id="slide-9-5">
+<h3 id="9-5"><span class="section-number-3">9.5</span> Reglas de visibilidad</h3>
 <p>
 Las reglas de visibilidad en Golang siguen un patrón sencillo.
 </p>
@@ -1404,7 +1401,7 @@ En el ejemplo el tipo <code>square</code> no es exportado la función <code>NewS
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">package</span> geometry
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">package</span> geometry
 <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">square</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
     a <span style="color: #df005f; font-weight: bold;">int</span>
     b <span style="color: #df005f; font-weight: bold;">int</span>
@@ -1413,11 +1410,11 @@ En el ejemplo el tipo <code>square</code> no es exportado la función <code>NewS
 <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">NewSquare</span>(<span style="color: #8787d7;">a</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) *<span style="color: #df005f; font-weight: bold;">square</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> &amp;<span style="color: #df005f; font-weight: bold;">square</span>{a, b}
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org3550847-split">
+<section>
 
 <p>
 Es posible para un tipo no exportado tener campos o métodos que sean
@@ -1426,11 +1423,11 @@ exportados.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Area of a square</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Area of a square</span>
 <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">s</span> <span style="color: #df005f; font-weight: bold;">square</span>) <span style="color: #d75fd7; font-weight: bold;">Area</span>() <span style="color: #df005f; font-weight: bold;">int</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> s.a * s.b
 }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -1440,11 +1437,11 @@ sea posible declarar explicitamente que se accede al tipo.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Inv&#225;lido porque square no es exportado</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Inv&#225;lido porque square no es exportado</span>
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">var s *geometry.square = geometry.NewSquare(length, breadth)</span>
 <span style="color: #8787d7;">s</span> := geometry.<span style="color: #d75fd7; font-weight: bold;">NewSquare</span>(length, breadth)
 fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Area is"</span>, s.<span style="color: #d75fd7; font-weight: bold;">Area</span>())
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1465,12 +1462,12 @@ Para crear un módulo ejecutamos el siguiente comando:
 
 <div class="org-src-container">
 
-<pre  class="src src-shell"><code trim>go mod init &lt;nombre del m&#243;dulo&gt;
-</code></pre>
+<pre class="src src-shell">go mod init &lt;nombre del m&#243;dulo&gt;
+</pre>
 </div>
 
 </section>
-<section id="slide-paquetes-y-módulos-split">
+<section>
 
 <p>
 Por convención el nombre del módulo es la URL del repositorio de
@@ -1495,15 +1492,15 @@ relacionadas con módulos. Para más detalles ejecutar
 
 <div class="org-src-container">
 
-<pre  class="src src-shell"><code trim>go help mod
-</code></pre>
+<pre class="src src-shell">go help mod
+</pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgf7ea1c2">
-<h3 id="orgf7ea1c2"><span class="section-number-3">9.7</span> Manejando dependencias</h3>
+<section id="slide-9-7">
+<h3 id="9-7"><span class="section-number-3">9.7</span> Manejando dependencias</h3>
 <p>
 Existen varias formas de adicionar dependencias a nuestro módulo. La
 más simple es importar la dependencia en el código y ejecutar el
@@ -1512,8 +1509,8 @@ siguiente comando.
 
 <div class="org-src-container">
 
-<pre  class="src src-shell"><code trim>go mod tidy
-</code></pre>
+<pre class="src src-shell">go mod tidy
+</pre>
 </div>
 
 <p>
@@ -1538,6 +1535,7 @@ proceso de forma automática
 <section>
 <section id="slide-linea-de-comandos">
 <h2 id="linea-de-comandos"><span class="section-number-2">10</span> Linea de comandos</h2>
+
 </section>
 </section>
 <section>
@@ -1551,7 +1549,7 @@ de Golang.
 </p>
 
 </section>
-<section id="slide-argumentos-split">
+<section>
 
 <p>
 Los argumentos de la linea de comandos estan disponibles en el arreglo
@@ -1560,11 +1558,11 @@ Los argumentos de la linea de comandos estan disponibles en el arreglo
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"os"</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"os"</span>
 
   os.Args <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Lista completa incluyendo el nombre del programa</span>
   os.Args[1:] <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Solo los argumentos</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1582,14 +1580,14 @@ soportarlos.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"flag"</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"flag"</span>
 
   flag.&lt;<span style="color: #268bd2; font-weight: bold;">type</span>&gt;(nombre <span style="color: #df005f; font-weight: bold;">del</span> flag, valor <span style="color: #268bd2; font-weight: bold;">default</span>, descripcion)
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-flags-split">
+<section>
 
 <p>
 Un flag se define con la sintaxis anterior. El <code>&lt;type&gt;</code> puede ser
@@ -1620,7 +1618,7 @@ disponibles durante la ejecucion de un script de shell.
 </p>
 
 </section>
-<section id="slide-environment-variables-split">
+<section>
 
 <p>
 El paquete <code>os</code> proporciona dos funciones, <code>Setenv</code> y <code>Getenv</code>, para
@@ -1630,7 +1628,7 @@ clave no existe.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"os"</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"os"</span>
 
   os.<span style="color: #d75fd7; font-weight: bold;">Setenv</span>(<span style="color: #2aa198;">"FOO"</span>, <span style="color: #2aa198;">"1"</span>)
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"FOO:"</span>, os.<span style="color: #d75fd7; font-weight: bold;">Getenv</span>(<span style="color: #2aa198;">"FOO"</span>))
@@ -1638,11 +1636,11 @@ clave no existe.
 
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: FOO: 1</span>
 <span style="color: #008787; background-color: #262626;">//        </span><span style="color: #008787; background-color: #262626;">BAR:</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-environment-variables-split">
+<section>
 
 <p>
 La funcion <code>Environ</code> retorna la lista completa de todas las variables de
@@ -1651,19 +1649,20 @@ entorno existentes.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"strings"</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"strings"</span>
 
   <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">e</span> := <span style="color: #268bd2; font-weight: bold;">range</span> os.<span style="color: #d75fd7; font-weight: bold;">Environ</span>() {
       <span style="color: #8787d7;">pair</span> := strings.<span style="color: #d75fd7; font-weight: bold;">Split</span>(e, <span style="color: #2aa198;">"="</span>)
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(pair[0])
   }
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
 <section>
 <section id="slide-manejo-de-errores-error-defer-recover-panic">
 <h2 id="manejo-de-errores-error-defer-recover-panic"><span class="section-number-2">11</span> Manejo de errores: error, defer, recover, panic</h2>
+
 </section>
 </section>
 <section>
@@ -1677,7 +1676,7 @@ representado por un tipo de datos,
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">DivisionByZero</span> = errors.<span style="color: #d75fd7; font-weight: bold;">New</span>(<span style="color: #2aa198;">"Division por cero"</span>)
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">DivisionByZero</span> = errors.<span style="color: #d75fd7; font-weight: bold;">New</span>(<span style="color: #2aa198;">"Division por cero"</span>)
 
   <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">safedivide</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #df005f; font-weight: bold;">error</span>) {
       <span style="color: #268bd2; font-weight: bold;">if</span> b == 0 {
@@ -1685,7 +1684,7 @@ representado por un tipo de datos,
       }
       <span style="color: #268bd2; font-weight: bold;">return</span> a / b, <span style="color: #d75fd7;">nil</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1699,22 +1698,22 @@ El tipo <code>error</code> es una interfaz <i>built-in</i> del lenguaje
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">error</span> <span style="color: #268bd2; font-weight: bold;">interface</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">error</span> <span style="color: #268bd2; font-weight: bold;">interface</span> {
       <span style="color: #d75fd7; font-weight: bold;">Error</span>() <span style="color: #df005f; font-weight: bold;">string</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgec51afe">
-<h4 id="orgec51afe"><span class="section-number-4">11.2.1</span> Errores personalizados</h4>
+<section id="slide-11-2-1">
+<h4 id="11-2-1"><span class="section-number-4">11.2.1</span> Errores personalizados</h4>
 <p>
 Esto nos permite crear nuestros propios tipos de error
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">MyError</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">MyError</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
       <span style="color: #d75fd7;">message</span>: string
       <span style="color: #d75fd7;">status</span>: int
   }
@@ -1729,12 +1728,12 @@ Esto nos permite crear nuestros propios tipos de error
        status : -1,
       }
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgdab9f14">
-<h4 id="orgdab9f14"><span class="section-number-4">11.2.2</span> Operando con errores</h4>
+<section id="slide-11-2-2">
+<h4 id="11-2-2"><span class="section-number-4">11.2.2</span> Operando con errores</h4>
 <p>
 El paquete <code>errors</code> contiene funciones dedicadas a manejar tipos de
 error. Podemos usar la función <code>errors.Is</code> para verificar si un error
@@ -1743,14 +1742,14 @@ es de un tipo específico.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">if</span> <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">err</span> := os.<span style="color: #d75fd7; font-weight: bold;">Open</span>(<span style="color: #2aa198;">"non-existing"</span>); err != <span style="color: #d75fd7;">nil</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">if</span> <span style="color: #8787d7;">_</span>, <span style="color: #8787d7;">err</span> := os.<span style="color: #d75fd7; font-weight: bold;">Open</span>(<span style="color: #2aa198;">"non-existing"</span>); err != <span style="color: #d75fd7;">nil</span> {
       <span style="color: #268bd2; font-weight: bold;">if</span> errors.<span style="color: #d75fd7; font-weight: bold;">Is</span>(err, os.ErrNotExist) {
           fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"file does not exist"</span>)
       } <span style="color: #268bd2; font-weight: bold;">else</span> {
           fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(err)
       }
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1770,12 +1769,12 @@ tipo de recursos temporal que se obtenga en la función.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">doSomething</span>() {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">doSomething</span>() {
    <span style="color: #8787d7;">a</span> := <span style="color: #d75fd7; font-weight: bold;">getExternalResource</span>();
    <span style="color: #268bd2; font-weight: bold;">defer</span> a.<span style="color: #d75fd7; font-weight: bold;">Release</span>()
    <span style="color: #008787; background-color: #262626;">/// </span><span style="color: #008787; background-color: #262626;">Resto de la funci&#243;n</span>
   }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -1807,11 +1806,11 @@ programa se detendrá con un mensaje de error.
 </p>
 
 </section>
-<section id="slide-panic-y-recover-split">
+<section>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">f</span>() {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">f</span>() {
       <span style="color: #268bd2; font-weight: bold;">defer</span> <span style="color: #268bd2; font-weight: bold;">func</span>() {
           <span style="color: #268bd2; font-weight: bold;">if</span> <span style="color: #8787d7;">r</span> := <span style="color: #268bd2;">recover</span>(); r != <span style="color: #d75fd7;">nil</span> {
               fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Recovered in f"</span>, r)
@@ -1831,7 +1830,7 @@ programa se detendrá con un mensaje de error.
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Printing in g"</span>, i)
       <span style="color: #d75fd7; font-weight: bold;">g</span>(i + 1)
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1880,21 +1879,21 @@ Si tenemos una función para calcular los números de fibonacci.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Fibonacci</span>(<span style="color: #8787d7;">n</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">int</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Fibonacci</span>(<span style="color: #8787d7;">n</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">int</span> {
       <span style="color: #268bd2; font-weight: bold;">if</span> n &lt; 2 {
           <span style="color: #268bd2; font-weight: bold;">return</span> n
       }
       <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7; font-weight: bold;">Fibonacci</span>(n-1) + <span style="color: #d75fd7; font-weight: bold;">Fibonacci</span>(n-2)
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orge6df50f">
-<h4 id="orge6df50f"><span class="section-number-4">12.1.1</span> Pruebas unitarias</h4>
+<section id="slide-12-1-1">
+<h4 id="12-1-1"><span class="section-number-4">12.1.1</span> Pruebas unitarias</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">TestFibonacci</span>(<span style="color: #8787d7;">t</span> *<span style="color: #df005f; font-weight: bold;">testing.T</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">TestFibonacci</span>(<span style="color: #8787d7;">t</span> *<span style="color: #df005f; font-weight: bold;">testing.T</span>) {
       <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">in</span> <span style="color: #df005f; font-weight: bold;">int</span> = 10
       <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">want</span> <span style="color: #df005f; font-weight: bold;">int</span> = 55
 
@@ -1903,12 +1902,12 @@ Si tenemos una función para calcular los números de fibonacci.
           t.<span style="color: #d75fd7; font-weight: bold;">Errorf</span>(<span style="color: #2aa198;">"Fibonacci(%d) == %d, want %d"</span>, in, got, want)
       }
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org9e92125">
-<h4 id="org9e92125"><span class="section-number-4">12.1.2</span> Pruebas de ejemplo</h4>
+<section id="slide-12-1-2">
+<h4 id="12-1-2"><span class="section-number-4">12.1.2</span> Pruebas de ejemplo</h4>
 <p>
 Los ejemplos además de ejecutar pruebas son una forma de documentar el
 uso de funcionalidades.
@@ -1916,15 +1915,15 @@ uso de funcionalidades.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">ExampleFibonacci</span>() {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">ExampleFibonacci</span>() {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #d75fd7; font-weight: bold;">Fibonacci</span>(10))
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Output: 55</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org9e92125-split">
+<section>
 
 <p>
 Tanto las pruebas unitarias como los ejemplos se ejecutan utilizando el
@@ -1943,12 +1942,12 @@ de nuestras funcionalidades.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">BenchmarkFibonacci</span>(<span style="color: #8787d7;">b</span> *<span style="color: #df005f; font-weight: bold;">testing.B</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">BenchmarkFibonacci</span>(<span style="color: #8787d7;">b</span> *<span style="color: #df005f; font-weight: bold;">testing.B</span>) {
           <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">n</span> := 0; n &lt; b.N; n++ {
                   <span style="color: #d75fd7; font-weight: bold;">Fibonacci</span>(10)
           }
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -1965,11 +1964,11 @@ prueba.
 </p>
 
 </section>
-<section id="slide-datos-de-pruebas-o-fixtures-split">
+<section>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">TestBytesInFile</span>(<span style="color: #8787d7;">t</span> *<span style="color: #df005f; font-weight: bold;">testing.T</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">TestBytesInFile</span>(<span style="color: #8787d7;">t</span> *<span style="color: #df005f; font-weight: bold;">testing.T</span>) {
       <span style="color: #8787d7;">l</span>, <span style="color: #8787d7;">err</span> := <span style="color: #d75fd7; font-weight: bold;">BytesInFile</span>(filepath.<span style="color: #d75fd7; font-weight: bold;">Join</span>(<span style="color: #2aa198;">"testdata"</span>, <span style="color: #2aa198;">"hello_world"</span>))
       <span style="color: #268bd2; font-weight: bold;">if</span> err != <span style="color: #d75fd7;">nil</span> {
           t.<span style="color: #d75fd7; font-weight: bold;">Errorf</span>(<span style="color: #2aa198;">"Error %s"</span>, err)
@@ -1979,18 +1978,19 @@ prueba.
           t.<span style="color: #d75fd7; font-weight: bold;">Errorf</span>(<span style="color: #2aa198;">"Got wrong number of bytes %d"</span>, l)
       }
   }
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
 <section>
 <section id="slide-structs-y-punteros">
 <h2 id="structs-y-punteros"><span class="section-number-2">13</span> Structs y punteros</h2>
+
 </section>
 </section>
 <section>
-<section id="slide-orgbb0bec5">
-<h3 id="orgbb0bec5"><span class="section-number-3">13.1</span> Tipos compuestos, <code>struct</code></h3>
+<section id="slide-13-1">
+<h3 id="13-1"><span class="section-number-3">13.1</span> Tipos compuestos, <code>struct</code></h3>
 <p>
 Un <code>struct</code> es un tipo de dato definido por el usuario que representa
 una colección de campos.
@@ -1998,16 +1998,16 @@ una colección de campos.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Employee</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Employee</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
       firstName <span style="color: #df005f; font-weight: bold;">string</span>
       lastName <span style="color: #df005f; font-weight: bold;">string</span>
       age <span style="color: #df005f; font-weight: bold;">int</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgbb0bec5-split">
+<section>
 
 <p>
 Los campos individuales de un <code>struct</code> se acceden con <code>.</code>.
@@ -2015,14 +2015,14 @@ Los campos individuales de un <code>struct</code> se acceden con <code>.</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp</span> := Employee {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp</span> := Employee {
       <span style="color: #d75fd7;">firstName</span>: <span style="color: #2aa198;">"Something"</span>
   }
 
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(emp.firstName)
 
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: Something</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2036,7 +2036,7 @@ Golang permite que los campos de un <code>struct</code> puedan ser de tipo <code
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Address</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Address</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
       city, state <span style="color: #df005f; font-weight: bold;">string</span>
   }
 
@@ -2045,12 +2045,12 @@ Golang permite que los campos de un <code>struct</code> puedan ser de tipo <code
       age <span style="color: #df005f; font-weight: bold;">int</span>
       address <span style="color: #df005f; font-weight: bold;">Address</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgfa8f9ef">
-<h4 id="orgfa8f9ef"><span class="section-number-4">13.2.1</span> Inicializando un <code>struct</code></h4>
+<section id="slide-13-2-1">
+<h4 id="13-2-1"><span class="section-number-4">13.2.1</span> Inicializando un <code>struct</code></h4>
 <p>
 Para inicializar un campo <code>struct</code> simplemente nos referimos al mismo en
 el bloque de inicialización
@@ -2058,7 +2058,7 @@ el bloque de inicialización
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp</span> <span style="color: #df005f; font-weight: bold;">Employee</span>
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp</span> <span style="color: #df005f; font-weight: bold;">Employee</span>
 
   <span style="color: #8787d7;">emp</span> := <span style="color: #df005f; font-weight: bold;">Employee</span>{
       <span style="color: #d75fd7;">firstName</span>: <span style="color: #2aa198;">"Peter"</span>,
@@ -2071,11 +2071,11 @@ el bloque de inicialización
   }
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(emp)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: {Peter  {New York New York}}</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgfa8f9ef-split">
+<section>
 
 <p>
 Los campos anidados se acceden con multiples niveles de notacion de
@@ -2084,10 +2084,10 @@ punto.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(emp.address.city)
+<pre class="src src-go">  fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(emp.address.city)
 
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: New York</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2107,12 +2107,12 @@ Las etiquetas pueden opcionalmente ser pares <code>llave:"valor"</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Employee</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Employee</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
     firstName <span style="color: #df005f; font-weight: bold;">string</span> <span style="color: #2aa198;">`json:"nombre"`</span>
     lastName  <span style="color: #df005f; font-weight: bold;">string</span> <span style="color: #2aa198;">`json:"apellido"`</span>
     age       <span style="color: #df005f; font-weight: bold;">int</span>    <span style="color: #2aa198;">`json:"edad"`</span>
 }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2132,7 +2132,7 @@ composición. Para esto existe una notación especial
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Address</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Address</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
       city, state <span style="color: #df005f; font-weight: bold;">string</span>
   }
 
@@ -2141,12 +2141,12 @@ composición. Para esto existe una notación especial
       age <span style="color: #df005f; font-weight: bold;">int</span>
       Address
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org39bd46e">
-<h4 id="org39bd46e"><span class="section-number-4">13.4.1</span> Inicializar <code>struct</code> compuesto</h4>
+<section id="slide-13-4-1">
+<h4 id="13-4-1"><span class="section-number-4">13.4.1</span> Inicializar <code>struct</code> compuesto</h4>
 <p>
 Al crear una estructura compuesta tenemos que especificar todos los
 campos
@@ -2154,7 +2154,7 @@ campos
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">emp</span> := <span style="color: #df005f; font-weight: bold;">Employee</span>{
+<pre class="src src-go">  <span style="color: #8787d7;">emp</span> := <span style="color: #df005f; font-weight: bold;">Employee</span>{
       <span style="color: #d75fd7;">firstName</span>: <span style="color: #2aa198;">"Peter"</span>,
       <span style="color: #d75fd7;">lastName</span>:  <span style="color: #2aa198;">"Parker"</span>,
       <span style="color: #d75fd7;">age</span>:       22,
@@ -2165,7 +2165,7 @@ campos
   }
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(emp.city)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: New York</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2193,15 +2193,15 @@ mundo OOP. La sintaxis es la siguiente:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">t</span> <span style="color: #df005f; font-weight: bold;">Type</span>) <span style="color: #d75fd7; font-weight: bold;">MethodName</span>(<span style="color: #8787d7;">parameter</span> <span style="color: #df005f; font-weight: bold;">list</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">t</span> <span style="color: #df005f; font-weight: bold;">Type</span>) <span style="color: #d75fd7; font-weight: bold;">MethodName</span>(<span style="color: #8787d7;">parameter</span> <span style="color: #df005f; font-weight: bold;">list</span>) {
       <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo del metodo</span>
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org6d5d648">
-<h4 id="org6d5d648"><span class="section-number-4">13.6.1</span> Definiendo métodos</h4>
+<section id="slide-13-6-1">
+<h4 id="13-6-1"><span class="section-number-4">13.6.1</span> Definiendo métodos</h4>
 <p>
 Usualmente se define el código del método en el mismo archivo que el
 tipo que lo contiene.
@@ -2209,7 +2209,7 @@ tipo que lo contiene.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Receptor por valor</span>
+<pre class="src src-go">  <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Receptor por valor</span>
   <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">e</span> <span style="color: #df005f; font-weight: bold;">Employee</span>) <span style="color: #d75fd7; font-weight: bold;">Print</span>() {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Employee Record:"</span>)
       fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #2aa198;">"Name:"</span>, e.firstName, e.lastName)
@@ -2221,7 +2221,7 @@ tipo que lo contiene.
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Outpput  Employee Record:</span>
 <span style="color: #008787; background-color: #262626;">//          </span><span style="color: #008787; background-color: #262626;">Name: Allen Varghese</span>
 <span style="color: #008787; background-color: #262626;">//          </span><span style="color: #008787; background-color: #262626;">Address: {AA CO}</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2237,8 +2237,8 @@ punteros a tipos.
 </p>
 
 </section>
-<section id="slide-orgdfc5f56">
-<h4 id="orgdfc5f56"><span class="section-number-4">13.7.1</span> Inicializando punteros</h4>
+<section id="slide-13-7-1">
+<h4 id="13-7-1"><span class="section-number-4">13.7.1</span> Inicializando punteros</h4>
 <p>
 El valor por defecto de los punteros en Golang es <code>nil</code>, este valor
 también se utiliza para indicar que un puntero es nulo.
@@ -2251,15 +2251,15 @@ y no otros.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp</span> *<span style="color: #df005f; font-weight: bold;">Employee</span> <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">puntero nil</span>
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp</span> *<span style="color: #df005f; font-weight: bold;">Employee</span> <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">puntero nil</span>
 
 emp = &amp;<span style="color: #df005f; font-weight: bold;">Employee</span>{...} <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">puntero a Employee</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org1c082b3">
-<h4 id="org1c082b3"><span class="section-number-4">13.7.2</span> Tipos referencias</h4>
+<section id="slide-13-7-2">
+<h4 id="13-7-2"><span class="section-number-4">13.7.2</span> Tipos referencias</h4>
 <p>
 Un puntero es una referencia a un tipo, por lo que podemos utilizarlo
 para modificar el valor original. Los <b>receptores por puntero o por
@@ -2268,7 +2268,7 @@ referencia</b> son una aplicación directa de este concepto.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Receptor por puntero</span>
+<pre class="src src-go">  <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Receptor por puntero</span>
   <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">e</span> *<span style="color: #df005f; font-weight: bold;">Employee</span>) <span style="color: #d75fd7; font-weight: bold;">updateAge</span>(<span style="color: #8787d7;">newAge</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
       e.age = newAge
   }
@@ -2282,7 +2282,7 @@ referencia</b> son una aplicación directa de este concepto.
 
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Output: Before: 33</span>
 <span style="color: #008787; background-color: #262626;">//        </span><span style="color: #008787; background-color: #262626;">After: 34</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2318,6 +2318,7 @@ referencia</b> son una aplicación directa de este concepto.
 <section>
 <section id="slide-interfaces">
 <h2 id="interfaces"><span class="section-number-2">14</span> Interfaces</h2>
+
 </section>
 </section>
 <section>
@@ -2336,7 +2337,7 @@ Un tipo puede implementar mas de una interfaz.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Permanent</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Permanent</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
       empID <span style="color: #df005f; font-weight: bold;">int</span>
       basicPay <span style="color: #df005f; font-weight: bold;">int</span>
       pension <span style="color: #df005f; font-weight: bold;">int</span>
@@ -2366,7 +2367,7 @@ Un tipo puede implementar mas de una interfaz.
       totalPayout += v.<span style="color: #d75fd7; font-weight: bold;">calculateSalary</span>()
   }
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(totalPayout)
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2380,7 +2381,7 @@ Las interfaces al igual que las estructuras pueden anidarse.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Reader</span> <span style="color: #268bd2; font-weight: bold;">interface</span> {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Reader</span> <span style="color: #268bd2; font-weight: bold;">interface</span> {
       <span style="color: #d75fd7; font-weight: bold;">Read</span>(<span style="color: #8787d7;">p</span> []<span style="color: #df005f; font-weight: bold;">byte</span>) (<span style="color: #8787d7;">n</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">err</span> <span style="color: #df005f; font-weight: bold;">error</span>)
   }
 
@@ -2392,7 +2393,7 @@ Las interfaces al igual que las estructuras pueden anidarse.
       Reader
       Seeker
   }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2412,7 +2413,7 @@ la composición, implementa las interfaces de aquellas que la componen
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>
+<pre class="src src-go">
   <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Animal</span> <span style="color: #268bd2; font-weight: bold;">interface</span> {
       <span style="color: #d75fd7; font-weight: bold;">Name</span>() <span style="color: #df005f; font-weight: bold;">string</span>
   }
@@ -2430,7 +2431,7 @@ la composición, implementa las interfaces de aquellas que la componen
   <span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">GuideDog</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
       *Dog
   }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2451,10 +2452,10 @@ implementan una interfaz sin métodos)
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">describe</span>(<span style="color: #8787d7;">i</span> <span style="color: #268bd2; font-weight: bold;">interface</span>{}) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">describe</span>(<span style="color: #8787d7;">i</span> <span style="color: #268bd2; font-weight: bold;">interface</span>{}) {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Printf</span>(<span style="color: #2aa198;">"(%v, %T)\n"</span>, i, i)
   }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2469,7 +2470,7 @@ interfaz.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>    <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">i</span> <span style="color: #268bd2; font-weight: bold;">interface</span>{} = <span style="color: #2aa198;">"hello"</span>
+<pre class="src src-go">    <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">i</span> <span style="color: #268bd2; font-weight: bold;">interface</span>{} = <span style="color: #2aa198;">"hello"</span>
     <span style="color: #8787d7;">s</span> := i.(<span style="color: #df005f; font-weight: bold;">string</span>)
     fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(s)
 
@@ -2482,7 +2483,7 @@ interfaz.
     f = i.(<span style="color: #df005f; font-weight: bold;">float64</span>) <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">panic</span>
     fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(f)
 
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2491,19 +2492,19 @@ parecido al <b>type casting</b> de otros lenguajes.
 </p>
 
 </section>
-<section id="slide-orga074c5e">
-<h4 id="orga074c5e"><span class="section-number-4">14.5.1</span> Type assertions seguras e inseguras</h4>
+<section id="slide-14-5-1">
+<h4 id="14-5-1"><span class="section-number-4">14.5.1</span> Type assertions seguras e inseguras</h4>
 <p>
 Los type assertions se ejecutan con alguna de las siguientes variantes
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">variante segura</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">variante segura</span>
    <span style="color: #8787d7;">v</span>, <span style="color: #8787d7;">ok</span> := i.(<span style="color: #df005f; font-weight: bold;">Tipo</span>)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">variante insegura</span>
    <span style="color: #8787d7;">v</span> := i.(<span style="color: #df005f; font-weight: bold;">Tipo</span>)
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2531,7 +2532,7 @@ determinar el tipo de una variable y actuar en consecuencia
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">switch</span> <span style="color: #8787d7;">v</span> := v.(<span style="color: #268bd2; font-weight: bold;">type</span>) {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">switch</span> <span style="color: #8787d7;">v</span> := v.(<span style="color: #268bd2; font-weight: bold;">type</span>) {
     <span style="color: #268bd2; font-weight: bold;">case</span> <span style="color: #df005f; font-weight: bold;">string</span>:
         fmt.<span style="color: #d75fd7; font-weight: bold;">Printf</span>(<span style="color: #2aa198;">"%v is a string\n"</span>, v)
     <span style="color: #268bd2; font-weight: bold;">case</span> <span style="color: #df005f; font-weight: bold;">int</span>:
@@ -2539,7 +2540,7 @@ determinar el tipo de una variable y actuar en consecuencia
     <span style="color: #268bd2; font-weight: bold;">default</span>:
         fmt.<span style="color: #d75fd7; font-weight: bold;">Printf</span>(<span style="color: #2aa198;">"The type of v is unknown\n"</span>)
 }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2551,6 +2552,7 @@ En lugar de usar la sintaxis <code>v.(Tipo)</code> para la conversión se utiliz
 <section>
 <section id="slide-concurrencia-en-go.">
 <h2 id="concurrencia-en-go."><span class="section-number-2">15</span> Concurrencia en Go.</h2>
+
 </section>
 </section>
 <section>
@@ -2569,19 +2571,19 @@ llamada a una función.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">llamar name como una gorutina</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">llamar name como una gorutina</span>
 <span style="color: #268bd2; font-weight: bold;">go</span> <span style="color: #d75fd7; font-weight: bold;">name</span>()
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">gorutina  an&#243;nima como</span>
 <span style="color: #268bd2; font-weight: bold;">go</span> <span style="color: #268bd2; font-weight: bold;">func</span>() {
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">c&#243;digo</span>
 }()
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orga1a993f">
-<h4 id="orga1a993f"><span class="section-number-4">15.1.1</span> Sincronizando gorutinas</h4>
+<section id="slide-15-1-1">
+<h4 id="15-1-1"><span class="section-number-4">15.1.1</span> Sincronizando gorutinas</h4>
 <p>
 Las gorutinas se ejecutan de modo <b>concurrente</b>. Para sincronizar
 gorutinas es común utilizar elementos de sincronización como
@@ -2590,7 +2592,7 @@ gorutinas es común utilizar elementos de sincronización como
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">main</span>() {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">main</span>() {
     <span style="color: #8787d7;">wg</span> := &amp;<span style="color: #df005f; font-weight: bold;">sync.WaitGroup</span>{}
     wg.<span style="color: #d75fd7; font-weight: bold;">Add</span>(4)
     <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">i</span>:=0; i &lt; 4; i++ {
@@ -2605,7 +2607,7 @@ gorutinas es común utilizar elementos de sincronización como
     <span style="color: #268bd2; font-weight: bold;">defer</span> wg.<span style="color: #d75fd7; font-weight: bold;">Done</span>()
     <span style="color: #d75fd7; font-weight: bold;">DoWork</span>()
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2625,14 +2627,14 @@ Para crear un canal usamos la función <code>make</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">c</span> := <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">chan</span> <span style="color: #df005f; font-weight: bold;">string</span>) <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">canal sin buffer</span>
+<pre class="src src-go"><span style="color: #8787d7;">c</span> := <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">chan</span> <span style="color: #df005f; font-weight: bold;">string</span>) <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">canal sin buffer</span>
 <span style="color: #8787d7;">cb</span> := <span style="color: #268bd2;">make</span>(<span style="color: #268bd2; font-weight: bold;">chan</span> <span style="color: #df005f; font-weight: bold;">string</span>, 200) <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">canal con buffer de 200</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org53689a9">
-<h4 id="org53689a9"><span class="section-number-4">15.2.1</span> Tipos de canales</h4>
+<section id="slide-15-2-1">
+<h4 id="15-2-1"><span class="section-number-4">15.2.1</span> Tipos de canales</h4>
 <p>
 La comunicación vía canales en síncrona. Cuando se envían datos a un
 canal la gorutina se bloquea hasta que estos datos sean recibidos. Lo
@@ -2650,8 +2652,8 @@ Los canales con buffer permiten acumular datos enviados y solo bloquean si
 </ol>
 
 </section>
-<section id="slide-orgde4645d">
-<h4 id="orgde4645d"><span class="section-number-4">15.2.2</span> Terminando la comunicación.</h4>
+<section id="slide-15-2-2">
+<h4 id="15-2-2"><span class="section-number-4">15.2.2</span> Terminando la comunicación.</h4>
 <p>
 Para cerrar un canal se utiliza <code>close</code>. Un canal cerrado no puede
 usarse para enviar datos. Recibir datos de un canal cerrado siempre
@@ -2660,7 +2662,7 @@ retornará el <i>valor cero</i> del tipo de datos del canal.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Enviar</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Enviar</span>
 c &lt;- <span style="color: #2aa198;">"Hola"</span>
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Recibir</span>
 <span style="color: #8787d7;">v</span> := &lt;- c
@@ -2668,12 +2670,12 @@ c &lt;- <span style="color: #2aa198;">"Hola"</span>
 <span style="color: #268bd2; font-weight: bold;">for</span> <span style="color: #8787d7;">v</span> := <span style="color: #268bd2; font-weight: bold;">range</span> c {
     <span style="color: #d75fd7; font-weight: bold;">processValue</span>(v)
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgf6e20c5">
-<h4 id="orgf6e20c5"><span class="section-number-4">15.2.3</span> Multiplexing</h4>
+<section id="slide-15-2-3">
+<h4 id="15-2-3"><span class="section-number-4">15.2.3</span> Multiplexing</h4>
 <p>
 La sentencia <code>select</code> nos permite esperar por el resultado de más de
 un canal.
@@ -2681,7 +2683,7 @@ un canal.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Esperamos por mensaje o timeout</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Esperamos por mensaje o timeout</span>
 <span style="color: #268bd2; font-weight: bold;">for</span> {
     <span style="color: #268bd2; font-weight: bold;">select</span> {
     <span style="color: #268bd2; font-weight: bold;">case</span> <span style="color: #8787d7;">v</span> := &lt;-input:
@@ -2692,7 +2694,7 @@ un canal.
         <span style="color: #268bd2; font-weight: bold;">return</span> results
     }
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2712,6 +2714,7 @@ un canal.
 <section>
 <section id="slide-formatos-de-datos-json-y-xml">
 <h2 id="formatos-de-datos-json-y-xml"><span class="section-number-2">16</span> Formatos de datos: JSON y XML</h2>
+
 </section>
 </section>
 <section>
@@ -2758,15 +2761,15 @@ desde/hacia bytes o representaciones de texto.
 </ul>
 
 </section>
-<section id="slide-org59ab400">
-<h4 id="org59ab400"><span class="section-number-4">16.2.1</span> Serializando estructuras</h4>
+<section id="slide-16-2-1">
+<h4 id="16-2-1"><span class="section-number-4">16.2.1</span> Serializando estructuras</h4>
 <p>
 Las etiquetas definen como se serializan las estructuras.
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Address</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Address</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">omitempty hace que los campos vac&#237;os no</span>
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">no se serialice.</span>
     City  <span style="color: #df005f; font-weight: bold;">string</span> <span style="color: #2aa198;">`json:"ciudad,omitempty"`</span>
@@ -2783,18 +2786,18 @@ Las etiquetas definen como se serializan las estructuras.
     id        <span style="color: #df005f; font-weight: bold;">string</span>
     Address
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org59ab400-split">
+<section>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">emp1</span> := <span style="color: #df005f; font-weight: bold;">Employee</span>{<span style="color: #2aa198;">"Peter"</span>, <span style="color: #2aa198;">"Parker"</span>, 22, <span style="color: #df005f; font-weight: bold;">Address</span>{<span style="color: #2aa198;">"Manhattan"</span>, <span style="color: #2aa198;">"New York"</span>}}
+<pre class="src src-go"><span style="color: #8787d7;">emp1</span> := <span style="color: #df005f; font-weight: bold;">Employee</span>{<span style="color: #2aa198;">"Peter"</span>, <span style="color: #2aa198;">"Parker"</span>, 22, <span style="color: #df005f; font-weight: bold;">Address</span>{<span style="color: #2aa198;">"Manhattan"</span>, <span style="color: #2aa198;">"New York"</span>}}
 <span style="color: #8787d7;">d</span>, <span style="color: #8787d7;">_</span> := json.<span style="color: #d75fd7; font-weight: bold;">Marshal</span>(&amp;emp1)
 fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #d75fd7; font-weight: bold;">string</span>(d))
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2808,18 +2811,18 @@ fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style=
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">tony</span> := <span style="color: #2aa198;">`{"nombre":"Tony","apellido":"Stark","edad":44}`</span>
+<pre class="src src-go"><span style="color: #8787d7;">tony</span> := <span style="color: #2aa198;">`{"nombre":"Tony","apellido":"Stark","edad":44}`</span>
 <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">emp3</span> <span style="color: #df005f; font-weight: bold;">Employee</span>
 err = json.<span style="color: #d75fd7; font-weight: bold;">Unmarshal</span>([]<span style="color: #d75fd7; font-weight: bold;">byte</span>(tony), &amp;emp3)
 <span style="color: #268bd2; font-weight: bold;">if</span> err != <span style="color: #d75fd7;">nil</span> {
     log.<span style="color: #d75fd7; font-weight: bold;">Fatal</span>(<span style="color: #2aa198;">"No se pudo deserializar"</span>)
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org081672f">
-<h4 id="org081672f"><span class="section-number-4">16.3.1</span> Consideraciones.</h4>
+<section id="slide-16-3-1">
+<h4 id="16-3-1"><span class="section-number-4">16.3.1</span> Consideraciones.</h4>
 <ol>
 <li><code>Unmarshal</code> a un slice elimina los valores del slice.</li>
 <li><code>Unmarshal</code> a un array descarta los valores extra si el array
@@ -2834,6 +2837,7 @@ inicializar</li>
 <section>
 <section id="slide-creando-apis-rest">
 <h2 id="creando-apis-rest"><span class="section-number-2">17</span> Creando APIs REST</h2>
+
 </section>
 </section>
 <section>
@@ -2847,13 +2851,13 @@ una tarea sencilla.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">main</span>() {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">main</span>() {
       http.<span style="color: #d75fd7; font-weight: bold;">HandleFunc</span>(<span style="color: #2aa198;">"/hello"</span>, <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">w</span> <span style="color: #df005f; font-weight: bold;">http.ResponseWWriter</span>, <span style="color: #8787d7;">r</span> *<span style="color: #df005f; font-weight: bold;">http.Request</span>) {
           fmt.<span style="color: #d75fd7; font-weight: bold;">Fprintf</span>(w, <span style="color: #2aa198;">"Hello world"</span>)
       })
       log.<span style="color: #d75fd7; font-weight: bold;">Fatal</span>(http.<span style="color: #d75fd7; font-weight: bold;">ListenAndServe</span>(<span style="color: #2aa198;">":8080"</span>, <span style="color: #d75fd7;">nil</span>))
   }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2874,12 +2878,12 @@ usual es que utilicemos nuestra propio <code>ServeMux</code>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">mux</span> := http.<span style="color: #d75fd7; font-weight: bold;">NewServeMux</span>()
+<pre class="src src-go">  <span style="color: #8787d7;">mux</span> := http.<span style="color: #d75fd7; font-weight: bold;">NewServeMux</span>()
   mux.<span style="color: #d75fd7; font-weight: bold;">HandleFunc</span>(<span style="color: #2aa198;">"/hello"</span>, <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">w</span> <span style="color: #df005f; font-weight: bold;">http.ResponseWriter</span>, <span style="color: #8787d7;">req</span> *<span style="color: #df005f; font-weight: bold;">http.Request</span>) {
       fmt.<span style="color: #d75fd7; font-weight: bold;">Fprintf</span>(w, <span style="color: #2aa198;">"Hello world"</span>)
   })
   log.<span style="color: #d75fd7; font-weight: bold;">Fatal</span>(http.<span style="color: #d75fd7; font-weight: bold;">ListenAndServe</span>(<span style="color: #2aa198;">":8080"</span>, mux))
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -2888,7 +2892,7 @@ Alternativamente podemos crear nuestro propio <code>Server</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>    <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Create a server listening on port 8000</span>
+<pre class="src src-go">    <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Create a server listening on port 8000</span>
     <span style="color: #8787d7;">s</span> := &amp;<span style="color: #df005f; font-weight: bold;">http.Server</span>{
         <span style="color: #d75fd7;">Addr</span>:    <span style="color: #2aa198;">":8000"</span>,
         <span style="color: #d75fd7;">Handler</span>: mux,
@@ -2896,7 +2900,7 @@ Alternativamente podemos crear nuestro propio <code>Server</code>.
 
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Continue to process new requests until an error occurs</span>
     log.<span style="color: #d75fd7; font-weight: bold;">Fatal</span>(s.<span style="color: #d75fd7; font-weight: bold;">ListenAndServe</span>())
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2915,7 +2919,7 @@ Tomemos por ejemplo el código para hacer un API REST sencilla
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">H</span> = <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">w</span> <span style="color: #df005f; font-weight: bold;">http.ResponseWriter</span>, <span style="color: #8787d7;">r</span> *<span style="color: #df005f; font-weight: bold;">http.Request</span>)
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">H</span> = <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">w</span> <span style="color: #df005f; font-weight: bold;">http.ResponseWriter</span>, <span style="color: #8787d7;">r</span> *<span style="color: #df005f; font-weight: bold;">http.Request</span>)
 
 <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">dispatchResource</span>(<span style="color: #8787d7;">get</span>, <span style="color: #8787d7;">post</span>, <span style="color: #8787d7;">put</span>, <span style="color: #8787d7;">delete</span> <span style="color: #df005f; font-weight: bold;">H</span>) <span style="color: #df005f; font-weight: bold;">H</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">w</span> <span style="color: #df005f; font-weight: bold;">http.ResponseWriter</span>, <span style="color: #8787d7;">r</span> *<span style="color: #df005f; font-weight: bold;">http.Request</span>) {
@@ -2949,7 +2953,7 @@ Tomemos por ejemplo el código para hacer un API REST sencilla
     m.<span style="color: #d75fd7; font-weight: bold;">HandleFunc</span>(<span style="color: #2aa198;">"/resource"</span>, <span style="color: #d75fd7; font-weight: bold;">dispatchResource</span>(getFunc, postFunc, <span style="color: #d75fd7;">nil</span>, <span style="color: #d75fd7;">nil</span>))
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">use mux</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -2985,12 +2989,12 @@ Para este ejercicio se utiliza el tester HTTP <a href="https://httpbin.org">http
 <h3 id="ejecutando-un-get"><span class="section-number-3">18.1</span> Ejecutando un GET</h3>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">resp</span>, <span style="color: #8787d7;">_</span> := http.<span style="color: #d75fd7; font-weight: bold;">Get</span>(<span style="color: #2aa198;">"https://httpbin.org/get"</span>)
+<pre class="src src-go">  <span style="color: #8787d7;">resp</span>, <span style="color: #8787d7;">_</span> := http.<span style="color: #d75fd7; font-weight: bold;">Get</span>(<span style="color: #2aa198;">"https://httpbin.org/get"</span>)
   <span style="color: #268bd2; font-weight: bold;">defer</span> resp.Body.<span style="color: #d75fd7; font-weight: bold;">Close</span>()
 
   <span style="color: #8787d7;">data</span>, <span style="color: #8787d7;">_</span> := ioutil.<span style="color: #d75fd7; font-weight: bold;">ReadAll</span>(resp.Body)
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #d75fd7; font-weight: bold;">string</span>(data))
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -3000,13 +3004,13 @@ Para este ejercicio se utiliza el tester HTTP <a href="https://httpbin.org">http
 <h3 id="ejecutando-un-post"><span class="section-number-3">18.2</span> Ejecutando un POST</h3>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">payload</span> := <span style="color: #2aa198;">"Hello world!"</span>
+<pre class="src src-go">  <span style="color: #8787d7;">payload</span> := <span style="color: #2aa198;">"Hello world!"</span>
   <span style="color: #8787d7;">resp</span>, <span style="color: #8787d7;">_</span> := http.<span style="color: #d75fd7; font-weight: bold;">Post</span>(<span style="color: #2aa198;">"https://httpbin.org/post"</span>, <span style="color: #2aa198;">"text/plain"</span>, strings.<span style="color: #d75fd7; font-weight: bold;">NewReader</span>(payload))
   <span style="color: #268bd2; font-weight: bold;">defer</span> resp.Body.<span style="color: #d75fd7; font-weight: bold;">Close</span>()
 
   <span style="color: #8787d7;">data</span>, <span style="color: #8787d7;">_</span> := ioutil.<span style="color: #d75fd7; font-weight: bold;">ReadAll</span>(resp.Body)
   fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style="color: #d75fd7; font-weight: bold;">string</span>(data))
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -3030,8 +3034,8 @@ Crear un nuevo objeto request:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">req</span>, <span style="color: #8787d7;">_</span> := http.<span style="color: #d75fd7; font-weight: bold;">NewRequest</span>(http.MethodGet, url, <span style="color: #d75fd7;">nil</span>)
-</code></pre>
+<pre class="src src-go">  <span style="color: #8787d7;">req</span>, <span style="color: #8787d7;">_</span> := http.<span style="color: #d75fd7; font-weight: bold;">NewRequest</span>(http.MethodGet, url, <span style="color: #d75fd7;">nil</span>)
+</pre>
 </div>
 
 <p>
@@ -3040,9 +3044,9 @@ Crear un <code>context</code> con timeout:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">ctx</span>, <span style="color: #8787d7;">cancel</span> := context.<span style="color: #d75fd7; font-weight: bold;">WithTimeout</span>(context.<span style="color: #d75fd7; font-weight: bold;">Background</span>(), timeout)
+<pre class="src src-go">  <span style="color: #8787d7;">ctx</span>, <span style="color: #8787d7;">cancel</span> := context.<span style="color: #d75fd7; font-weight: bold;">WithTimeout</span>(context.<span style="color: #d75fd7; font-weight: bold;">Background</span>(), timeout)
   <span style="color: #268bd2; font-weight: bold;">defer</span> <span style="color: #d75fd7; font-weight: bold;">cancel</span>()
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -3051,9 +3055,9 @@ Ejecutar el request pasando por parametro el <code>context</code> con el timeout
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #8787d7;">resp</span>, <span style="color: #8787d7;">_</span> := http.DefaultClient.<span style="color: #d75fd7; font-weight: bold;">Do</span>(req.<span style="color: #d75fd7; font-weight: bold;">WithContext</span>(ctx))
+<pre class="src src-go">  <span style="color: #8787d7;">resp</span>, <span style="color: #8787d7;">_</span> := http.DefaultClient.<span style="color: #d75fd7; font-weight: bold;">Do</span>(req.<span style="color: #d75fd7; font-weight: bold;">WithContext</span>(ctx))
   <span style="color: #268bd2; font-weight: bold;">defer</span> resp.Body.<span style="color: #d75fd7; font-weight: bold;">Close</span>()
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
@@ -3153,7 +3157,7 @@ las versiones con y sin uso de <i>gorutines</i>.</li>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Squares</span>(<span style="color: #8787d7;">number</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #8787d7;">sum</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">Squares</span>(<span style="color: #8787d7;">number</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #8787d7;">sum</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
       sum = 0
       <span style="color: #268bd2; font-weight: bold;">for</span> number != 0 {
           <span style="color: #8787d7;">digit</span> := number % 10
@@ -3176,7 +3180,7 @@ las versiones con y sin uso de <i>gorutines</i>.</li>
   <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">SquaresPlusCubes</span>(<span style="color: #8787d7;">number</span> <span style="color: #df005f; font-weight: bold;">int</span>) <span style="color: #df005f; font-weight: bold;">int</span> {
       <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7; font-weight: bold;">Squares</span>(number) + <span style="color: #d75fd7; font-weight: bold;">Cubes</span>(number)
   }
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
@@ -3192,10 +3196,10 @@ para la siguiente entidad:
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim>  ID     <span style="color: #df005f; font-weight: bold;">int</span>
+<pre class="src src-go">  ID     <span style="color: #df005f; font-weight: bold;">int</span>
   Title  <span style="color: #df005f; font-weight: bold;">string</span>
   IsDone <span style="color: #df005f; font-weight: bold;">bool</span>
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -3244,6 +3248,7 @@ Modificar la API Rest del challenge 4.2 para usar Gin.
 <section>
 <section id="slide-acceso-a-bases-de-datos">
 <h2 id="acceso-a-bases-de-datos"><span class="section-number-2">31</span> Acceso a bases de datos</h2>
+
 </section>
 </section>
 <section>
@@ -3256,8 +3261,8 @@ Framework o <b>JDBC</b> en Java.
 </p>
 
 </section>
-<section id="slide-orgc51857a">
-<h4 id="orgc51857a"><span class="section-number-4">31.1.1</span> Definiendo la base de datos.</h4>
+<section id="slide-31-1-1">
+<h4 id="31-1-1"><span class="section-number-4">31.1.1</span> Definiendo la base de datos.</h4>
 <p>
 Para el resto de los ejemplo asumamos que tenemos una base de datos
 con una tabla única.
@@ -3265,18 +3270,18 @@ con una tabla única.
 
 <div class="org-src-container">
 
-<pre  class="src src-sql"><code trim><span style="color: #268bd2; font-weight: bold;">CREATE</span> <span style="color: #268bd2; font-weight: bold;">TABLE</span> `userinfo` (
+<pre class="src src-sql"><span style="color: #268bd2; font-weight: bold;">CREATE</span> <span style="color: #268bd2; font-weight: bold;">TABLE</span> `userinfo` (
        `uid` <span style="color: #df005f; font-weight: bold;">INTEGER</span> <span style="color: #268bd2; font-weight: bold;">PRIMARY</span> <span style="color: #268bd2; font-weight: bold;">KEY</span> AUTOINCREMENT,
        `username` <span style="color: #df005f; font-weight: bold;">VARCHAR</span>(64) <span style="color: #268bd2; font-weight: bold;">NULL</span>,
        `departname` <span style="color: #df005f; font-weight: bold;">VARCHAR</span>(64) <span style="color: #268bd2; font-weight: bold;">NULL</span>,
        `created` <span style="color: #df005f; font-weight: bold;">DATE</span> <span style="color: #268bd2; font-weight: bold;">NULL</span>
 );
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgfb9888b">
-<h4 id="orgfb9888b"><span class="section-number-4">31.1.2</span> Estableciendo conexión</h4>
+<section id="slide-31-1-2">
+<h4 id="31-1-2"><span class="section-number-4">31.1.2</span> Estableciendo conexión</h4>
 <p>
 Para acceder a una base de datos usamos la función <code>sql.Open</code>. La
 función recibe el nombre del driver y el DSN (ver documentación del
@@ -3285,7 +3290,7 @@ driver)
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">import</span> _ <span style="color: #2aa198;">"github.com/mattn/go-sqlite3"</span>
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">import</span> _ <span style="color: #2aa198;">"github.com/mattn/go-sqlite3"</span>
 
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">En una funci&#243;n</span>
 <span style="color: #8787d7;">db</span>, <span style="color: #8787d7;">err</span> := sql.<span style="color: #d75fd7; font-weight: bold;">Open</span>(<span style="color: #2aa198;">"sqlite3"</span>, <span style="color: #2aa198;">"./data.db"</span>)
@@ -3293,13 +3298,13 @@ driver)
     <span style="color: #268bd2;">panic</span>(<span style="color: #2aa198;">"Error accediendo a la base de datos"</span>)
 }
 <span style="color: #268bd2; font-weight: bold;">defer</span> db.<span style="color: #d75fd7; font-weight: bold;">Close</span>() <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Cerrar la base de datos siempre</span>
-</code></pre>
+</pre>
 </div>
 
 
 </section>
-<section id="slide-org2277ae0">
-<h4 id="org2277ae0"><span class="section-number-4">31.1.3</span> Consultas</h4>
+<section id="slide-31-1-3">
+<h4 id="31-1-3"><span class="section-number-4">31.1.3</span> Consultas</h4>
 <p>
 La función <code>db.Query</code> nos permite consultar la base de datos. Las
 llamadas a <code>db.Query</code> retornan una estructura <code>db.Rows</code> que nos
@@ -3308,7 +3313,7 @@ permite iterar sobre las filas recibidas e inspeccionar su valor.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Consultar</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Consultar</span>
 <span style="color: #8787d7;">rows</span>, <span style="color: #8787d7;">err</span> := db.<span style="color: #d75fd7; font-weight: bold;">Query</span>(<span style="color: #2aa198;">"SELECT * FROM userinfo"</span>)
 <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">uid</span> <span style="color: #df005f; font-weight: bold;">int</span>
 <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">username</span> <span style="color: #df005f; font-weight: bold;">string</span>
@@ -3326,12 +3331,12 @@ permite iterar sobre las filas recibidas e inspeccionar su valor.
     fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(created)
 }
 rows.<span style="color: #d75fd7; font-weight: bold;">Close</span>() <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Close libera recursos del iterador</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org0419201">
-<h4 id="org0419201"><span class="section-number-4">31.1.4</span> Manipulación de datos</h4>
+<section id="slide-31-1-4">
+<h4 id="31-1-4"><span class="section-number-4">31.1.4</span> Manipulación de datos</h4>
 <p>
 Para ejecutar consultas que manipulen datos debemos crear una
 estructura <code>sql.Stmt</code>.
@@ -3339,7 +3344,7 @@ estructura <code>sql.Stmt</code>.
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Insertar</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Insertar</span>
 <span style="color: #8787d7;">stmt</span>, <span style="color: #8787d7;">err</span> := db.<span style="color: #d75fd7; font-weight: bold;">Prepare</span>(<span style="color: #2aa198;">"INSERT INTO userinfo(username, departname, created) values(?,?,?)"</span>)
 <span style="color: #8787d7;">res</span>, <span style="color: #8787d7;">err</span> := stmt.<span style="color: #d75fd7; font-weight: bold;">Exec</span>(<span style="color: #2aa198;">"pparker"</span>, <span style="color: #2aa198;">"Avengers"</span>, <span style="color: #2aa198;">"2021-01-01"</span>)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Actualizar</span>
@@ -3350,7 +3355,7 @@ stmt, err = db.<span style="color: #d75fd7; font-weight: bold;">Prepare</span>(<
 res, err = stmt.<span style="color: #d75fd7; font-weight: bold;">Exec</span>(id)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Llamar Close para liberar recursos</span>
 <span style="color: #8787d7;">err</span> := stmt.<span style="color: #d75fd7; font-weight: bold;">Close</span>()
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -3365,11 +3370,11 @@ biblioteca maneja sus propios tipos e interfaces.
 </p>
 
 </section>
-<section id="slide-org9c03922">
-<h4 id="org9c03922"><span class="section-number-4">31.2.1</span> Obteniendo los paqutes necesarios</h4>
+<section id="slide-31-2-1">
+<h4 id="31-2-1"><span class="section-number-4">31.2.1</span> Obteniendo los paqutes necesarios</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Necesitamos estos imports</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Necesitamos estos imports</span>
 <span style="color: #268bd2; font-weight: bold;">import</span> (
     <span style="color: #2aa198;">"go.mongodb.org/mongo-driver/bson"</span>
     <span style="color: #2aa198;">"go.mongodb.org/mongo-driver/bson/primitive"</span>
@@ -3377,12 +3382,12 @@ biblioteca maneja sus propios tipos e interfaces.
     <span style="color: #2aa198;">"go.mongodb.org/mongo-driver/mongo/options"</span>
 )
 
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org13aae19">
-<h4 id="org13aae19"><span class="section-number-4">31.2.2</span> Definiendo los datos</h4>
+<section id="slide-31-2-2">
+<h4 id="31-2-2"><span class="section-number-4">31.2.2</span> Definiendo los datos</h4>
 <ol>
 <li>Las etiquetas <code>bson</code> para serializar y deserializar hacia la base
 de datos.</li>
@@ -3392,20 +3397,20 @@ de datos.</li>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Item</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">Item</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
     ID     <span style="color: #df005f; font-weight: bold;">int</span>    <span style="color: #2aa198;">`json:"id,omitempty" bson:"id,omitempty"`</span>
     Title  <span style="color: #df005f; font-weight: bold;">string</span> <span style="color: #2aa198;">`json:"title,omitempty" bson:"title,omitempty"`</span>
     IsDone <span style="color: #df005f; font-weight: bold;">bool</span>   <span style="color: #2aa198;">`json:"isdone,omitempty" bson:"isdone,omitempty"`</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org7cfa79f">
-<h4 id="org7cfa79f"><span class="section-number-4">31.2.3</span> Conectar y desconectar.</h4>
+<section id="slide-31-2-3">
+<h4 id="31-2-3"><span class="section-number-4">31.2.3</span> Conectar y desconectar.</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">MongoDB</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">MongoDB</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
     *mongo.Client
 }
 
@@ -3420,15 +3425,15 @@ de datos.</li>
 <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">Disconnect</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>) {
     <span style="color: #268bd2; font-weight: bold;">defer</span> m.Client.<span style="color: #d75fd7; font-weight: bold;">Disconnect</span>(ctx)
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgfdb7800">
-<h4 id="orgfdb7800"><span class="section-number-4">31.2.4</span> Crear y actualizar</h4>
+<section id="slide-31-2-4">
+<h4 id="31-2-4"><span class="section-number-4">31.2.4</span> Crear y actualizar</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">CreateItem</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>, <span style="color: #8787d7;">newItem</span> <span style="color: #df005f; font-weight: bold;">Item</span>) <span style="color: #df005f; font-weight: bold;">string</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">CreateItem</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>, <span style="color: #8787d7;">newItem</span> <span style="color: #df005f; font-weight: bold;">Item</span>) <span style="color: #df005f; font-weight: bold;">string</span> {
 
     <span style="color: #8787d7;">collection</span> := m.<span style="color: #d75fd7; font-weight: bold;">Database</span>(<span style="color: #2aa198;">"todo"</span>).<span style="color: #d75fd7; font-weight: bold;">Collection</span>(<span style="color: #2aa198;">"items"</span>)
     <span style="color: #8787d7;">result</span>, <span style="color: #8787d7;">_</span> := collection.<span style="color: #d75fd7; font-weight: bold;">InsertOne</span>(ctx, newItem)
@@ -3442,15 +3447,15 @@ de datos.</li>
     <span style="color: #8787d7;">collection</span> := m.<span style="color: #d75fd7; font-weight: bold;">Database</span>(<span style="color: #2aa198;">"todo"</span>).<span style="color: #d75fd7; font-weight: bold;">Collection</span>(<span style="color: #2aa198;">"items"</span>)
     collection.<span style="color: #d75fd7; font-weight: bold;">UpdateOne</span>(ctx, <span style="color: #df005f; font-weight: bold;">Item</span>{<span style="color: #d75fd7;">ID</span>: item.ID}, update)
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org4bd79c7">
-<h4 id="org4bd79c7"><span class="section-number-4">31.2.5</span> Obtener elementos</h4>
+<section id="slide-31-2-5">
+<h4 id="31-2-5"><span class="section-number-4">31.2.5</span> Obtener elementos</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">GetItems</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>) (<span style="color: #8787d7;">items</span> []<span style="color: #df005f; font-weight: bold;">Item</span>) {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">GetItems</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>) (<span style="color: #8787d7;">items</span> []<span style="color: #df005f; font-weight: bold;">Item</span>) {
     <span style="color: #8787d7;">collection</span> := m.<span style="color: #d75fd7; font-weight: bold;">Database</span>(<span style="color: #2aa198;">"todo"</span>).<span style="color: #d75fd7; font-weight: bold;">Collection</span>(<span style="color: #2aa198;">"items"</span>)
     <span style="color: #8787d7;">cursor</span>, <span style="color: #8787d7;">_</span> := collection.<span style="color: #d75fd7; font-weight: bold;">Find</span>(ctx, <span style="color: #df005f; font-weight: bold;">bson.M</span>{})
 
@@ -3463,34 +3468,34 @@ de datos.</li>
 
     <span style="color: #268bd2; font-weight: bold;">return</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org4bd79c7-split">
+<section>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">GetItem</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>, <span style="color: #8787d7;">id</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #8787d7;">item</span> <span style="color: #df005f; font-weight: bold;">Item</span>) {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">GetItem</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>, <span style="color: #8787d7;">id</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #8787d7;">item</span> <span style="color: #df005f; font-weight: bold;">Item</span>) {
 
     <span style="color: #8787d7;">collection</span> := m.<span style="color: #d75fd7; font-weight: bold;">Database</span>(<span style="color: #2aa198;">"todo"</span>).<span style="color: #d75fd7; font-weight: bold;">Collection</span>(<span style="color: #2aa198;">"items"</span>)
     collection.<span style="color: #d75fd7; font-weight: bold;">FindOne</span>(ctx, <span style="color: #df005f; font-weight: bold;">Item</span>{<span style="color: #d75fd7;">ID</span>: id}).<span style="color: #d75fd7; font-weight: bold;">Decode</span>(&amp;item)
     <span style="color: #268bd2; font-weight: bold;">return</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org9dd068e">
-<h4 id="org9dd068e"><span class="section-number-4">31.2.6</span> Eliminar.</h4>
+<section id="slide-31-2-6">
+<h4 id="31-2-6"><span class="section-number-4">31.2.6</span> Eliminar.</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">DeleteItem</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>, <span style="color: #8787d7;">id</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">MongoDB</span>) <span style="color: #d75fd7; font-weight: bold;">DeleteItem</span>(<span style="color: #8787d7;">ctx</span> <span style="color: #df005f; font-weight: bold;">context.Context</span>, <span style="color: #8787d7;">id</span> <span style="color: #df005f; font-weight: bold;">int</span>) {
     <span style="color: #8787d7;">collection</span> := m.<span style="color: #d75fd7; font-weight: bold;">Database</span>(<span style="color: #2aa198;">"todo"</span>).<span style="color: #d75fd7; font-weight: bold;">Collection</span>(<span style="color: #2aa198;">"items"</span>)
     collection.<span style="color: #d75fd7; font-weight: bold;">DeleteMany</span>(ctx, <span style="color: #df005f; font-weight: bold;">Item</span>{<span style="color: #d75fd7;">ID</span>: id})
     <span style="color: #268bd2; font-weight: bold;">return</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -3508,11 +3513,12 @@ de datos.</li>
 <section>
 <section id="slide-labstack-echo">
 <h2 id="labstack-echo"><span class="section-number-2">32</span> Labstack Echo</h2>
+
 </section>
 </section>
 <section>
-<section id="slide-orgc7f7a67">
-<h3 id="orgc7f7a67"><span class="section-number-3">32.1</span> Introducción</h3>
+<section id="slide-32-1">
+<h3 id="32-1"><span class="section-number-3">32.1</span> Introducción</h3>
 <p>
 <b>Echo</b> es un microframework Golang para crear servicios web.
 </p>
@@ -3520,16 +3526,16 @@ de datos.</li>
 </section>
 </section>
 <section>
-<section id="slide-org5cc7abe">
-<h3 id="org5cc7abe"><span class="section-number-3">32.2</span> Rutas.</h3>
+<section id="slide-32-2">
+<h3 id="32-2"><span class="section-number-3">32.2</span> Rutas.</h3>
 <p>
 :CUSTOM<sub>ID</sub>: rutas-middleware
 </p>
 
 
 </section>
-<section id="slide-org3e97787">
-<h4 id="org3e97787"><span class="section-number-4">32.2.1</span> Handlers</h4>
+<section id="slide-32-2-1">
+<h4 id="32-2-1"><span class="section-number-4">32.2.1</span> Handlers</h4>
 <p>
 <code>echo.Context</code> representa el acceso al estado de la solicitud (ruta,
 parámetros, <i>handlers</i>, etc) y contiene los métodos para generar las
@@ -3538,18 +3544,18 @@ respuesta
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">updateUser</span> (c <span style="color: #df005f; font-weight: bold;">echo.Context</span>) (<span style="color: #8787d7;">err</span> <span style="color: #df005f; font-weight: bold;">error</span>) {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">updateUser</span> (c <span style="color: #df005f; font-weight: bold;">echo.Context</span>) (<span style="color: #8787d7;">err</span> <span style="color: #df005f; font-weight: bold;">error</span>) {
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">...</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgf436066">
-<h4 id="orgf436066"><span class="section-number-4">32.2.2</span> Rutas REST</h4>
+<section id="slide-32-2-2">
+<h4 id="32-2-2"><span class="section-number-4">32.2.2</span> Rutas REST</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"github.com/labstack/echo/v4"</span>
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #2aa198;">"github.com/labstack/echo/v4"</span>
 
 <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">main</span>(){
     <span style="color: #8787d7;">e</span> := echo.<span style="color: #d75fd7; font-weight: bold;">New</span>()
@@ -3559,52 +3565,52 @@ respuesta
     e.<span style="color: #d75fd7; font-weight: bold;">DELETE</span>(<span style="color: #2aa198;">"/users/:id"</span>, deleteUser)
     e.<span style="color: #d75fd7; font-weight: bold;">Any</span>(<span style="color: #2aa198;">"/"</span>,home)
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgdfdd447">
-<h4 id="orgdfdd447"><span class="section-number-4">32.2.3</span> Grupos</h4>
+<section id="slide-32-2-3">
+<h4 id="32-2-3"><span class="section-number-4">32.2.3</span> Grupos</h4>
 <p>
 Establecer opciones similares para varias rutas.
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Todas las URLs con /v2/*</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Todas las URLs con /v2/*</span>
 <span style="color: #8787d7;">g</span> := e.<span style="color: #d75fd7; font-weight: bold;">Group</span>(<span style="color: #2aa198;">"/v2"</span>)
 e.<span style="color: #d75fd7; font-weight: bold;">POST</span>(<span style="color: #2aa198;">"/users"</span>, createUserV2)
 e.<span style="color: #d75fd7; font-weight: bold;">GET</span>(<span style="color: #2aa198;">"/users/:id"</span>, findUserV2)
 e.<span style="color: #d75fd7; font-weight: bold;">PUT</span>(<span style="color: #2aa198;">"/users/:id"</span>, updateUserV2)
 e.<span style="color: #d75fd7; font-weight: bold;">DELETE</span>(<span style="color: #2aa198;">"/users/:id"</span>, deleteUserV2)
-</code></pre>
+</pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org3e7d1c7">
-<h3 id="org3e7d1c7"><span class="section-number-3">32.3</span> Middleware</h3>
+<section id="slide-32-3">
+<h3 id="32-3"><span class="section-number-3">32.3</span> Middleware</h3>
 <p>
 Funciones que se procesan antes de un handler.
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">MyMiddleware</span>(<span style="color: #8787d7;">next</span> <span style="color: #df005f; font-weight: bold;">echo.HandlerFunc</span>) <span style="color: #df005f; font-weight: bold;">echo.HandlerFunc</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">MyMiddleware</span>(<span style="color: #8787d7;">next</span> <span style="color: #df005f; font-weight: bold;">echo.HandlerFunc</span>) <span style="color: #df005f; font-weight: bold;">echo.HandlerFunc</span> {
     <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">c</span> <span style="color: #df005f; font-weight: bold;">echo.Context</span>) <span style="color: #df005f; font-weight: bold;">error</span> {
         <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Hacer algo</span>
         <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7; font-weight: bold;">next</span>(c)
     }
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgd8f3918">
-<h4 id="orgd8f3918"><span class="section-number-4">32.3.1</span> Incluyendo middleware</h4>
+<section id="slide-32-3-1">
+<h4 id="32-3-1"><span class="section-number-4">32.3.1</span> Incluyendo middleware</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Antes de ejecutarse el router</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Antes de ejecutarse el router</span>
 e.<span style="color: #d75fd7; font-weight: bold;">Pre</span>(MyMiddleware)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Despu&#233;s de ejecutar el router</span>
 e.<span style="color: #d75fd7; font-weight: bold;">Use</span>(MyMiddleware)
@@ -3612,35 +3618,35 @@ e.<span style="color: #d75fd7; font-weight: bold;">Use</span>(MyMiddleware)
 <span style="color: #8787d7;">admin</span> := e.<span style="color: #d75fd7; font-weight: bold;">Group</span>(<span style="color: #2aa198;">"/admin"</span>, MyMiddleware)
 <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">A nivel de ruta</span>
 e.<span style="color: #d75fd7; font-weight: bold;">GET</span>(<span style="color: #2aa198;">"/"</span>, &lt;Handler&gt;, &lt;Middleware...&gt;)
-</code></pre>
+</pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgc5a9821">
-<h3 id="orgc5a9821"><span class="section-number-3">32.4</span> Obteniendo datos</h3>
+<section id="slide-32-4">
+<h3 id="32-4"><span class="section-number-3">32.4</span> Obteniendo datos</h3>
 <div class="outline-text-3" id="text-32-4">
 </div>
 </section>
-<section id="slide-org60b6111">
-<h4 id="org60b6111"><span class="section-number-4">32.4.1</span> Desde el contexto</h4>
+<section id="slide-32-4-1">
+<h4 id="32-4-1"><span class="section-number-4">32.4.1</span> Desde el contexto</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">c</span> <span style="color: #df005f; font-weight: bold;">echo.Context</span>) <span style="color: #df005f; font-weight: bold;">error</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">func</span>(<span style="color: #8787d7;">c</span> <span style="color: #df005f; font-weight: bold;">echo.Context</span>) <span style="color: #df005f; font-weight: bold;">error</span> {
     <span style="color: #8787d7;">name</span> := c.<span style="color: #d75fd7; font-weight: bold;">FormValue</span>(<span style="color: #2aa198;">"name"</span>) <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">valor de formulario</span>
     <span style="color: #8787d7;">printFull</span> := c.<span style="color: #d75fd7; font-weight: bold;">QueryParam</span>(<span style="color: #2aa198;">"full"</span>) <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">valor de query</span>
     <span style="color: #268bd2; font-weight: bold;">return</span> c.<span style="color: #d75fd7; font-weight: bold;">String</span>(http.StatusOK, name)
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-orgc807288">
-<h4 id="orgc807288"><span class="section-number-4">32.4.2</span> Usando <code>Bind</code></h4>
+<section id="slide-32-4-2">
+<h4 id="32-4-2"><span class="section-number-4">32.4.2</span> Usando <code>Bind</code></h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">User</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">type</span> <span style="color: #df005f; font-weight: bold;">User</span> <span style="color: #268bd2; font-weight: bold;">struct</span> {
   Name  <span style="color: #df005f; font-weight: bold;">string</span> <span style="color: #2aa198;">`json:"name" form:"name" query:"name"`</span>
   Email <span style="color: #df005f; font-weight: bold;">string</span> <span style="color: #2aa198;">`json:"email" form:"email" query:"email"`</span>
 }
@@ -3651,7 +3657,7 @@ e.<span style="color: #d75fd7; font-weight: bold;">GET</span>(<span style="color
     }
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Hacer algo con el usuario</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
@@ -3665,7 +3671,7 @@ e.<span style="color: #d75fd7; font-weight: bold;">GET</span>(<span style="color
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Retornar una cadena</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Retornar una cadena</span>
 c.<span style="color: #d75fd7; font-weight: bold;">String</span>(http.StatusOK, <span style="color: #2aa198;">"Hello, World!"</span>)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Retornar HTML</span>
 c.<span style="color: #d75fd7; font-weight: bold;">HTML</span>(http.StatusOK, <span style="color: #2aa198;">"&lt;p&gt;Hello, World!&lt;/p&gt;"</span>)
@@ -3679,20 +3685,20 @@ c.<span style="color: #d75fd7; font-weight: bold;">File</span>(<span style="colo
 c.<span style="color: #d75fd7; font-weight: bold;">Stream</span>(http.StatusOK, <span style="color: #2aa198;">"&lt;CONTENT_TYPE&gt;"</span>, file)
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Redirige</span>
 c.<span style="color: #d75fd7; font-weight: bold;">Redirect</span>(http.StatusMovedPermanently, <span style="color: #2aa198;">"&lt;URL&gt;"</span>)
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgb09fa7f">
-<h2 id="orgb09fa7f"><span class="section-number-2">33</span> Golang y Kafka</h2>
+<section id="slide-33">
+<h2 id="33"><span class="section-number-2">33</span> Golang y Kafka</h2>
 <div class="outline-text-2" id="text-33">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgb4fe10d">
-<h3 id="orgb4fe10d"><span class="section-number-3">33.1</span> Enviando mensajes con <code>sarama</code></h3>
+<section id="slide-33-1">
+<h3 id="33-1"><span class="section-number-3">33.1</span> Enviando mensajes con <code>sarama</code></h3>
 <p>
 <code>sarama</code> es una biblioteca desarrollada por Shopify para la
 comunicación con Apache Kafka
@@ -3704,16 +3710,16 @@ Para utilizar <code>sarama</code> solo tenemos que importar el módulo
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #268bd2; font-weight: bold;">import</span>  <span style="color: #2aa198;">"github.com/Shopify/sarama"</span>
-</code></pre>
+<pre class="src src-go"><span style="color: #268bd2; font-weight: bold;">import</span>  <span style="color: #2aa198;">"github.com/Shopify/sarama"</span>
+</pre>
 </div>
 
 </section>
-<section id="slide-org94514fe">
-<h4 id="org94514fe"><span class="section-number-4">33.1.1</span> Configuración</h4>
+<section id="slide-33-1-1">
+<h4 id="33-1-1"><span class="section-number-4">33.1.1</span> Configuración</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">config</span> := sarama.<span style="color: #d75fd7; font-weight: bold;">NewConfig</span>()
+<pre class="src src-go"><span style="color: #8787d7;">config</span> := sarama.<span style="color: #d75fd7; font-weight: bold;">NewConfig</span>()
 config.Producer.RequiredAcks = sarama.WaitForAll <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Wait for all in-sync replicas to ack the message</span>
 config.Producer.Retry.Max = 10                   <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Retry up to 10 times to produce the message</span>
 config.Producer.Return.Successes = <span style="color: #d75fd7;">true</span>
@@ -3722,19 +3728,19 @@ config.Producer.Return.Successes = <span style="color: #d75fd7;">true</span>
     config.Net.TLS.Config = tlsConfig <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">de crypto/tls</span>
     config.Net.TLS.Enable = <span style="color: #d75fd7;">true</span>
 }
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org9b160ec">
-<h4 id="org9b160ec"><span class="section-number-4">33.1.2</span> Enviando mensajes síncronos</h4>
+<section id="slide-33-1-2">
+<h4 id="33-1-2"><span class="section-number-4">33.1.2</span> Enviando mensajes síncronos</h4>
 <p>
 <code>sarama.SyncProducer</code> bloquea la gorutina en espera de confirmación
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">brokerlist</span> := [...]<span style="color: #df005f; font-weight: bold;">string</span>{<span style="color: #2aa198;">"host1:por1"</span>, <span style="color: #2aa198;">"host2:port2"</span>}
+<pre class="src src-go"><span style="color: #8787d7;">brokerlist</span> := [...]<span style="color: #df005f; font-weight: bold;">string</span>{<span style="color: #2aa198;">"host1:por1"</span>, <span style="color: #2aa198;">"host2:port2"</span>}
 <span style="color: #8787d7;">producer</span> := sarama.<span style="color: #d75fd7; font-weight: bold;">NewSyncProducer</span>(brokerList, config)
 <span style="color: #8787d7;">partition</span>, <span style="color: #8787d7;">offset</span>, <span style="color: #8787d7;">err</span> := s.DataCollector.<span style="color: #d75fd7; font-weight: bold;">SendMessage</span>(&amp;<span style="color: #df005f; font-weight: bold;">sarama.ProducerMessage</span>{
     <span style="color: #d75fd7;">Key</span>:   sarama.<span style="color: #d75fd7; font-weight: bold;">StringEncoder</span>(<span style="color: #2aa198;">"llave"</span>),
@@ -3742,19 +3748,19 @@ config.Producer.Return.Successes = <span style="color: #d75fd7;">true</span>
     <span style="color: #d75fd7;">Value</span>: sarama.<span style="color: #d75fd7; font-weight: bold;">StringEncoder</span>(<span style="color: #2aa198;">"Mensaje"</span>),
 })
 producer.<span style="color: #d75fd7; font-weight: bold;">Close</span>() <span style="color: #008787; background-color: #262626;">//</span><span style="color: #008787; background-color: #262626;">Liberar recursos</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org9a833e0">
-<h4 id="org9a833e0"><span class="section-number-4">33.1.3</span> Enviando mensajes asíncronos.</h4>
+<section id="slide-33-1-3">
+<h4 id="33-1-3"><span class="section-number-4">33.1.3</span> Enviando mensajes asíncronos.</h4>
 <p>
 <code>sarama.AsyncProducer</code> envía de forma asíncrona.
 </p>
 
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #8787d7;">brokerlist</span> := [...]<span style="color: #df005f; font-weight: bold;">string</span>{<span style="color: #2aa198;">"host1:por1"</span>, <span style="color: #2aa198;">"host2:port2"</span>}
+<pre class="src src-go"><span style="color: #8787d7;">brokerlist</span> := [...]<span style="color: #df005f; font-weight: bold;">string</span>{<span style="color: #2aa198;">"host1:por1"</span>, <span style="color: #2aa198;">"host2:port2"</span>}
 <span style="color: #8787d7;">producer</span>, <span style="color: #8787d7;">err</span> := sarama.<span style="color: #d75fd7; font-weight: bold;">NewAsyncProducer</span>(brokerList, config)
 producer.<span style="color: #d75fd7; font-weight: bold;">Input</span>() &lt;- &amp;<span style="color: #df005f; font-weight: bold;">sarama.ProducerMessage</span>{
     <span style="color: #d75fd7;">Key</span>:   sarama.<span style="color: #d75fd7; font-weight: bold;">StringEncoder</span>(<span style="color: #2aa198;">"llave"</span>),
@@ -3762,14 +3768,14 @@ producer.<span style="color: #d75fd7; font-weight: bold;">Input</span>() &lt;- &
     <span style="color: #d75fd7;">Value</span>: sarama.<span style="color: #d75fd7; font-weight: bold;">StringEncoder</span>(<span style="color: #2aa198;">"Mensaje"</span>),,
 }
 producer.<span style="color: #d75fd7; font-weight: bold;">AsyncClose</span>() <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Liberar recursos</span>
-</code></pre>
+</pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org108f50e">
-<h3 id="org108f50e"><span class="section-number-3">33.2</span> Recibiendo mensajes con <code>sarama</code></h3>
+<section id="slide-33-2">
+<h3 id="33-2"><span class="section-number-3">33.2</span> Recibiendo mensajes con <code>sarama</code></h3>
 <p>
 <code>sarama</code> permite dos modos de recepción de mensajes.
 </p>
@@ -3788,66 +3794,79 @@ de consumidor usando <code>sarama.ConsumerGroup</code>
 </section>
 </section>
 <section>
-<section id="slide-orga3837f3">
-<h3 id="orga3837f3"><span class="section-number-3">33.3</span> Interceptors</h3>
+<section id="slide-33-3">
+<h3 id="33-3"><span class="section-number-3">33.3</span> Interceptors</h3>
 <p>
 Los <i>interceptors</i> permiten procesar un mensaje antes de que sea
 enviado o recibido.
 </p>
 
 </section>
-<section id="slide-org4b67f0d">
-<h4 id="org4b67f0d"><span class="section-number-4">33.3.1</span> Interceptando mensajes enviados</h4>
+<section id="slide-33-3-1">
+<h4 id="33-3-1"><span class="section-number-4">33.3.1</span> Interceptando mensajes enviados</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">//</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">//</span>
 <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">myinterp</span>) <span style="color: #d75fd7; font-weight: bold;">OnSend</span>(<span style="color: #8787d7;">p</span> *<span style="color: #df005f; font-weight: bold;">sarama.ProducerMessage</span>) {
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">se procesa el mensaje</span>
 }
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Configuraci&#243;n del productor</span>
 conf.Producer.Interceptors = []<span style="color: #df005f; font-weight: bold;">sarama.ProducerInterceptor</span>{&amp;<span style="color: #df005f; font-weight: bold;">myinterp</span>{}}
-</code></pre>
+</pre>
 </div>
 
 </section>
-<section id="slide-org02f4984">
-<h4 id="org02f4984"><span class="section-number-4">33.3.2</span> Interceptando mensajes recibidos.</h4>
+<section id="slide-33-3-2">
+<h4 id="33-3-2"><span class="section-number-4">33.3.2</span> Interceptando mensajes recibidos.</h4>
 <div class="org-src-container">
 
-<pre  class="src src-go"><code trim><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Implementar sarama.ConsumerInterceptor</span>
+<pre class="src src-go"><span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Implementar sarama.ConsumerInterceptor</span>
 <span style="color: #268bd2; font-weight: bold;">func</span> (<span style="color: #8787d7;">m</span> *<span style="color: #df005f; font-weight: bold;">myinterp</span>) <span style="color: #d75fd7; font-weight: bold;">OnConsume</span>(<span style="color: #8787d7;">p</span> *<span style="color: #df005f; font-weight: bold;">sarama.ConsumerMessage</span>) {
     <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">se procesa el mensaje</span>
 }
 <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">Configuraci&#243;n del consumidor</span>
 conf.Consumer.Interceptors = []<span style="color: #df005f; font-weight: bold;">sarama.ConsumerInterceptor</span>{&amp;<span style="color: #df005f; font-weight: bold;">myinterp</span>{}}
-</code></pre>
+</pre>
 </div>
 </section>
 </section>
 </div>
 </div>
 <p> Created by yorodm. </p>
-<script src="file:///home/jadex/Documents/sources/reveal.js/dist/reveal.js"></script>
-<script src="file:///home/jadex/Documents/sources/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="file:///home/jadex/Documents/sources/reveal.js/plugin/zoom/zoom.js"></script>
-<script src="file:///home/jadex/Documents/sources/reveal.js/plugin/notes/notes.js"></script>
-
-
+<script src="./reveal/dist/reveal.js"></script>
+<script src="./reveal/plugin/markdown/markdown.js"></script>
+<script src="./reveal/plugin/notes/notes.js"></script>
+<script src="./reveal/plugin/search/search.js"></script>
+<script src="./reveal/plugin/zoom/zoom.js"></script>
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-plugins: [RevealMarkdown,RevealZoom,RevealNotes],
-width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition:'none',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+transition: 'none',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
 dependencies: [
 ]
+
 });
 </script>
 </body>
