@@ -38,7 +38,7 @@ Abrir el instalador y seguir las
 <a href="https://golang.org/doc/install">instrucciones</a>.
 </p>
 
-<pre class="example" id="org4e33942">
+<pre class="example" id="org7af8814">
    (Unix| Linux): /usr/local/go (varía según el sistema)
    Windows: C:\Go
 </pre></li>
@@ -48,7 +48,7 @@ Para chequear que la instalación esta correcta escribir en la
 consola
 </p>
 
-<pre class="example" id="orgd7622fd">
+<pre class="example" id="orgc9a0e49">
    $ go version
 </pre></li>
 
@@ -64,7 +64,7 @@ consola
 Activar variables de entorno para el trabajo con módulos
 </p>
 
-<pre class="example" id="org63af5c4">
+<pre class="example" id="org396c88e">
    $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
 </pre></li>
 
@@ -75,7 +75,7 @@ Activar variables de entorno para el trabajo con módulos
 escribir en la consola
 </p>
 
-<pre class="example" id="org4daf861">
+<pre class="example" id="org8fb1246">
    $ go env
    GOROOT = [Directorio de instalacion]
    GOPROXY=https://goproxy.io,direct
@@ -92,7 +92,7 @@ escribir en la consola
 
 </ol>
 
-<pre class="example" id="orgc8bdae0">
+<pre class="example" id="org6d76bf9">
 $ go get golang.org/x/tools/gopls@latest
 </pre>
 
@@ -361,11 +361,11 @@ determina que tan grande el número puede ser.
 <section id="slide-4-1-3">
 <h4 id="4-1-3"><span class="section-number-4">4.1.3</span> Números complejos</h4>
 <p>
-<code>complex64</code>: complex numbers which have float32 real and imaginary parts
+<code>complex64</code>: números complejos con parte real e imaginaria <code>float32</code>
 </p>
 
 <p>
-<code>complex128</code>: complex numbers with float64 real and imaginary parts
+<code>complex128</code>: números complejos con parte real e imaginaria <code>float64</code>
 </p>
 
 <p>
@@ -1217,7 +1217,7 @@ Supongamos que creamos el proyecto <code>github.com/ourcompany/superproduct</cod
 </section>
 <section>
 
-<pre class="example" id="orge199428">
+<pre class="example" id="orgf1d53f5">
 +-- LICENSE
 +-- README.md
 +-- config.go  # package superproduct

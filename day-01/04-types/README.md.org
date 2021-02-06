@@ -50,9 +50,9 @@ determina que tan grande el número puede ser.
 
 *** Números complejos
 
-=complex64=: complex numbers which have float32 real and imaginary parts
+=complex64=: números complejos con parte real e imaginaria =float32=
 
-=complex128=: complex numbers with float64 real and imaginary parts
+=complex128=: números complejos con parte real e imaginaria =float64=
 
 La funcion =complex= se utiliza para construir un número complejo con
 partes reales e imaginarias:
