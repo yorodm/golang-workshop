@@ -96,7 +96,7 @@ de tipo para hacer una conversión.
    :CUSTOM_ID: constantes
    :END:
 
-Las constantes no cambian su valores una vez asignados. Se usa el keyword
+Las constantes no cambian sus valores una vez asignadas. Se usa el keyword
 =const= en vez de =var= para declarar una constante.
 
 #+begin_src go
