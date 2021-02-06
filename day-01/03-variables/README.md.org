@@ -5,7 +5,7 @@
 
 ** Definiendo variables
 
-Una variable es un nombre que se le asigna a una porcion de memoria para
+Una variable es un nombre que se le asigna a una porción de memoria para
 almacenar un valor de un determinado tipo.
 
 El keyword =var= se usa para declarar variables. La sintaxis es

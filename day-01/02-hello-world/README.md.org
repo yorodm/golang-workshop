@@ -24,50 +24,50 @@ Vamos a programar el tradicional =Hello World=.
   }
 #+end_src
 
-- Ejecutar el programar con el comando =go run main.go=
+- Ejecutar el programa con el comando =go run main.go=
 
 ** ¿Qué sucede exactamente?
    :PROPERTIES:
    :CUSTOM_ID: deep-dive
    :END:
 
-En esta sección vamos a revisar cada linea del programa =Hello World=.
+En esta sección vamos a revisar cada línea del programa =Hello World=.
 
 *** Packages e imports
 
 Linea 1 => =package main=
 
-Los *packages* son la forma de agrupar funcionalidad comun en Golang. El
+Los *packages* son la forma de agrupar funcionalidad común en Golang. El
 package default es =main= y usualmente significa que el archivo que lo
 contiene es el punto de entrada.
 
 Linea 3 => =import "fmt"=
 
-En esta linea especificamos que el package =fmt= (que se incluye como
+En esta línea especificamos que el package =fmt= (que se incluye como
 parte de Golang), es requerido para ejecutar este programa.
 
 *** Funciones
 
 Linea 5 => =func main() {=
 
-Las funciones en Golang se definen con el keyword =func=. En esta linea
-estamos definiendo una funcion llamada =main= sin argumentos. El codigo
-de la funcion se escribe entre ={ }=.
+Las funciones en Golang se definen con el keyword =func=. En esta línea
+estamos definiendo una función llamada =main= sin argumentos. El código
+de la función se escribe entre ={ }=.
 
 Para crear un ejecutable en Golang tiene que existir una funcion llamada
-=main= dentro de un package tambien llamado =main=. Solo puede haber una
+=main= dentro de un package también llamado =main=. Solo puede haber una
 funcion =main=, incluso si tenemos muchos archivos =.go= (solo puede
 existir un entrypoint por ejecutable)
 
 *** Bibliotecas
 
-Linea 6 => =fmt.Println("Hello World")=
+Línea 6 => =fmt.Println("Hello World")=
 
-Esta linea imprime =Hello World= en la consola. =Println= es una función
+Esta línea imprime =Hello World= en la consola. =Println= es una función
 dentro del package =fmt= que recibe como argumento el string
 ="Hello World"=.
 
 La función =Println= hace dos cosas::
 
-- Imprime la entrada que el usuario especifica en el argumento.
-- Agrega una nueva linea después de imprimir la entrada especificada.
+- Imprime la entrada que el usuario específica en el argumento.
+- Agrega una nueva línea después de imprimir la entrada especificada.

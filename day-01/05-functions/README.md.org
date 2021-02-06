@@ -8,12 +8,12 @@
    :CUSTOM_ID: golang-funcs
    :END:
 
-Una funcion es un grupo de instrucciones que se ejecutan todas juntas
-como un bloque. Una funcion puede o no tener argumentos de entrada, y
+Una función es un grupo de instrucciones que se ejecutan todas juntas
+como un bloque. Una función puede o no tener argumentos de entrada, y
 retornar valores.
 
-En Golang una funcion se define con el keyword =func=. El siguiente es
-un ejemplo de una funcion que suma dos enteros:
+En Golang una función se define con el keyword =func=. El siguiente es
+un ejemplo de una función que suma dos enteros:
 
 #+begin_src go
   func AddIntegers(a int, b int) int {
@@ -26,10 +26,10 @@ un ejemplo de una funcion que suma dos enteros:
    :CUSTOM_ID: golang-returns
    :END:
 
-El keyword =return= es usado para indicar que valor va a retornar la
-funcion.
+El keyword =return= es usado para indicar qué valor va a retornar la
+función.
 
-Golang soporta que una funcion devuelva multiples valores:
+Golang soporta que una función devuelva múltiples valores:
 
 #+begin_src go
   func SumDifference(a int, b int) (int, int) {
@@ -43,7 +43,7 @@ Golang soporta que una funcion devuelva multiples valores:
    :END:
 
 Se utiliza el *identificador en blanco* en el lugar de un valor que se
-quiere descartar al llamar a una funcion:
+quiere descartar al llamar a una función:
 
 #+begin_src go
   var _, diff = SumDifference(10, 20)
@@ -56,8 +56,8 @@ quiere descartar al llamar a una funcion:
    :CUSTOM_ID: named-return-values
    :END:
 
-Cuando se define una funcion se le puede asignar un nombre al tipo de
-dato de retorno para luego referenciarlo en el codigo de la funcion.
+Cuando se define una función se le puede asignar un nombre al tipo de
+dato de retorno para luego referenciarlo en el código de la función.
 
 #+begin_src go
   func Product(a int, b int) (prod int) {

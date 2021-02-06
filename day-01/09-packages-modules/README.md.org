@@ -7,7 +7,7 @@
 ** Paquetes
 
 En Golang, los paquetes corresponden a los archivos en un mismo
-directorio. Por convención los paquetes llevan el nombre del
+directorio. Por convención, los paquetes llevan el nombre del
 directorio que los contiene. Aunque esto no es requerido es
 considerado una buena práctica.
 
@@ -49,7 +49,7 @@ función =main=.
 
 ** Estructura de un proyecto
 
-1. En la raiz se situan los archivos con funcionalidades comunes que
+1. En la raíz se situan los archivos con funcionalidades comunes que
    se desean exportar.
 2. Las funcionalidades específicas van dentro de subpaquetes (=client=
    y =server= en el ejemplo). Pueden existir varios niveles de
@@ -110,7 +110,7 @@ Existen dos casos especiales de alias para =import=
 ** La función init
 
 La función =init= nos permite ejecutar código de inicialización para
-nustros paquetes. A diferencia de la función =main=, puede existir más
+nuestros paquetes. A diferencia de la función =main=, puede existir más
 de una función =init= por paquete.
 
 #+begin_src go

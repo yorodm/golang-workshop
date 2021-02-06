@@ -20,8 +20,8 @@ Un arreglo se define como =[size]type=:
 
 *** Comenzando en 0.
 
-El primer indice de un arreglo es =0= en vez de =1=. Se accede a los
-valores de un arreglo usando el numero del indice, y se asignan valores
+El primer índice de un arreglo es =0= en vez de =1=. Se accede a los
+valores de un arreglo usando el número del índice, y se asignan valores
 con el operador ===.
 
 #+begin_src go
@@ -41,7 +41,7 @@ Un arreglo se puede inicializar en la declaración:
   a := [3]int{1, 2, 3}
 #+end_src
 
-Se puede omitir el numero de elementos si se inicializa con valores en
+Se puede omitir el número de elementos si se inicializa con valores en
 la declaración:
 
 #+begin_src go
@@ -72,7 +72,7 @@ Esto afecta el modo en que los arreglos son pasados por parámetros.
 
 *** =len=
 
-La funcion =len= se usa para conocer el tamaño de un arreglo:
+La función =len= se usa para conocer el tamaño de un arreglo:
 
 #+begin_src go
   a := [...]int{1, 2, 3}
@@ -84,7 +84,7 @@ La funcion =len= se usa para conocer el tamaño de un arreglo:
 *** =range=
 
 Una forma de interactuar con un arreglo es utilizar el keyword =range=.
-Este retorna el indice del arreglo y el valor.
+Este retorna el índice del arreglo y el valor.
 
 #+begin_src go
   a := [...]int{1, 2, 3, 4, 5}
@@ -111,7 +111,7 @@ los valores que retorna el keyword =range=.
    :PROPERTIES:
    :CUSTOM_ID: arreglos-multidimensionales
    :END:
-Se pueden crear arreglos de mas de una dimension de la siguiente manera:
+Se pueden crear arreglos de más de una dimensión de la siguiente manera:
 
 #+begin_src go
   a := [3][2]int
@@ -136,17 +136,17 @@ Se pueden crear arreglos de mas de una dimension de la siguiente manera:
 
 Los arreglos tienen tamaño fijo, reservan memoria, y son tipos valor.
 Un slice es una forma flexible de acceder a una arreglo. Un slice no
-tienen datos, solo apunta a un arreglo.
+tiene datos, solo apunta a un arreglo.
 
 *** Creando slices
 
-Un slice vacio se crea asi:
+Un slice vacío se crea así:
 
 #+begin_src go
   var sa []int
 #+end_src
 
-El valor de un slice vacio es =nil=
+El valor de un slice vacío es =nil=
 
 Un slice también se puede crear apuntando a un subconjunto de valores de un
 arreglo:
@@ -178,9 +178,9 @@ elemento del slice modifica el arreglo original.
 
 *** La función =make=
 
-Un slice tambien se puede crear utilizando la funcion =make=,
+Un slice también se puede crear utilizando la funcion =make=,
 especificando el tipo, y el tamaño, y opcionalmente la capacidad (que
-indica el maximo tamaño que el slice puede crecer):
+indica el máximo tamaño que el slice puede crecer):
 
 #+begin_src go
 #+begin_src go
