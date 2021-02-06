@@ -8,7 +8,7 @@
    :CUSTOM_ID: maps-inicial
    :END:
 
-Un =map= un tipo de dato incluido en Golang que asocia una clave con un
+Un =map= es un tipo de dato incluido en Golang que asocia una clave con un
 valor. El valor puede ser recuperado a partir de la clave.
 
 Un =map= vacío se crea con la función =make=:
@@ -61,8 +61,8 @@ Una manera de chequear si una clave existe es la siguiente:
   data, ok := m["some key"]
 #+end_src
 
-Si =ok= es =true=, la clave existe y la variable =data= contendra la
-informacion recuperada, si =ok= es =false= la clave no existe.
+Si =ok= es =true=, la clave existe y la variable =data= contendrá la
+información recuperada, si =ok= es =false= la clave no existe.
 
 Acceder a una clave inexistente en un =map= causa un =panic=.
 
@@ -94,7 +94,7 @@ Se puede utilizar el identificador en blanco (=_=) para descartar
 cualquiera de los elementos del par.
 
 #+begin_quote
-  El orden en que se recorre el =map= no esta garantizado, y cada ejecucion puede tener un order diferente.
+  El orden en que se recorre el =map= no esta garantizado, y cada ejecución puede tener un order diferente.
 #+end_quote
 
 ** Eliminacion
@@ -102,7 +102,7 @@ cualquiera de los elementos del par.
    :CUSTOM_ID: eliminacion
    :END:
 
-Los valores se eliminan de un =map= con la funcion =delete=. La funcion no
+Los valores se eliminan de un =map= con la función =delete=. La función no
 retorna nada. La sintaxis es la siguiente:
 
 #+begin_src go

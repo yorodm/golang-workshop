@@ -1,4 +1,4 @@
-* Linea de comandos
+* Línea de comandos
   :PROPERTIES:
   :CUSTOM_ID: linea-de-comandos
   :END:
@@ -8,14 +8,14 @@
    :CUSTOM_ID: argumentos
    :END:
 
-Interactuar con la linea de comando es muy util y muy comun al ejecutar
+Interactuar con la línea de comandos es muy útil y muy común al ejecutar
 scripts y programas que no tienen GUI. El paquete =os= se usa para tener
-acceso a los argumentos de la linea de comandos al ejecutar un programa
+acceso a los argumentos de la línea de comandos al ejecutar un programa
 de Golang.
 
 #+REVEAL: split
 
-Los argumentos de la linea de comandos estan disponibles en el arreglo
+Los argumentos de la línea de comandos están disponibles en el arreglo
 =os.Args=:
 
 #+begin_src go
@@ -31,8 +31,8 @@ Los argumentos de la linea de comandos estan disponibles en el arreglo
    :END:
 
 Especificar los argumentos como valores separados por espacios en la
-terminal es muy basico y dificil de extender. El uso de =flags= provee
-mas flexibilidad en como los argumentos se especifican, sobre todo los
+terminal es muy básico y difícil de extender. El uso de =flags= provee
+mas flexibilidad en cómo los argumentos se especifican, sobre todo los
 opcionales. Golang cuenta con un paquete llamado =flag= para
 soportarlos.
 
@@ -50,7 +50,7 @@ Un flag se define con la sintaxis anterior. El =<type>= puede ser
 Un flag opcional se puede indicar controlando si el valor es el mismo
 que el valor especificado por defecto.
 
-Un flag se puede leer independientemente de la posicion en que el
+Un flag se puede leer independientemente de la posición en que el
 usuario los hubiera especificado.
 
 ** Environment Variables
@@ -58,16 +58,16 @@ usuario los hubiera especificado.
    :CUSTOM_ID: environment-variables
    :END:
 
-La variables de entorno se usan para configurar aspectos de sistema en
-la mayoria de los *NIX y tambien en Windows. Son pares de clave-valor
+Las variables de entorno se usan para configurar aspectos de sistema en
+la mayoría de los *NIX y también en Windows. Son pares de clave-valor
 usualmente disponibles para todos los programas que corren en la
 terminal/shell. Se pueden definir variables de entorno custom solo
-disponibles durante la ejecucion de un script de shell.
+disponibles durante la ejecución de un script de shell.
 
 #+REVEAL: split
 
 El paquete =os= proporciona dos funciones, =Setenv= y =Getenv=, para
-escribir y leer variables de entorno. Un string vacio se retorna si la
+escribir y leer variables de entorno. Un string vacío se retorna si la
 clave no existe.
 
 #+begin_src go
@@ -83,7 +83,7 @@ clave no existe.
 
 #+REVEAL: split
 
-La funcion =Environ= retorna la lista completa de todas las variables de
+La función =Environ= retorna la lista completa de todas las variables de
 entorno existentes.
 
 #+begin_src go

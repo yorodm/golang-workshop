@@ -3,7 +3,7 @@
   :CUSTOM_ID: instrucciones-de-control
   :END:
 
-Golang soporta multiples instrucciones de control e iteradores.
+Golang soporta múltiples instrucciones de control e iteradores.
 
 ** =if=/=else=
    :PROPERTIES:
@@ -24,18 +24,18 @@ opcional:
 #+end_src
 
 #+begin_quote
-El bloque =else= debe estar en la misma linea que la llave de cierre
+El bloque =else= debe estar en la misma línea que la llave de cierre
 (=}=).
 #+end_quote
 
 *** Inicializar la condición.
 
-La instruccion =if= soporta indicar una instruccion opcional que se
-ejecuta antes de la condicion:
+La instruccion =if= soporta indicar una instrucción opcional que se
+ejecuta antes de la condición:
 
 #+begin_src go
   if statement; condition {
-      // codigo a ejecutar
+      // código a ejecutar
   }
 #+end_src
 
@@ -44,7 +44,7 @@ ejecuta antes de la condicion:
    :CUSTOM_ID: for
    :END:
 
-Hay una sola instruccion de iteracion en Golang, el iterador =for=.
+Hay una sola instrucción de iteración en Golang, el iterador =for=.
 
 #+begin_src go
   for initialization; condition; post {
@@ -63,7 +63,7 @@ opcionales en Golang.
 
 *** Ejemplo de =for=
 
-El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
+El siguiente ejemplo imprime números del 1 al 10 usando un iterador
 =for=:
 
 #+begin_src go
@@ -77,19 +77,19 @@ El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
    :CUSTOM_ID: switch
    :END:
 
-La instruccion de control =switch= evalua una expresion y la compara
+La instrucción de control =switch= evalúa una expresión y la compara
 contra una lista de posibles valores o expresiones que puedan coincidir.
-Es una forma abreviada de escribir muchas clausulas =if else=.
+Es una forma abreviada de escribir muchas cláusulas =if else=.
 
 #+begin_src go
   switch expression {
       case expression or value | (, expression or value)*:
-          // codigo a ejecutar
+          // código a ejecutar
 	      (break | fallthrough)
       case expression or value | (, expression or value)*:
-          // codigo a ejecutar
+          // código a ejecutar
       default:
-          // codigo a ejecutar
+          // código a ejecutar
   }
 #+end_src
 
@@ -97,5 +97,5 @@ Es una forma abreviada de escribir muchas clausulas =if else=.
 
 1. =break= detiene el flujo y sale del =switch=
 2. =fallthrough= continúa al próximo =case=.
-2. Si no hay coincidencias, se ejecuta el codigo en el bloque
+2. Si no hay coincidencias, se ejecuta el código en el bloque
    =default=.

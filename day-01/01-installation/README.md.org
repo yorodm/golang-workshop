@@ -21,7 +21,7 @@
    Windows: C:\Go
    #+end_example
 
-3. Para chequear que la instalación esta correcta escribir en la
+3. Para chequear que la instalación está correcta escribir en la
    consola
 
    #+begin_example
@@ -44,7 +44,7 @@ escribir en la consola
 
    #+begin_example
    $ go env
-   GOROOT = [Directorio de instalacion]
+   GOROOT = [Directorio de instalación]
    GOPROXY=https://goproxy.io,direct
    GO111MODULE=on
    #+end_example

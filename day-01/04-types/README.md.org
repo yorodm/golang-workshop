@@ -5,7 +5,7 @@
 
 ** Tipos simples
 
-Los siguientes tipos de datos estan disponibles en Golang:
+Los siguientes tipos de datos están disponibles en Golang:
 
 - bool
 - Tipos numéricos:
@@ -26,9 +26,9 @@ Los siguientes tipos de datos estan disponibles en Golang:
 
 *** Tipos numéricos
 
-Para tipos numéricos, el número que sigue al tipo indica el número de
+Para tipos numéricos, el número que sigue al tipo indica la cantidad de
 bits que se usa para representar el valor en memoria. El número de bits
-determina que tan grande el número puede ser.
+determina qué tan grande el número puede ser.
 
 =int8=: 8 bit signed integers
 
@@ -54,7 +54,7 @@ determina que tan grande el número puede ser.
 
 =complex128=: complex numbers with float64 real and imaginary parts
 
-La funcion =complex= se utiliza para construir un número complejo con
+La función =complex= se utiliza para construir un número complejo con
 partes reales e imaginarias:
 
 #+begin_src go
@@ -83,8 +83,8 @@ partes reales e imaginarias:
    :CUSTOM_ID: conversion-de-tipos
    :END:
 
-No hay conversión automatica de tipos en Golang. Se utilizan funciones
-de tipo para hacer una conversion.
+No hay conversión automática de tipos en Golang. Se utilizan funciones
+de tipo para hacer una conversión.
 
 #+begin_src go
   int(<float value>)
@@ -96,7 +96,7 @@ de tipo para hacer una conversion.
    :CUSTOM_ID: constantes
    :END:
 
-Las constantes no cambian su valor una vez asignado. Se usa el keyword
+Las constantes no cambian su valores una vez asignados. Se usa el keyword
 =const= en vez de =var= para declarar una constante.
 
 #+begin_src go
