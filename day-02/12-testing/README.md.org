@@ -44,7 +44,7 @@ Si tenemos una función para calcular los números de fibonacci.
 *** Pruebas de ejemplo
 
 
-Los ejemplos además de ejecutar pruebas son una forma de documentar el
+Los ejemplos además de ejecutar pruebas, son una forma de documentar el
 uso de funcionalidades.
 
 #+begin_src go

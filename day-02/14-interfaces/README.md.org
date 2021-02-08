@@ -9,11 +9,11 @@
    :END:
 
 En Golang, una interfaz es un conjunto de firmas de métodos. Si un
-tipo tiene una definición para esos metodos, se dice que implementa la
-interfaz. A diferencia de otros lenguajes, /la asociacion de un tipo
+tipo tiene una definición para esos métodos, se dice que implementa la
+interfaz. A diferencia de otros lenguajes, /la asociación de un tipo
 con una interfaz es implicita/.
 
-Un tipo puede implementar mas de una interfaz.
+Un tipo puede implementar más de una interfaz.
 
 #+begin_src go
   type Permanent struct {
@@ -79,7 +79,7 @@ implementar =Read= y =Seeker= a la vez.
    :END:
 
 De la misma forma que una estructura "hereda" los métodos de otra en
-la composición, implementa las interfaces de aquellas que la componen
+la composición, implementa las interfaces de aquellas que la componen.
 
 #+begin_src go
 
@@ -110,8 +110,8 @@ En el ejemplo anterior el tipo =GuidedDog= implementa la interfaz
    :CUSTOM_ID: la-interfaz-vacía
    :END:
 
-El tipo =interface{}= representa un valor comodín al estilo el tipo
-=object= de C# o =void *= en C (tecnicamente todos los tipos
+El tipo =interface{}= representa un valor comodín al estilo del tipo
+=object= de C# o =void *= en C (técnicamente todos los tipos
 implementan una interfaz sin métodos)
 
 #+begin_src go
@@ -158,8 +158,8 @@ Los type assertions se ejecutan con alguna de las siguientes variantes
    v := i.(Tipo)
 #+end_src
 
-La variante segura retorna un par =(Tipo,bool)= donde si el segun
-valor representa el estado de la opeación. Un estado de =true=
+La variante segura retorna un par =(Tipo,bool)= donde el segundo
+valor representa el estado de la operación. Un estado de =true=
 significa que se pudo efectuar la conversión, =false= que la
 conversión no es posible y el primer valor de la tupla estará con el
 valor nulo.

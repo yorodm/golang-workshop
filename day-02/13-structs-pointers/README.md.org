@@ -72,7 +72,7 @@ el bloque de inicialización
 
 #+REVEAL: split
 
-Los campos anidados se acceden con multiples niveles de notacion de
+Los campos anidados se acceden con múltiples niveles de notación de
 punto.
 
 #+begin_src go
@@ -108,7 +108,7 @@ procesar la anotación.
    :CUSTOM_ID: composición
    :END:
 
-Un =struct= puede tambien "heredar" todos los campos de otro usando
+Un =struct= puede también "heredar" todos los campos de otro usando
 composición. Para esto existe una notación especial
 
 #+begin_src go
@@ -193,8 +193,8 @@ tipo que lo contiene.
    :END:
 
 Golang soporta punteros para actualizar valores pero no admite
-aritmetica de punteros como en C. =*= se usa como prefijo para definir
-un puntero para de un tipo dado. El operador =&= se usa para crear
+aritmética de punteros como en C. =*= se usa como prefijo para definir
+un puntero para un tipo dado. El operador =&= se usa para crear
 punteros a tipos.
 
 *** Inicializando punteros
