@@ -38,17 +38,17 @@ Abrir el instalador y seguir las
 <a href="https://golang.org/doc/install">instrucciones</a>.
 </p>
 
-<pre class="example" id="org7af8814">
+<pre class="example" id="org1fe819a">
    (Unix| Linux): /usr/local/go (varía según el sistema)
    Windows: C:\Go
 </pre></li>
 
 <li><p>
-Para chequear que la instalación esta correcta escribir en la
+Para chequear que la instalación está correcta escribir en la
 consola
 </p>
 
-<pre class="example" id="orgc9a0e49">
+<pre class="example" id="org91a3e99">
    $ go version
 </pre></li>
 
@@ -64,7 +64,7 @@ consola
 Activar variables de entorno para el trabajo con módulos
 </p>
 
-<pre class="example" id="org396c88e">
+<pre class="example" id="orgdf1f22c">
    $ go env -w GO111MODULE=on GOPROXY=https://goproxy.io,direct
 </pre></li>
 
@@ -75,9 +75,9 @@ Activar variables de entorno para el trabajo con módulos
 escribir en la consola
 </p>
 
-<pre class="example" id="org8fb1246">
+<pre class="example" id="org7fc2e24">
    $ go env
-   GOROOT = [Directorio de instalacion]
+   GOROOT = [Directorio de instalación]
    GOPROXY=https://goproxy.io,direct
    GO111MODULE=on
 </pre>
@@ -92,7 +92,7 @@ escribir en la consola
 
 </ol>
 
-<pre class="example" id="org6d76bf9">
+<pre class="example" id="org6e43476">
 $ go get golang.org/x/tools/gopls@latest
 </pre>
 
@@ -143,7 +143,7 @@ creado en el paso 1.</li>
 </div>
 
 <ul>
-<li>Ejecutar el programar con el comando <code>go run main.go</code></li>
+<li>Ejecutar el programa con el comando <code>go run main.go</code></li>
 
 </ul>
 
@@ -153,7 +153,7 @@ creado en el paso 1.</li>
 <section id="slide-deep-dive">
 <h3 id="deep-dive"><span class="section-number-3">2.2</span> ¿Qué sucede exactamente?</h3>
 <p>
-En esta sección vamos a revisar cada linea del programa <code>Hello World</code>.
+En esta sección vamos a revisar cada línea del programa <code>Hello World</code>.
 </p>
 
 </section>
@@ -164,7 +164,7 @@ Linea 1 <code>&gt; =package main</code>
 </p>
 
 <p>
-Los <b>packages</b> son la forma de agrupar funcionalidad comun en Golang. El
+Los <b>packages</b> son la forma de agrupar funcionalidad común en Golang. El
 package default es <code>main</code> y usualmente significa que el archivo que lo
 contiene es el punto de entrada.
 </p>
@@ -174,7 +174,7 @@ Linea 3 <code>&gt; =import "fmt"</code>
 </p>
 
 <p>
-En esta linea especificamos que el package <code>fmt</code> (que se incluye como
+En esta línea especificamos que el package <code>fmt</code> (que se incluye como
 parte de Golang), es requerido para ejecutar este programa.
 </p>
 
@@ -186,14 +186,14 @@ Linea 5 <code>&gt; =func main() {</code>
 </p>
 
 <p>
-Las funciones en Golang se definen con el keyword <code>func</code>. En esta linea
-estamos definiendo una funcion llamada <code>main</code> sin argumentos. El codigo
-de la funcion se escribe entre <code>{ }</code>.
+Las funciones en Golang se definen con el keyword <code>func</code>. En esta línea
+estamos definiendo una función llamada <code>main</code> sin argumentos. El código
+de la función se escribe entre <code>{ }</code>.
 </p>
 
 <p>
 Para crear un ejecutable en Golang tiene que existir una funcion llamada
-<code>main</code> dentro de un package tambien llamado <code>main</code>. Solo puede haber una
+<code>main</code> dentro de un package también llamado <code>main</code>. Solo puede haber una
 funcion <code>main</code>, incluso si tenemos muchos archivos <code>.go</code> (solo puede
 existir un entrypoint por ejecutable)
 </p>
@@ -202,11 +202,11 @@ existir un entrypoint por ejecutable)
 <section id="slide-2-2-3">
 <h4 id="2-2-3"><span class="section-number-4">2.2.3</span> Bibliotecas</h4>
 <p>
-Linea 6 <code>&gt; =fmt.Println("Hello World")</code>
+Línea 6 <code>&gt; =fmt.Println("Hello World")</code>
 </p>
 
 <p>
-Esta linea imprime <code>Hello World</code> en la consola. <code>Println</code> es una función
+Esta línea imprime <code>Hello World</code> en la consola. <code>Println</code> es una función
 dentro del package <code>fmt</code> que recibe como argumento el string
 <code>"Hello World"</code>.
 </p>
@@ -216,8 +216,8 @@ La función <code>Println</code> hace dos cosas::
 </p>
 
 <ul>
-<li>Imprime la entrada que el usuario especifica en el argumento.</li>
-<li>Agrega una nueva linea después de imprimir la entrada especificada.</li>
+<li>Imprime la entrada que el usuario específica en el argumento.</li>
+<li>Agrega una nueva línea después de imprimir la entrada especificada.</li>
 
 </ul>
 </section>
@@ -232,7 +232,7 @@ La función <code>Println</code> hace dos cosas::
 <section id="slide-3-1">
 <h3 id="3-1"><span class="section-number-3">3.1</span> Definiendo variables</h3>
 <p>
-Una variable es un nombre que se le asigna a una porcion de memoria para
+Una variable es un nombre que se le asigna a una porción de memoria para
 almacenar un valor de un determinado tipo.
 </p>
 
@@ -283,7 +283,7 @@ Para imprimir el valor de una variable se puede usar <code>Println</code>.
 <section id="slide-4-1">
 <h3 id="4-1"><span class="section-number-3">4.1</span> Tipos simples</h3>
 <p>
-Los siguientes tipos de datos estan disponibles en Golang:
+Los siguientes tipos de datos están disponibles en Golang:
 </p>
 
 <ul>
@@ -316,9 +316,9 @@ Los siguientes tipos de datos estan disponibles en Golang:
 <section id="slide-4-1-2">
 <h4 id="4-1-2"><span class="section-number-4">4.1.2</span> Tipos numéricos</h4>
 <p>
-Para tipos numéricos, el número que sigue al tipo indica el número de
+Para tipos numéricos, el número que sigue al tipo indica la cantidad de
 bits que se usa para representar el valor en memoria. El número de bits
-determina que tan grande el número puede ser.
+determina qué tan grande el número puede ser.
 </p>
 
 <p>
@@ -369,7 +369,7 @@ determina que tan grande el número puede ser.
 </p>
 
 <p>
-La funcion <code>complex</code> se utiliza para construir un número complejo con
+La función <code>complex</code> se utiliza para construir un número complejo con
 partes reales e imaginarias:
 </p>
 
@@ -412,8 +412,8 @@ partes reales e imaginarias:
 <section id="slide-conversion-de-tipos">
 <h3 id="conversion-de-tipos"><span class="section-number-3">4.2</span> Conversion de tipos</h3>
 <p>
-No hay conversión automatica de tipos en Golang. Se utilizan funciones
-de tipo para hacer una conversion.
+No hay conversión automática de tipos en Golang. Se utilizan funciones
+de tipo para hacer una conversión.
 </p>
 
 <div class="org-src-container">
@@ -429,7 +429,7 @@ de tipo para hacer una conversion.
 <section id="slide-constantes">
 <h3 id="constantes"><span class="section-number-3">4.3</span> Constantes</h3>
 <p>
-Las constantes no cambian su valor una vez asignado. Se usa el keyword
+Las constantes no cambian sus valores una vez asignadas. Se usa el keyword
 <code>const</code> en vez de <code>var</code> para declarar una constante.
 </p>
 
@@ -452,14 +452,14 @@ Las constantes no cambian su valor una vez asignado. Se usa el keyword
 <section id="slide-golang-funcs">
 <h3 id="golang-funcs"><span class="section-number-3">5.1</span> Funciones en Golang</h3>
 <p>
-Una funcion es un grupo de instrucciones que se ejecutan todas juntas
-como un bloque. Una funcion puede o no tener argumentos de entrada, y
+Una función es un grupo de instrucciones que se ejecutan todas juntas
+como un bloque. Una función puede o no tener argumentos de entrada, y
 retornar valores.
 </p>
 
 <p>
-En Golang una funcion se define con el keyword <code>func</code>. El siguiente es
-un ejemplo de una funcion que suma dos enteros:
+En Golang una función se define con el keyword <code>func</code>. El siguiente es
+un ejemplo de una función que suma dos enteros:
 </p>
 
 <div class="org-src-container">
@@ -476,12 +476,12 @@ un ejemplo de una funcion que suma dos enteros:
 <section id="slide-golang-returns">
 <h3 id="golang-returns"><span class="section-number-3">5.2</span> Retornando valores</h3>
 <p>
-El keyword <code>return</code> es usado para indicar que valor va a retornar la
-funcion.
+El keyword <code>return</code> es usado para indicar qué valor va a retornar la
+función.
 </p>
 
 <p>
-Golang soporta que una funcion devuelva multiples valores:
+Golang soporta que una función devuelva múltiples valores:
 </p>
 
 <div class="org-src-container">
@@ -499,7 +499,7 @@ Golang soporta que una funcion devuelva multiples valores:
 <h3 id="blank-identifier"><span class="section-number-3">5.3</span> Identificador en blanco</h3>
 <p>
 Se utiliza el <b>identificador en blanco</b> en el lugar de un valor que se
-quiere descartar al llamar a una funcion:
+quiere descartar al llamar a una función:
 </p>
 
 <div class="org-src-container">
@@ -516,8 +516,8 @@ quiere descartar al llamar a una funcion:
 <section id="slide-named-return-values">
 <h3 id="named-return-values"><span class="section-number-3">5.4</span> Valores de retorno con nombres</h3>
 <p>
-Cuando se define una funcion se le puede asignar un nombre al tipo de
-dato de retorno para luego referenciarlo en el codigo de la funcion.
+Cuando se define una función se le puede asignar un nombre al tipo de
+dato de retorno para luego referenciarlo en el código de la función.
 </p>
 
 <div class="org-src-container">
@@ -586,7 +586,7 @@ fmt.<span style="color: #d75fd7; font-weight: bold;">Println</span>(<span style=
 <section id="slide-instrucciones-de-control">
 <h2 id="instrucciones-de-control"><span class="section-number-2">6</span> Instrucciones de control</h2>
 <p>
-Golang soporta multiples instrucciones de control e iteradores.
+Golang soporta múltiples instrucciones de control e iteradores.
 </p>
 
 </section>
@@ -613,7 +613,7 @@ opcional:
 
 <blockquote>
 <p>
-El bloque <code>else</code> debe estar en la misma linea que la llave de cierre
+El bloque <code>else</code> debe estar en la misma línea que la llave de cierre
 (<code>}</code>).
 </p>
 </blockquote>
@@ -622,14 +622,14 @@ El bloque <code>else</code> debe estar en la misma linea que la llave de cierre
 <section id="slide-6-1-1">
 <h4 id="6-1-1"><span class="section-number-4">6.1.1</span> Inicializar la condición.</h4>
 <p>
-La instruccion <code>if</code> soporta indicar una instruccion opcional que se
-ejecuta antes de la condicion:
+La instruccion <code>if</code> soporta indicar una instrucción opcional que se
+ejecuta antes de la condición:
 </p>
 
 <div class="org-src-container">
 
 <pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">if</span> statement; condition {
-      <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
+      <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">c&#243;digo a ejecutar</span>
   }
 </pre>
 </div>
@@ -640,7 +640,7 @@ ejecuta antes de la condicion:
 <section id="slide-for">
 <h3 id="for"><span class="section-number-3">6.2</span> <code>for</code></h3>
 <p>
-Hay una sola instruccion de iteracion en Golang, el iterador <code>for</code>.
+Hay una sola instrucción de iteración en Golang, el iterador <code>for</code>.
 </p>
 
 <div class="org-src-container">
@@ -670,7 +670,7 @@ opcionales en Golang.
 <section id="slide-6-2-2">
 <h4 id="6-2-2"><span class="section-number-4">6.2.2</span> Ejemplo de <code>for</code></h4>
 <p>
-El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
+El siguiente ejemplo imprime números del 1 al 10 usando un iterador
 <code>for</code>:
 </p>
 
@@ -688,21 +688,21 @@ El siguiente ejemplo imprime numeros del 1 al 10 usando un iterador
 <section id="slide-switch">
 <h3 id="switch"><span class="section-number-3">6.3</span> <code>switch</code></h3>
 <p>
-La instruccion de control <code>switch</code> evalua una expresion y la compara
+La instrucción de control <code>switch</code> evalúa una expresión y la compara
 contra una lista de posibles valores o expresiones que puedan coincidir.
-Es una forma abreviada de escribir muchas clausulas <code>if else</code>.
+Es una forma abreviada de escribir muchas cláusulas <code>if else</code>.
 </p>
 
 <div class="org-src-container">
 
 <pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">switch</span> expression {
       <span style="color: #268bd2; font-weight: bold;">case</span> expression <span style="color: #df005f; font-weight: bold;">or</span> value | (, expression <span style="color: #df005f; font-weight: bold;">or</span> value)*:
-          <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
+          <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">c&#243;digo a ejecutar</span>
           (<span style="color: #268bd2; font-weight: bold;">break</span> | <span style="color: #268bd2; font-weight: bold;">fallthrough</span>)
       <span style="color: #268bd2; font-weight: bold;">case</span> expression <span style="color: #df005f; font-weight: bold;">or</span> value | (, expression <span style="color: #df005f; font-weight: bold;">or</span> value)*:
-          <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
+          <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">c&#243;digo a ejecutar</span>
       <span style="color: #268bd2; font-weight: bold;">default</span>:
-          <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">codigo a ejecutar</span>
+          <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">c&#243;digo a ejecutar</span>
   }
 </pre>
 </div>
@@ -713,7 +713,7 @@ Es una forma abreviada de escribir muchas clausulas <code>if else</code>.
 <ol>
 <li><code>break</code> detiene el flujo y sale del <code>switch</code></li>
 <li><code>fallthrough</code> continúa al próximo <code>case</code>.</li>
-<li>Si no hay coincidencias, se ejecuta el codigo en el bloque
+<li>Si no hay coincidencias, se ejecuta el código en el bloque
 <code>default</code>.</li>
 
 </ol>
@@ -751,8 +751,8 @@ Un arreglo se define como <code>[size]type</code>:
 <section id="slide-7-1-1">
 <h4 id="7-1-1"><span class="section-number-4">7.1.1</span> Comenzando en 0.</h4>
 <p>
-El primer indice de un arreglo es <code>0</code> en vez de <code>1</code>. Se accede a los
-valores de un arreglo usando el numero del indice, y se asignan valores
+El primer índice de un arreglo es <code>0</code> en vez de <code>1</code>. Se accede a los
+valores de un arreglo usando el número del índice, y se asignan valores
 con el operador <code>=</code>.
 </p>
 
@@ -781,7 +781,7 @@ Un arreglo se puede inicializar en la declaración:
 </div>
 
 <p>
-Se puede omitir el numero de elementos si se inicializa con valores en
+Se puede omitir el número de elementos si se inicializa con valores en
 la declaración:
 </p>
 
@@ -829,7 +829,7 @@ Esto afecta el modo en que los arreglos son pasados por parámetros.
 <section id="slide-7-2-1">
 <h4 id="7-2-1"><span class="section-number-4">7.2.1</span> <code>len</code></h4>
 <p>
-La funcion <code>len</code> se usa para conocer el tamaño de un arreglo:
+La función <code>len</code> se usa para conocer el tamaño de un arreglo:
 </p>
 
 <div class="org-src-container">
@@ -846,7 +846,7 @@ La funcion <code>len</code> se usa para conocer el tamaño de un arreglo:
 <h4 id="7-2-2"><span class="section-number-4">7.2.2</span> <code>range</code></h4>
 <p>
 Una forma de interactuar con un arreglo es utilizar el keyword <code>range</code>.
-Este retorna el indice del arreglo y el valor.
+Este retorna el índice del arreglo y el valor.
 </p>
 
 <div class="org-src-container">
@@ -883,7 +883,7 @@ los valores que retorna el keyword <code>range</code>.
 <section id="slide-arreglos-multidimensionales">
 <h3 id="arreglos-multidimensionales"><span class="section-number-3">7.3</span> Arreglos multidimensionales</h3>
 <p>
-Se pueden crear arreglos de mas de una dimension de la siguiente manera:
+Se pueden crear arreglos de más de una dimensión de la siguiente manera:
 </p>
 
 <div class="org-src-container">
@@ -915,14 +915,14 @@ Se pueden crear arreglos de mas de una dimension de la siguiente manera:
 <p>
 Los arreglos tienen tamaño fijo, reservan memoria, y son tipos valor.
 Un slice es una forma flexible de acceder a una arreglo. Un slice no
-tienen datos, solo apunta a un arreglo.
+tiene datos, solo apunta a un arreglo.
 </p>
 
 </section>
 <section id="slide-7-4-1">
 <h4 id="7-4-1"><span class="section-number-4">7.4.1</span> Creando slices</h4>
 <p>
-Un slice vacio se crea asi:
+Un slice vacío se crea así:
 </p>
 
 <div class="org-src-container">
@@ -932,7 +932,7 @@ Un slice vacio se crea asi:
 </div>
 
 <p>
-El valor de un slice vacio es <code>nil</code>
+El valor de un slice vacío es <code>nil</code>
 </p>
 
 <p>
@@ -976,9 +976,9 @@ elemento del slice modifica el arreglo original.
 <section id="slide-7-4-3">
 <h4 id="7-4-3"><span class="section-number-4">7.4.3</span> La función <code>make</code></h4>
 <p>
-Un slice tambien se puede crear utilizando la funcion <code>make</code>,
+Un slice también se puede crear utilizando la funcion <code>make</code>,
 especificando el tipo, y el tamaño, y opcionalmente la capacidad (que
-indica el maximo tamaño que el slice puede crecer):
+indica el máximo tamaño que el slice puede crecer):
 </p>
 
 <div class="org-src-container">
@@ -1028,7 +1028,7 @@ para expandir el slice en sus valores.
 <section id="slide-maps-inicial">
 <h3 id="maps-inicial"><span class="section-number-3">8.1</span> Tipos asociativos, <code>map</code></h3>
 <p>
-Un <code>map</code> un tipo de dato incluido en Golang que asocia una clave con un
+Un <code>map</code> es un tipo de dato incluido en Golang que asocia una clave con un
 valor. El valor puede ser recuperado a partir de la clave.
 </p>
 
@@ -1100,8 +1100,8 @@ Una manera de chequear si una clave existe es la siguiente:
 </div>
 
 <p>
-Si <code>ok</code> es <code>true</code>, la clave existe y la variable <code>data</code> contendra la
-informacion recuperada, si <code>ok</code> es <code>false</code> la clave no existe.
+Si <code>ok</code> es <code>true</code>, la clave existe y la variable <code>data</code> contendrá la
+información recuperada, si <code>ok</code> es <code>false</code> la clave no existe.
 </p>
 
 <p>
@@ -1144,7 +1144,7 @@ cualquiera de los elementos del par.
 
 <blockquote>
 <p>
-El orden en que se recorre el <code>map</code> no esta garantizado, y cada ejecucion puede tener un order diferente.
+El orden en que se recorre el <code>map</code> no esta garantizado, y cada ejecución puede tener un order diferente.
 </p>
 </blockquote>
 
@@ -1154,7 +1154,7 @@ El orden en que se recorre el <code>map</code> no esta garantizado, y cada ejecu
 <section id="slide-eliminacion">
 <h3 id="eliminacion"><span class="section-number-3">8.5</span> Eliminacion</h3>
 <p>
-Los valores se eliminan de un <code>map</code> con la funcion <code>delete</code>. La funcion no
+Los valores se eliminan de un <code>map</code> con la función <code>delete</code>. La función no
 retorna nada. La sintaxis es la siguiente:
 </p>
 
@@ -1205,7 +1205,7 @@ Un <code>map</code> es un <i>tipo referencia</i>. Por lo tanto si un <code>map</
 <h3 id="9-1"><span class="section-number-3">9.1</span> Paquetes</h3>
 <p>
 En Golang, los paquetes corresponden a los archivos en un mismo
-directorio. Por convención los paquetes llevan el nombre del
+directorio. Por convención, los paquetes llevan el nombre del
 directorio que los contiene. Aunque esto no es requerido es
 considerado una buena práctica.
 </p>
@@ -1217,7 +1217,7 @@ Supongamos que creamos el proyecto <code>github.com/ourcompany/superproduct</cod
 </section>
 <section>
 
-<pre class="example" id="orgf1d53f5">
+<pre class="example" id="org615d139">
 +-- LICENSE
 +-- README.md
 +-- config.go  # package superproduct
@@ -1260,7 +1260,7 @@ función <code>main</code>.
 <section id="slide-9-2">
 <h3 id="9-2"><span class="section-number-3">9.2</span> Estructura de un proyecto</h3>
 <ol>
-<li>En la raiz se situan los archivos con funcionalidades comunes que
+<li>En la raíz se situan los archivos con funcionalidades comunes que
 se desean exportar.</li>
 <li>Las funcionalidades específicas van dentro de subpaquetes (<code>client</code>
 y <code>server</code> en el ejemplo). Pueden existir varios niveles de
@@ -1350,7 +1350,7 @@ a nuestro namespace.</li>
 <h3 id="9-4"><span class="section-number-3">9.4</span> La función init</h3>
 <p>
 La función <code>init</code> nos permite ejecutar código de inicialización para
-nustros paquetes. A diferencia de la función <code>main</code>, puede existir más
+nuestros paquetes. A diferencia de la función <code>main</code>, puede existir más
 de una función <code>init</code> por paquete.
 </p>
 
@@ -1518,7 +1518,7 @@ proceso de forma automática
 </section>
 <section>
 <section id="slide-linea-de-comandos">
-<h2 id="linea-de-comandos"><span class="section-number-2">10</span> Linea de comandos</h2>
+<h2 id="linea-de-comandos"><span class="section-number-2">10</span> Línea de comandos</h2>
 
 </section>
 </section>
@@ -1526,9 +1526,9 @@ proceso de forma automática
 <section id="slide-argumentos">
 <h3 id="argumentos"><span class="section-number-3">10.1</span> Argumentos</h3>
 <p>
-Interactuar con la linea de comando es muy util y muy comun al ejecutar
+Interactuar con la línea de comandos es muy útil y muy común al ejecutar
 scripts y programas que no tienen GUI. El paquete <code>os</code> se usa para tener
-acceso a los argumentos de la linea de comandos al ejecutar un programa
+acceso a los argumentos de la línea de comandos al ejecutar un programa
 de Golang.
 </p>
 
@@ -1536,7 +1536,7 @@ de Golang.
 <section>
 
 <p>
-Los argumentos de la linea de comandos estan disponibles en el arreglo
+Los argumentos de la línea de comandos están disponibles en el arreglo
 <code>os.Args</code>:
 </p>
 
@@ -1556,8 +1556,8 @@ Los argumentos de la linea de comandos estan disponibles en el arreglo
 <h3 id="flags"><span class="section-number-3">10.2</span> Flags</h3>
 <p>
 Especificar los argumentos como valores separados por espacios en la
-terminal es muy basico y dificil de extender. El uso de <code>flags</code> provee
-mas flexibilidad en como los argumentos se especifican, sobre todo los
+terminal es muy básico y difícil de extender. El uso de <code>flags</code> provee
+mas flexibilidad en cómo los argumentos se especifican, sobre todo los
 opcionales. Golang cuenta con un paquete llamado <code>flag</code> para
 soportarlos.
 </p>
@@ -1584,7 +1584,7 @@ que el valor especificado por defecto.
 </p>
 
 <p>
-Un flag se puede leer independientemente de la posicion en que el
+Un flag se puede leer independientemente de la posición en que el
 usuario los hubiera especificado.
 </p>
 
@@ -1594,11 +1594,11 @@ usuario los hubiera especificado.
 <section id="slide-environment-variables">
 <h3 id="environment-variables"><span class="section-number-3">10.3</span> Environment Variables</h3>
 <p>
-La variables de entorno se usan para configurar aspectos de sistema en
-la mayoria de los *NIX y tambien en Windows. Son pares de clave-valor
+Las variables de entorno se usan para configurar aspectos de sistema en
+la mayoría de los *NIX y también en Windows. Son pares de clave-valor
 usualmente disponibles para todos los programas que corren en la
 terminal/shell. Se pueden definir variables de entorno custom solo
-disponibles durante la ejecucion de un script de shell.
+disponibles durante la ejecución de un script de shell.
 </p>
 
 </section>
@@ -1606,7 +1606,7 @@ disponibles durante la ejecucion de un script de shell.
 
 <p>
 El paquete <code>os</code> proporciona dos funciones, <code>Setenv</code> y <code>Getenv</code>, para
-escribir y leer variables de entorno. Un string vacio se retorna si la
+escribir y leer variables de entorno. Un string vacío se retorna si la
 clave no existe.
 </p>
 
@@ -1627,7 +1627,7 @@ clave no existe.
 <section>
 
 <p>
-La funcion <code>Environ</code> retorna la lista completa de todas las variables de
+La función <code>Environ</code> retorna la lista completa de todas las variables de
 entorno existentes.
 </p>
 
@@ -1660,7 +1660,7 @@ representado por un tipo de datos,
 
 <div class="org-src-container">
 
-<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">DivisionByZero</span> = errors.<span style="color: #d75fd7; font-weight: bold;">New</span>(<span style="color: #2aa198;">"Division por cero"</span>)
+<pre class="src src-go">  <span style="color: #268bd2; font-weight: bold;">var</span> <span style="color: #8787d7;">DivisionByZero</span> = errors.<span style="color: #d75fd7; font-weight: bold;">New</span>(<span style="color: #2aa198;">"Divisi&#243;n por cero"</span>)
 
   <span style="color: #268bd2; font-weight: bold;">func</span> <span style="color: #d75fd7; font-weight: bold;">safedivide</span>(<span style="color: #8787d7;">a</span> <span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #8787d7;">b</span> <span style="color: #df005f; font-weight: bold;">int</span>) (<span style="color: #df005f; font-weight: bold;">int</span>, <span style="color: #df005f; font-weight: bold;">error</span>) {
       <span style="color: #268bd2; font-weight: bold;">if</span> b == 0 {
@@ -1692,7 +1692,7 @@ El tipo <code>error</code> es una interfaz <i>built-in</i> del lenguaje
 <section id="slide-11-2-1">
 <h4 id="11-2-1"><span class="section-number-4">11.2.1</span> Errores personalizados</h4>
 <p>
-Esto nos permite crear nuestros propios tipos de error
+Esto nos permite crear nuestros propios tipos de errores
 </p>
 
 <div class="org-src-container">
@@ -1748,7 +1748,7 @@ continuación se debe ejecutar a la salida de la función actual
 
 <p>
 Es muy usual en Golang usar <code>defer</code> para destruir o liberar cualquier
-tipo de recursos temporal que se obtenga en la función.
+tipo de recurso temporal que se obtenga en la función.
 </p>
 
 <div class="org-src-container">
@@ -1783,7 +1783,7 @@ ocurrió una llamada a <code>panic</code> en el contexto de la función actual.
 </p>
 
 <p>
-Si una llamada a <code>panic</code> no es seguida por un <code>recover</code> la función
+Si una llamada a <code>panic</code> no es seguida por un <code>recover</code>, la función
 termina y el contexto pasa al invocador. Esto continúa hasta que se
 encuentre un recover o se llegue a la función <code>main</code> en cuyo caso el
 programa se detendrá con un mensaje de error.
@@ -1893,7 +1893,7 @@ Si tenemos una función para calcular los números de fibonacci.
 <section id="slide-12-1-2">
 <h4 id="12-1-2"><span class="section-number-4">12.1.2</span> Pruebas de ejemplo</h4>
 <p>
-Los ejemplos además de ejecutar pruebas son una forma de documentar el
+Los ejemplos además de ejecutar pruebas, son una forma de documentar el
 uso de funcionalidades.
 </p>
 
@@ -2062,7 +2062,7 @@ el bloque de inicialización
 <section>
 
 <p>
-Los campos anidados se acceden con multiples niveles de notacion de
+Los campos anidados se acceden con múltiples niveles de notación de
 punto.
 </p>
 
@@ -2110,7 +2110,7 @@ procesar la anotación.
 <section id="slide-composición">
 <h3 id="composición"><span class="section-number-3">13.4</span> Composición</h3>
 <p>
-Un <code>struct</code> puede tambien "heredar" todos los campos de otro usando
+Un <code>struct</code> puede también "heredar" todos los campos de otro usando
 composición. Para esto existe una notación especial
 </p>
 
@@ -2215,8 +2215,8 @@ tipo que lo contiene.
 <h3 id="punteros"><span class="section-number-3">13.7</span> Punteros</h3>
 <p>
 Golang soporta punteros para actualizar valores pero no admite
-aritmetica de punteros como en C. <code>*</code> se usa como prefijo para definir
-un puntero para de un tipo dado. El operador <code>&amp;</code> se usa para crear
+aritmética de punteros como en C. <code>*</code> se usa como prefijo para definir
+un puntero para un tipo dado. El operador <code>&amp;</code> se usa para crear
 punteros a tipos.
 </p>
 
@@ -2310,13 +2310,13 @@ referencia</b> son una aplicación directa de este concepto.
 <h3 id="interfaces-en-golang"><span class="section-number-3">14.1</span> Interfaces en Golang</h3>
 <p>
 En Golang, una interfaz es un conjunto de firmas de métodos. Si un
-tipo tiene una definición para esos metodos, se dice que implementa la
-interfaz. A diferencia de otros lenguajes, <i>la asociacion de un tipo
+tipo tiene una definición para esos métodos, se dice que implementa la
+interfaz. A diferencia de otros lenguajes, <i>la asociación de un tipo
 con una interfaz es implicita</i>.
 </p>
 
 <p>
-Un tipo puede implementar mas de una interfaz.
+Un tipo puede implementar más de una interfaz.
 </p>
 
 <div class="org-src-container">
@@ -2392,7 +2392,7 @@ implementar <code>Read</code> y <code>Seeker</code> a la vez.
 <h3 id="interfaces-y-composición."><span class="section-number-3">14.3</span> Interfaces y composición.</h3>
 <p>
 De la misma forma que una estructura "hereda" los métodos de otra en
-la composición, implementa las interfaces de aquellas que la componen
+la composición, implementa las interfaces de aquellas que la componen.
 </p>
 
 <div class="org-src-container">
@@ -2429,8 +2429,8 @@ En el ejemplo anterior el tipo <code>GuidedDog</code> implementa la interfaz
 <section id="slide-la-interfaz-vacía">
 <h3 id="la-interfaz-vacía"><span class="section-number-3">14.4</span> La interfaz vacía</h3>
 <p>
-El tipo <code>interface{}</code> representa un valor comodín al estilo el tipo
-<code>object</code> de C# o <code>void *</code> en C (tecnicamente todos los tipos
+El tipo <code>interface{}</code> representa un valor comodín al estilo del tipo
+<code>object</code> de C# o <code>void *</code> en C (técnicamente todos los tipos
 implementan una interfaz sin métodos)
 </p>
 
@@ -2492,8 +2492,8 @@ Los type assertions se ejecutan con alguna de las siguientes variantes
 </div>
 
 <p>
-La variante segura retorna un par <code>(Tipo,bool)</code> donde si el segun
-valor representa el estado de la opeación. Un estado de <code>true</code>
+La variante segura retorna un par <code>(Tipo,bool)</code> donde el segundo
+valor representa el estado de la operación. Un estado de <code>true</code>
 significa que se pudo efectuar la conversión, <code>false</code> que la
 conversión no es posible y el primer valor de la tupla estará con el
 valor nulo.
