@@ -13,7 +13,7 @@ más cercano a los lenguajes funcionales donde el estado de error es
 representado por un tipo de datos,
 
 #+begin_src go
-  var DivisionByZero = errors.New("Division por cero")
+  var DivisionByZero = errors.New("División por cero")
 
   func safedivide(a int, b int) (int, error) {
       if b == 0 {
@@ -38,7 +38,7 @@ El tipo =error= es una interfaz /built-in/ del lenguaje
 
 *** Errores personalizados
 
-Esto nos permite crear nuestros propios tipos de error
+Esto nos permite crear nuestros propios tipos de errores
 
 #+begin_src go
   type MyError struct {
@@ -83,7 +83,7 @@ La sentencia =defer= se utiliza para indicar que la función a
 continuación se debe ejecutar a la salida de la función actual
 
 Es muy usual en Golang usar =defer= para destruir o liberar cualquier
-tipo de recursos temporal que se obtenga en la función.
+tipo de recurso temporal que se obtenga en la función.
 
 #+begin_src go
   func doSomething() {
@@ -108,7 +108,7 @@ puede ser manejado de forma correcta.
 La contraparte de =panic= es la función =recover=, que verifica si
 ocurrió una llamada a =panic= en el contexto de la función actual.
 
-Si una llamada a =panic= no es seguida por un =recover= la función
+Si una llamada a =panic= no es seguida por un =recover=, la función
 termina y el contexto pasa al invocador. Esto continúa hasta que se
 encuentre un recover o se llegue a la función =main= en cuyo caso el
 programa se detendrá con un mensaje de error.
