@@ -26,8 +26,8 @@ un ejemplo de una función que suma dos enteros:
    :CUSTOM_ID: golang-returns
    :END:
 
-El keyword =return= es usado para indicar qué valor va a retornar la
-función.
+la palabra reservada =return= es usado para indicar qué valor va a
+retornar la función.
 
 Golang soporta que una función devuelva múltiples valores:
 
@@ -74,7 +74,7 @@ la sentencia =return=.
    :CUSTOM_ID: funciones-anónimas-y-clausuras
    :END:
 
-Golang soporta funciones anónimas y de segundo orden. Tomemos por
+Golang soporta funciones anónimas y clausuras. Tomemos por
 ejemplo la función =sort.Slice=
 
 #+begin_src go

@@ -9,7 +9,6 @@ Los siguientes tipos de datos están disponibles en Golang:
 
 - bool
 - Tipos numéricos:
-
   - int8, int16, int32, int64, int
   - uint8, uint16, uint32, uint64, uint
   - float32, float64
@@ -30,7 +29,7 @@ Para tipos numéricos, el número que sigue al tipo indica la cantidad de
 bits que se usa para representar el valor en memoria. El número de bits
 determina qué tan grande el número puede ser.
 
-=int8=: 8 bit signed integers
+=int8=: 8 bit enteros con signo
 
 =int16=: 16 bit entero con signo
 
@@ -63,7 +62,7 @@ partes reales e imaginarias:
 
 *** El tipo string
 
-=string= es una colección de caracteres encerrados entre comillas.
+=string= es una colección de caracteres(runas) encerrados entre comillas.
 
 #+begin_src go
   first := "Allen"
@@ -96,7 +95,7 @@ de tipo para hacer una conversión.
    :CUSTOM_ID: constantes
    :END:
 
-Las constantes no cambian sus valores una vez asignadas. Se usa el keyword
+Las constantes no cambian sus valores una vez asignadas. Se usa la palabra reservada
 =const= en vez de =var= para declarar una constante.
 
 #+begin_src go
