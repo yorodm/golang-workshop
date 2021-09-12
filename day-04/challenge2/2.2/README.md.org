@@ -1,6 +1,0 @@
-* Challenge 2.2
-  :PROPERTIES:
-  :CUSTOM_ID: challenge-2.2
-  :END:
-Crear un test para verificar el codigo creado en el challenge 2.1
-anterior.

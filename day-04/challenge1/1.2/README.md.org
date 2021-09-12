@@ -1,6 +1,0 @@
-* Challenge 1.2
-  :PROPERTIES:
-  :CUSTOM_ID: challenge-1.2
-  :END:
-Modificar la funcion /Reverse/ para invertir el /casing/ de las vocales
-(solamente).

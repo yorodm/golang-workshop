@@ -1,5 +1,0 @@
-* Challenge 1.1
-  :PROPERTIES:
-  :CUSTOM_ID: challenge-1.1
-  :END:
-Crear una funcion /Reverse/ que devuelva un string pasado por parametro.

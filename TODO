@@ -1,0 +1,35 @@
+# Cosas que quedan por terminar
+
+## Semana 1 \[1/3\]
+
+-   [x] Dia 1. \[10/10\]
+    -   [x] 01-installation
+    -   [x] 02-hello-world
+    -   [x] 03-variables
+    -   [x] 04-types
+    -   [x] 05-functions
+    -   [x] 06-control-statments
+    -   [x] 07-arrays
+    -   [x] 08-maps
+    -   [x] 09-packages-modules
+    -   [x] 10-cmdline
+-   [ ] Dia 2. \[4/5\]
+    -   [x] 11-errors-defer-panic-recover
+    -   [x] 12-testing
+    -   [x] 13-structs-pointers
+    -   [x] 14-interfaces
+    -   [ ] 15-concurrency
+-   [ ] Dia 3. \[0/3\]
+    -   [ ] 16-json-xml
+    -   [ ] 17-rest-api
+    -   [ ] 18-http-client
+
+## Semana 2 \[0/3\]
+
+-   [ ] Dia 6.
+    -   [ ] 19-dbaccess
+    -   [ ] 20-echo
+-   [ ] Dia 7
+    -   [ ] 21-concurrency-patterns
+    -   [ ] 22-context
+    -   [ ] 23 cancellation
